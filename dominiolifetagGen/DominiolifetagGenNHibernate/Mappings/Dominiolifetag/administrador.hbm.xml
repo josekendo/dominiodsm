@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="AdministradorEN" table="Administrador"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Tipo" type="string"> 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Nickname" type="string"> 
+						<column name="nickname"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario" table="[administrador_usuario]"  >
+							<key>
+								
+									<column name="FK_ID_idAdministrador"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN">
+									<column name="FK_IDUsuario_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Etiqueta" table="[etiqueta_administrador]" inverse="true" >
+							<key>
+								
+									<column name="FK_ID_idAdministrador"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN">
+									<column name="FK_ID_idEtiqueta"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Categoria" table="[categoria_administrador]" inverse="true" >
+							<key>
+								
+									<column name="FK_ID_idAdministrador"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN">
+									<column name="FK_ID_idCategoria"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AdministradorENReadAllHQL">from AdministradorEN</query>
+		</hibernate-mapping>
+	

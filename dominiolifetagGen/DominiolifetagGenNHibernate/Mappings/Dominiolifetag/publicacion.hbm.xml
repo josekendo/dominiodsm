@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="PublicacionEN" table="Publicacion"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="timestamp"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Tipo" type="string"> 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Archivo" type="string"> 
+						<column name="archivo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN" >	
+								<column name="FK_IDUsuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Etiqueta" table="[publicacion_etiqueta]"  cascade="delete">
+							<key>
+								
+									<column name="FK_ID_idPublicacion"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN">
+									<column name="FK_ID_idEtiqueta"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Categoria" table="[categoria_publicacion]" inverse="true" >
+							<key>
+								
+									<column name="FK_ID_idPublicacion"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN">
+									<column name="FK_ID_idCategoria"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Comentario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN" cascade="delete">	
+								<column name="FK_id_idComentario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Reporte" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN" cascade="delete">	
+								<column name="FK_ID_idReporte"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PublicacionENReadAllHQL">from PublicacionEN</query>
+		</hibernate-mapping>
+	

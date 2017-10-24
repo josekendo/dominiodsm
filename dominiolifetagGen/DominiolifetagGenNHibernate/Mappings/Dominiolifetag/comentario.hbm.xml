@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="ComentarioEN" table="Comentario"> 
+				  	
+						<id name="ID" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Contenido" type="string"> 
+						<column name="contenido"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Publicacion" >
+							<key>
+							
+								
+								<column name="FK_id_idComentario"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario" >
+							<key>
+							
+								
+								<column name="FK_id_idComentario"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		</hibernate-mapping>
+	

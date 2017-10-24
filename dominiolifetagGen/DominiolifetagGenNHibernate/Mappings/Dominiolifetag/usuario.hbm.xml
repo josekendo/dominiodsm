@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+				  	
+						<id name="ID" column="IDUsuario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Pais" type="string"> 
+						<column name="pais"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="integer"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Nickname" type="string"> 
+						<column name="nickname"  not-null="true"/>
+					</property>
+					<property name="Fotoruta" type="string"> 
+						<column name="fotoruta"  not-null="true"/>
+					</property>
+					<property name="Activacion" type="boolean"> 
+						<column name="activacion"  not-null="true"/>
+					</property>
+					<property name="Listamegusta" type="string"> 
+						<column name="listamegusta"  not-null="true"/>
+					</property>
+					<property name="Categoriassuscrito" type="string"> 
+						<column name="categoriassuscrito"  not-null="true"/>
+					</property>
+					<property name="Bloqueado" type="boolean"> 
+						<column name="bloqueado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Publicacion" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_IDUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Comentario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN" >	
+								<column name="FK_id_idComentario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Administrador" table="[administrador_usuario]" inverse="true" >
+							<key>
+								
+									<column name="FK_IDUsuario_idUsuario"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN">
+									<column name="FK_ID_idAdministrador"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

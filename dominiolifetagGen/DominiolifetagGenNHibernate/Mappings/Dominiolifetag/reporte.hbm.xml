@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="ReporteEN" table="Reporte"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="timestamp"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Confirmacion" type="boolean"> 
+						<column name="confirmacion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Publicacion" >
+							<key>
+							
+								
+								<column name="FK_ID_idReporte"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ReporteENReadAllHQL">from ReporteEN</query>
+		</hibernate-mapping>
+	

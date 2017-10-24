@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DominiolifetagGenNHibernate"
+		                   namespace="DominiolifetagGenNHibernate.EN.Dominiolifetag">
+		    
+		    
+			
+				<class name="CategoriaEN" table="Categoria"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Publicacion" table="[categoria_publicacion]"  >
+							<key>
+								
+									<column name="FK_ID_idCategoria"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN">
+									<column name="FK_ID_idPublicacion"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Administrador" table="[categoria_administrador]"  >
+							<key>
+								
+									<column name="FK_ID_idCategoria"/> 
+							</key>
+      						<many-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN">
+									<column name="FK_ID_idAdministrador"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CategoriaENReadAllHQL">from CategoriaEN</query>
+		</hibernate-mapping>
+	
