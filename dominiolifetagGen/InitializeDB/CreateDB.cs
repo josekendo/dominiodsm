@@ -77,6 +77,25 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
+                //Usuarios pre-cargados en la base de datos
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                int user1 = usuarioCEN.New_("maria","maria@prueba.com","maria","SPAIN",666666666,"mariita","/fotos/maria.png",true,"125,125","12,15,8",false,null);
+                int user2 = usuarioCEN.New_("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
+                ReporteEN reporteEN = new ReporteEN(1,DateTime.Today,false,null);
+                PublicacionCEN publicacionCEN = new PublicacionCEN();
+                int publi1 = publicacionCEN.New_(DateTime.Today,"Los gatos son monos","Imagen","/publicaciones/imagenes/losgatos.jpg",user1,null,null,null);
+                int publi2 = publicacionCEN.New_(DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg",user1, null, null, null);
+                int publi3 = publicacionCEN.New_(DateTime.Today, "Mi isla", "Imagen", "/publicaciones/imagenes/islaco.jpg", user2,null,null,reporteEN);
+                AdministradorCEN administradorCEN = new AdministradorCEN();
+                administradorCEN.New_("admin", "davidr", "admindr", "davidr@prueba.com");
+                administradorCEN.New_("modera", "davidb", "moderadb", "davidb@prueba.com");
+                CategoriaCEN categoriaCEN = new CategoriaCEN();
+                EtiquetaCEN etiquetaCEN = new EtiquetaCEN();
+                categoriaCEN.New_("Perros");
+                IList<int> lista = new List<int>();
+                lista.Add(publi1);
+                lista.Add(publi2);
+                etiquetaCEN.New_("Gatos",lista);
                 // Insert the initilizations of entities using the CEN classes
 
 
@@ -86,8 +105,8 @@ public static void InitializeData ()
 
 
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
+            }
+            catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
                 throw ex;
