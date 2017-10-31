@@ -44,8 +44,6 @@ public bool AddCategoria (int p_oid, string idcategoria)
                 }
         }
 
-        throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
-
         /*PROTECTED REGION END*/
 }
 }

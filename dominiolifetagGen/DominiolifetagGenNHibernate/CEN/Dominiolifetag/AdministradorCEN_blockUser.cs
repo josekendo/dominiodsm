@@ -26,17 +26,14 @@ public bool BlockUser (int p_oid, string iduser)
         // Write here your custom code...
         AdministradorEN admin = _IAdministradorCAD.ReadOIDDefault (p_oid);   //esto puede saltar error si no encuentra el id
 
-        /*preguntar si funciona*/
         UsuarioCAD usuario = new UsuarioCAD ();
-        UsuarioEN user = usuario.ReadOIDDefault (p_oid);   //esto tambien podria saltar error ..... creo yo preguntar tambien
+        UsuarioEN user = usuario.ReadOIDDefault (p_oid);
 
         user.Bloqueado = true;
 
         usuario.Modify (user);   //confirmamos en el cambio con el cad
 
         return true;
-
-        throw new NotImplementedException ("Method BlockUser() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

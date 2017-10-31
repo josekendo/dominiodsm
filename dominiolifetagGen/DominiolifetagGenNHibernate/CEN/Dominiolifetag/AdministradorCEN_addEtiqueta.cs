@@ -43,8 +43,6 @@ public bool AddEtiqueta (int p_oid, string idcategoria)
                 }
         }
 
-        throw new NotImplementedException ("Method AddEtiqueta() not yet implemented.");
-
         /*PROTECTED REGION END*/
 }
 }

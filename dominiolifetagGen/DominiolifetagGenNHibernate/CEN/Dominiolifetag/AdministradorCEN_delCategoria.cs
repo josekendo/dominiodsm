@@ -40,8 +40,6 @@ public bool DelCategoria (int p_oid, string idcategoria)
                 }
         }
 
-        throw new NotImplementedException ("Method DelCategoria() not yet implemented.");
-
         /*PROTECTED REGION END*/
 }
 }

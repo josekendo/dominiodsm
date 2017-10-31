@@ -24,16 +24,22 @@ public string Login (int p_oid, String password, string arg2)
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login) ENABLED START*/
 
         // Write here your custom code...
-        AdministradorEN admin = _IAdministradorCAD.ReadOIDDefault (p_oid);   //esto estaria incorrecto puesto que llamamos al id del usuario (preguntar al profesor como hacer una select desde el custom)
+        //esto estaria incorrecto puesto que llamamos al id del usuario (preguntar al profesor como hacer una select desde el custom)
+        AdministradorEN admin = null;
+        AdministradorCEN adminCEN = new AdministradorCEN(_IAdministradorCAD);
+        IList<AdministradorEN> admins = adminCEN.SearchUser(arg2,password);
+        if (admins != null && admins.Count >= 1)
+        {
+                admin = _IAdministradorCAD.ReadOIDDefault (admins[0].ID);
+        }
 
-        if (password == admin.Password && (arg2 == admin.Nickname || arg2 == admin.Email)) {
+        if (admin != null && password == admin.Password && (arg2 == admin.Nickname || arg2 == admin.Email)) {
                 return Convert.ToString (p_oid);
         }
-        else{
+        else
+        {
                 return "usuario incorrecto";
         }
-
-        throw new NotImplementedException ("Method Login() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
