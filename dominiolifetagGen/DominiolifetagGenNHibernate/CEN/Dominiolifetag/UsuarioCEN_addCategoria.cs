@@ -25,12 +25,16 @@ public bool AddCategoria (int p_oid, string idcategoria)
 
         // Write here your custom code...
         UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
-
-        usuario.Categoriassuscrito = usuario.Categoriassuscrito + "," + idcategoria;
-        _IUsuarioCAD.Modify (usuario);
+            if (usuario.Categoriassuscrito != null && usuario.Categoriassuscrito.Length > 1)//permite categorias de una sola letra
+            {
+                usuario.Categoriassuscrito = usuario.Categoriassuscrito + "," + idcategoria;
+            }
+            else
+            {
+                usuario.Categoriassuscrito = idcategoria;
+            }
+                _IUsuarioCAD.Modify (usuario);
         return true;
-        throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
-
         /*PROTECTED REGION END*/
 }
 }

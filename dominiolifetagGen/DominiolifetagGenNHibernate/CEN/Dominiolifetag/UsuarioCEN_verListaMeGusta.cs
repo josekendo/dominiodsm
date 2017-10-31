@@ -26,16 +26,18 @@ public System.Collections.Generic.IList<string> VerListaMeGusta (int p_oid)
         // Write here your custom code...
 
         UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
-
-        String[] publicaciones = usuario.Listamegusta.Split (separator: ',');   //cortamos la lista por ,
         IList<String> lista = new List<String>();
-        foreach (String contador in publicaciones) {  //Me recorro uno a uno los ids de las publicaciones
-                lista.Add (contador); //Meto cada id de cada publicacion en un item de la lista
-        }
-        return lista;    //RETORNO LA LISTA, si no tiene elementos esta vacia
+            if (usuario.Listamegusta != null && usuario.Listamegusta.Length > 1)
+            {
+                String[] publicaciones = usuario.Listamegusta.Split(separator: ',');   //cortamos la lista por ,
 
-        throw new NotImplementedException ("Method VerListaMeGusta() not yet implemented.");
-
+                foreach (String contador in publicaciones)
+                {  //Me recorro uno a uno los ids de las publicaciones
+                    lista.Add(contador); //Meto cada id de cada publicacion en un item de la lista
+                }
+                return lista;    //RETORNO LA LISTA, si no tiene elementos esta vacia
+            }
+          return lista;//la devuelve vacia
         /*PROTECTED REGION END*/
 }
 }
