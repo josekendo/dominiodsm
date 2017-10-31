@@ -364,3 +364,17 @@ enc:utf-8
 ../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.core.dll
 ../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.framework.dll
 12985 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 11282ms!
+usage: java org.eclipse.emf.mwe.core.WorkflowRunner some_workflow_file.mwe
+            [options]
+            or
+            java org.eclipse.emf.mwe.core.WorkflowRunner
+            some_workflow_file.oaw [options]
+ -p,--param <key=value>   external property that is handled as workflow
+                          property
+usage: java org.eclipse.emf.mwe.core.WorkflowRunner some_workflow_file.mwe
+            [options]
+            or
+            java org.eclipse.emf.mwe.core.WorkflowRunner
+            some_workflow_file.oaw [options]
+ -p,--param <key=value>   external property that is handled as workflow
+                          property

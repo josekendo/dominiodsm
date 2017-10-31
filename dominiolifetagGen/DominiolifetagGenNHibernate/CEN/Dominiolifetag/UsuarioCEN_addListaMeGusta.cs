@@ -21,11 +21,13 @@ public partial class UsuarioCEN
 {
 public bool AddListaMeGusta (int p_oid, string arg1)
 {
-        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_addListaMeGusta) ENABLED START*/
-
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method AddListaMeGusta() not yet implemented.");
+            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_addListaMeGusta) ENABLED START*/
+            // Write here your custom code...
+            UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);//saco los datos del usuario
+            usuario.Listamegusta = usuario.Listamegusta + "," + arg1;//agrego la publicacion a me gusta
+            _IUsuarioCAD.Modify(usuario);//le envio al cad para que modifique los datos
+            return true;//devuelvo el valor true como que se a ha realizado correctamente
+            throw new NotImplementedException ("Method AddListaMeGusta() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

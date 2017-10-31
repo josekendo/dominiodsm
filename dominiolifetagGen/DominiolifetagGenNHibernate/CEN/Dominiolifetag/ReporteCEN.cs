@@ -69,10 +69,17 @@ public void Modify (int p_Reporte_OID, Nullable<DateTime> p_fecha, bool p_confir
         _IReporteCAD.Modify (reporteEN);
 }
 
-public void Destroy (int ID
-                     )
+public void Destroy (int ID                    )
 {
-        _IReporteCAD.Destroy (ID);
+        ReporteEN reporte = _IReporteCAD.ReadOIDDefault(ID);
+            if (reporte.Confirmacion)
+            {
+                _IReporteCAD.Destroy(ID);
+            }
+            else
+            {
+                Console.Write("No se puede borrar porque no esta resuelta\n");
+            }
 }
 }
 }

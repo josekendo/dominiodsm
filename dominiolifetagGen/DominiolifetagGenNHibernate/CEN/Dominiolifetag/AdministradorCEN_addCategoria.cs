@@ -21,11 +21,30 @@ public partial class AdministradorCEN
 {
 public bool AddCategoria (int p_oid, string idcategoria)
 {
-        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_addCategoria) ENABLED START*/
+            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_addCategoria) ENABLED START*/
 
-        // Write here your custom code...
+            // Write here your custom code...
 
-        throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
+            // Write here your custom code...
+            Boolean comprobante = true;
+            try
+            {
+                CategoriaEN categoria = new CategoriaEN();
+                categoria.Nombre = idcategoria;
+                CategoriaCAD categorias = new CategoriaCAD();
+                categorias.New_(categoria);
+                comprobante = false;
+                return true;
+            }
+            finally
+            {
+                if (comprobante)
+                {
+                    Console.WriteLine("No se ha podido  crear la categoria -> " + idcategoria);
+                }
+            }
+
+                throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
