@@ -209,5 +209,37 @@ public void Destroy (int ID
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> SearchUser (string nickname, String password)
+{
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM AdministradorEN self where FROM AdministradorEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("AdministradorENsearchUserHQL");
+                query.SetParameter ("nickname", nickname);
+                query.SetParameter ("password", password);
+
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

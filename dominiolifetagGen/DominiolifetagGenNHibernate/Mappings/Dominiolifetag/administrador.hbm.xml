@@ -75,5 +75,6 @@
 		 </class>	
 		  
 		  <query name="AdministradorENReadAllHQL">from AdministradorEN</query>
+		  <query name="AdministradorENsearchUserHQL"><![CDATA[FROM AdministradorEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname]]></query>
 		</hibernate-mapping>
 	

@@ -20,5 +20,13 @@ void Modify (AdministradorEN administrador);
 
 void Destroy (int ID
               );
+
+
+
+
+
+
+
+System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> SearchUser (string nickname, String password);
 }
 }

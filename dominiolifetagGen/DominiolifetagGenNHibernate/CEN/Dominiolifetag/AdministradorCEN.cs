@@ -80,5 +80,10 @@ public void Destroy (int ID
 {
         _IAdministradorCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> SearchUser (string nickname, String password)
+{
+        return _IAdministradorCAD.SearchUser (nickname, Utils.Util.GetEncondeMD5 (password));
+}
 }
 }
