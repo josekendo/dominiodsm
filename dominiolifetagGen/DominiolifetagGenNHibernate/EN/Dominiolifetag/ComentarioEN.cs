@@ -22,14 +22,14 @@ private string contenido;
 /**
  *	Atributo publicacion
  */
-private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion;
+private DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion;
 
 
 
 /**
  *	Atributo usuario
  */
-private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> usuario;
+private DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario;
 
 
 
@@ -48,13 +48,13 @@ public virtual string Contenido {
 
 
 
-public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> Publicacion {
+public virtual DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN Publicacion {
         get { return publicacion; } set { publicacion = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Usuario {
+public virtual DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN Usuario {
         get { return usuario; } set { usuario = value;  }
 }
 
@@ -64,13 +64,11 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 public ComentarioEN()
 {
-        publicacion = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
-        usuario = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN>();
 }
 
 
 
-public ComentarioEN(int iD, string contenido, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> usuario
+public ComentarioEN(int iD, string contenido, DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario
                     )
 {
         this.init (ID, contenido, publicacion, usuario);
@@ -83,7 +81,7 @@ public ComentarioEN(ComentarioEN comentario)
 }
 
 private void init (int ID
-                   , string contenido, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> usuario)
+                   , string contenido, DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario)
 {
         this.ID = ID;
 

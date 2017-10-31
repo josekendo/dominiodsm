@@ -95,6 +95,12 @@ public void ModifyDefault (CategoriaEN categoria)
 
 
 
+
+                categoriaEN.Descripcion = categoria.Descripcion;
+
+
+                categoriaEN.Edad = categoria.Edad;
+
                 session.Update (categoriaEN);
                 SessionCommit ();
         }
@@ -149,6 +155,12 @@ public void Modify (CategoriaEN categoria)
 
                 categoriaEN.Nombre = categoria.Nombre;
 
+
+                categoriaEN.Descripcion = categoria.Descripcion;
+
+
+                categoriaEN.Edad = categoria.Edad;
+
                 session.Update (categoriaEN);
                 SessionCommit ();
         }
@@ -189,6 +201,36 @@ public void Destroy (int ID
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<CategoriaEN> ListadoCategorias (int first, int size)
+{
+        System.Collections.Generic.IList<CategoriaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(CategoriaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<CategoriaEN>();
+                else
+                        result = session.CreateCriteria (typeof(CategoriaEN)).List<CategoriaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in CategoriaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

@@ -85,5 +85,13 @@ public void Destroy (int ID
 {
         _IEtiquetaCAD.Destroy (ID);
 }
+
+public System.Collections.Generic.IList<EtiquetaEN> ListadoEtiquetas (int first, int size)
+{
+        System.Collections.Generic.IList<EtiquetaEN> list = null;
+
+        list = _IEtiquetaCAD.ListadoEtiquetas (first, size);
+        return list;
+}
 }
 }

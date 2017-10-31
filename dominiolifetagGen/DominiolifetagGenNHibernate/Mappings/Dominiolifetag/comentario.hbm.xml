@@ -20,26 +20,16 @@
 			
 			
 		  			
-						<bag name="Publicacion" >
-							<key>
-							
-								
-								<column name="FK_id_idComentario"/>
-					      	</key>
-							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN"/>
-					    </bag>
-					
+						<many-to-one name="Publicacion" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN" >	
+								<column name="FK_ID_idPublicacion"/> 
+						</many-to-one>
+											 					
 			
 		  			
-						<bag name="Usuario" >
-							<key>
-							
-								
-								<column name="FK_id_idComentario"/>
-					      	</key>
-							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN"/>
-					    </bag>
-					
+						<many-to-one name="Usuario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN" >	
+								<column name="FK_IDUsuario_idUsuario"/> 
+						</many-to-one>
+											 					
 					
 					
 					

@@ -24,7 +24,12 @@ public bool Activacion (int p_oid, string hash)
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_activacion) ENABLED START*/
 
         // Write here your custom code...
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
+        //�comparar hash?
+        usuario.Activacion = true;     //activacion
+
+        _IUsuarioCAD.Modify (usuario);
         throw new NotImplementedException ("Method Activacion() not yet implemented.");
 
         /*PROTECTED REGION END*/

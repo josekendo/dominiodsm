@@ -38,7 +38,7 @@ public IReporteCAD get_IReporteCAD ()
         return this._IReporteCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, bool p_confirmacion)
+public int New_ (Nullable<DateTime> p_fecha, bool p_confirmacion, int p_publicacion)
 {
         ReporteEN reporteEN = null;
         int oid;
@@ -48,6 +48,14 @@ public int New_ (Nullable<DateTime> p_fecha, bool p_confirmacion)
         reporteEN.Fecha = p_fecha;
 
         reporteEN.Confirmacion = p_confirmacion;
+
+
+        if (p_publicacion != -1) {
+                // El argumento p_publicacion -> Property publicacion es oid = false
+                // Lista de oids ID
+                reporteEN.Publicacion = new DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN ();
+                reporteEN.Publicacion.ID = p_publicacion;
+        }
 
         //Call to ReporteCAD
 
@@ -69,17 +77,10 @@ public void Modify (int p_Reporte_OID, Nullable<DateTime> p_fecha, bool p_confir
         _IReporteCAD.Modify (reporteEN);
 }
 
-public void Destroy (int ID                    )
+public void Destroy (int ID
+                     )
 {
-        ReporteEN reporte = _IReporteCAD.ReadOIDDefault(ID);
-            if (reporte.Confirmacion)
-            {
-                _IReporteCAD.Destroy(ID);
-            }
-            else
-            {
-                Console.Write("No se puede borrar porque no esta resuelta\n");
-            }
+        _IReporteCAD.Destroy (ID);
 }
 }
 }

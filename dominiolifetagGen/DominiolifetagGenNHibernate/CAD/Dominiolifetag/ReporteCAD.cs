@@ -121,6 +121,13 @@ public int New_ (ReporteEN reporte)
         try
         {
                 SessionInitializeTransaction ();
+                if (reporte.Publicacion != null) {
+                        // Argumento OID y no colección.
+                        reporte.Publicacion = (DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN), reporte.Publicacion.ID);
+
+                        reporte.Publicacion.Reporte
+                                = reporte;
+                }
 
                 session.Save (reporte);
                 SessionCommit ();

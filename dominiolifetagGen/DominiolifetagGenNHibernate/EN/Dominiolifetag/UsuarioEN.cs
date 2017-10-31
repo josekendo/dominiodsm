@@ -99,7 +99,7 @@ private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiol
 /**
  *	Atributo comentario
  */
-private DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario;
+private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario;
 
 
 
@@ -107,6 +107,13 @@ private DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario;
  *	Atributo administrador
  */
 private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador;
+
+
+
+/**
+ *	Atributo hash
+ */
+private int hash;
 
 
 
@@ -191,7 +198,7 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 
 
-public virtual DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN Comentario {
+public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> Comentario {
         get { return comentario; } set { comentario = value;  }
 }
 
@@ -203,30 +210,37 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 
 
+public virtual int Hash {
+        get { return hash; } set { hash = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
 {
         publicacion = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
+        comentario = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN>();
         administrador = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN>();
 }
 
 
 
-public UsuarioEN(int iD, string nombre, string email, String password, string pais, int telefono, string nickname, string fotoruta, bool activacion, string listamegusta, string categoriassuscrito, bool bloqueado, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador
+public UsuarioEN(int iD, string nombre, string email, String password, string pais, int telefono, string nickname, string fotoruta, bool activacion, string listamegusta, string categoriassuscrito, bool bloqueado, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador, int hash
                  )
 {
-        this.init (ID, nombre, email, password, pais, telefono, nickname, fotoruta, activacion, listamegusta, categoriassuscrito, bloqueado, publicacion, comentario, administrador);
+        this.init (ID, nombre, email, password, pais, telefono, nickname, fotoruta, activacion, listamegusta, categoriassuscrito, bloqueado, publicacion, comentario, administrador, hash);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (ID, usuario.Nombre, usuario.Email, usuario.Password, usuario.Pais, usuario.Telefono, usuario.Nickname, usuario.Fotoruta, usuario.Activacion, usuario.Listamegusta, usuario.Categoriassuscrito, usuario.Bloqueado, usuario.Publicacion, usuario.Comentario, usuario.Administrador);
+        this.init (ID, usuario.Nombre, usuario.Email, usuario.Password, usuario.Pais, usuario.Telefono, usuario.Nickname, usuario.Fotoruta, usuario.Activacion, usuario.Listamegusta, usuario.Categoriassuscrito, usuario.Bloqueado, usuario.Publicacion, usuario.Comentario, usuario.Administrador, usuario.Hash);
 }
 
 private void init (int ID
-                   , string nombre, string email, String password, string pais, int telefono, string nickname, string fotoruta, bool activacion, string listamegusta, string categoriassuscrito, bool bloqueado, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador)
+                   , string nombre, string email, String password, string pais, int telefono, string nickname, string fotoruta, bool activacion, string listamegusta, string categoriassuscrito, bool bloqueado, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador, int hash)
 {
         this.ID = ID;
 
@@ -258,6 +272,8 @@ private void init (int ID
         this.Comentario = comentario;
 
         this.Administrador = administrador;
+
+        this.Hash = hash;
 }
 
 public override bool Equals (object obj)

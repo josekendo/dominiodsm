@@ -75,7 +75,7 @@ public int New_ (string p_nombre, string p_email, String p_password, string p_pa
         return oid;
 }
 
-public void Modify (int p_Usuario_OID, string p_nombre, string p_email, String p_password, string p_pais, int p_telefono, string p_nickname, string p_fotoruta, bool p_activacion, string p_listamegusta, string p_categoriassuscrito, bool p_bloqueado)
+public void Modify (int p_Usuario_OID, string p_nombre, string p_email, String p_password, string p_pais, int p_telefono, string p_nickname, string p_fotoruta, bool p_activacion, string p_listamegusta, string p_categoriassuscrito, bool p_bloqueado, int p_hash)
 {
         UsuarioEN usuarioEN = null;
 
@@ -93,6 +93,7 @@ public void Modify (int p_Usuario_OID, string p_nombre, string p_email, String p
         usuarioEN.Listamegusta = p_listamegusta;
         usuarioEN.Categoriassuscrito = p_categoriassuscrito;
         usuarioEN.Bloqueado = p_bloqueado;
+        usuarioEN.Hash = p_hash;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.Modify (usuarioEN);
@@ -102,6 +103,11 @@ public void Destroy (int ID
                      )
 {
         _IUsuarioCAD.Destroy (ID);
+}
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password)
+{
+        return _IUsuarioCAD.Buscarusuario (nickname, Utils.Util.GetEncondeMD5 (password));
 }
 }
 }

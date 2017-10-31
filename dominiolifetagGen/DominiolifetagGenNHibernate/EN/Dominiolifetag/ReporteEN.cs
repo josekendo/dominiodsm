@@ -29,7 +29,7 @@ private bool confirmacion;
 /**
  *	Atributo publicacion
  */
-private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion;
+private DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion;
 
 
 
@@ -54,7 +54,7 @@ public virtual bool Confirmacion {
 
 
 
-public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> Publicacion {
+public virtual DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN Publicacion {
         get { return publicacion; } set { publicacion = value;  }
 }
 
@@ -64,12 +64,11 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 public ReporteEN()
 {
-        publicacion = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
 }
 
 
 
-public ReporteEN(int iD, Nullable<DateTime> fecha, bool confirmacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion
+public ReporteEN(int iD, Nullable<DateTime> fecha, bool confirmacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion
                  )
 {
         this.init (ID, fecha, confirmacion, publicacion);
@@ -82,7 +81,7 @@ public ReporteEN(ReporteEN reporte)
 }
 
 private void init (int ID
-                   , Nullable<DateTime> fecha, bool confirmacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion)
+                   , Nullable<DateTime> fecha, bool confirmacion, DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN publicacion)
 {
         this.ID = ID;
 

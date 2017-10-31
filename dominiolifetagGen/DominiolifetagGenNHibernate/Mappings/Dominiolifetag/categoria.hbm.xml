@@ -15,6 +15,12 @@
 					<property name="Nombre" type="string"> 
 						<column name="nombre"  not-null="true"/>
 					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Edad" type="integer"> 
+						<column name="edad"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -40,6 +46,10 @@
 									<column name="FK_ID_idAdministrador"/> 
       						</many-to-many>
     					</bag>
+			
+			
+					
+					
 					
 					
 					

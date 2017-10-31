@@ -21,26 +21,26 @@ public partial class AdministradorCEN
 {
 public bool DelCategoria (int p_oid, string idcategoria)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_delCategoria) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_delCategoria) ENABLED START*/
 
-            // Write here your custom code...
-            Boolean comprobante = true;
-            try
-            {
-                CategoriaCAD categorias = new CategoriaCAD();
-                categorias.Destroy(Convert.ToInt32(idcategoria));
+        // Write here your custom code...
+        Boolean comprobante = true;
+
+        try
+        {
+                CategoriaCAD categorias = new CategoriaCAD ();
+                categorias.Destroy (Convert.ToInt32 (idcategoria));
                 comprobante = false;
                 return true;
-            }
-            finally
-            {
-                if(comprobante)
-                {
-                    Console.WriteLine("No se ha podido  borrar la categoria con el id -> " + idcategoria);
+        }
+        finally
+        {
+                if (comprobante) {
+                        Console.WriteLine ("No se ha podido  borrar la categoria con el id -> " + idcategoria);
                 }
-            }
+        }
 
-            throw new NotImplementedException ("Method DelCategoria() not yet implemented.");
+        throw new NotImplementedException ("Method DelCategoria() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

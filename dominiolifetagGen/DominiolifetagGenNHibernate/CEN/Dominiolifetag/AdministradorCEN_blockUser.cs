@@ -21,21 +21,22 @@ public partial class AdministradorCEN
 {
 public bool BlockUser (int p_oid, string iduser)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_blockUser) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_blockUser) ENABLED START*/
 
-            // Write here your custom code...
-            AdministradorEN admin = _IAdministradorCAD.ReadOIDDefault(p_oid);//esto puede saltar error si no encuentra el id
+        // Write here your custom code...
+        AdministradorEN admin = _IAdministradorCAD.ReadOIDDefault (p_oid);   //esto puede saltar error si no encuentra el id
 
-            /*preguntar si funciona*/
-            UsuarioCAD usuario = new UsuarioCAD();
-            UsuarioEN user = usuario.ReadOIDDefault(p_oid);//esto tambien podria saltar error ..... creo yo preguntar tambien
-            user.Bloqueado = true;
+        /*preguntar si funciona*/
+        UsuarioCAD usuario = new UsuarioCAD ();
+        UsuarioEN user = usuario.ReadOIDDefault (p_oid);   //esto tambien podria saltar error ..... creo yo preguntar tambien
 
-            usuario.Modify(user);//confirmamos en el cambio con el cad
+        user.Bloqueado = true;
 
-            return true;
+        usuario.Modify (user);   //confirmamos en el cambio con el cad
 
-            throw new NotImplementedException ("Method BlockUser() not yet implemented.");
+        return true;
+
+        throw new NotImplementedException ("Method BlockUser() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

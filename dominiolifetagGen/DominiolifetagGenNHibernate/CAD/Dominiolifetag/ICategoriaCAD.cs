@@ -20,5 +20,8 @@ void Modify (CategoriaEN categoria);
 
 void Destroy (int ID
               );
+
+
+System.Collections.Generic.IList<CategoriaEN> ListadoCategorias (int first, int size);
 }
 }

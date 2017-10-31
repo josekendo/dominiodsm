@@ -21,14 +21,15 @@ public partial class UsuarioCEN
 {
 public bool AddCategoria (int p_oid, string idcategoria)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_addCategoria) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_addCategoria) ENABLED START*/
 
-            // Write here your custom code...
-            UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
-            usuario.Categoriassuscrito = usuario.Categoriassuscrito + "," + idcategoria;
-            _IUsuarioCAD.Modify(usuario);
-            return true;
-            throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
+        // Write here your custom code...
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
+
+        usuario.Categoriassuscrito = usuario.Categoriassuscrito + "," + idcategoria;
+        _IUsuarioCAD.Modify (usuario);
+        return true;
+        throw new NotImplementedException ("Method AddCategoria() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

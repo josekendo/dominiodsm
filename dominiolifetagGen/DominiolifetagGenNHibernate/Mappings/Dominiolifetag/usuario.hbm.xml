@@ -28,7 +28,7 @@
 						<column name="telefono"  not-null="true"/>
 					</property>
 					<property name="Nickname" type="string"> 
-						<column name="nickname"  not-null="true"/>
+						<column name="nickname"  unique="true" not-null="true"/>
 					</property>
 					<property name="Fotoruta" type="string"> 
 						<column name="fotoruta"  not-null="true"/>
@@ -44,6 +44,9 @@
 					</property>
 					<property name="Bloqueado" type="boolean"> 
 						<column name="bloqueado"  not-null="true"/>
+					</property>
+					<property name="Hash" type="integer"> 
+						<column name="hash"  unique="true" not-null="true"/>
 					</property>
 			
 			
@@ -71,10 +74,15 @@
 					
 			
 		  			
-						<many-to-one name="Comentario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN" >	
-								<column name="FK_id_idComentario"/> 
-						</many-to-one>
-											 					
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_IDUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN"/>
+					    </bag>
+					
 			
 		  			
 						<bag name="Administrador" table="[administrador_usuario]" inverse="true" >
@@ -86,6 +94,8 @@
 									<column name="FK_ID_idAdministrador"/> 
       						</many-to-many>
     					</bag>
+			
+					
 					
 					
 					
@@ -105,5 +115,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENbuscarusuarioHQL"><![CDATA[FROM UsuarioEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname ]]></query>
 		</hibernate-mapping>
 	

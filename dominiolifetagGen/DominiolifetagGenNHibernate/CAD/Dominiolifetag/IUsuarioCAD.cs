@@ -20,5 +20,17 @@ void Modify (UsuarioEN usuario);
 
 void Destroy (int ID
               );
+
+
+
+
+
+
+
+
+
+
+
+System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password);
 }
 }

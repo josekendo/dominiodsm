@@ -64,7 +64,7 @@ private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiol
 /**
  *	Atributo comentario
  */
-private DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario;
+private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario;
 
 
 
@@ -126,7 +126,7 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 
 
-public virtual DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN Comentario {
+public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> Comentario {
         get { return comentario; } set { comentario = value;  }
 }
 
@@ -144,11 +144,12 @@ public PublicacionEN()
 {
         etiqueta = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN>();
         categoria = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN>();
+        comentario = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN>();
 }
 
 
 
-public PublicacionEN(int iD, Nullable<DateTime> fecha, string nombre, string tipo, string archivo, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> etiqueta, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN> categoria, DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario, DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN reporte
+public PublicacionEN(int iD, Nullable<DateTime> fecha, string nombre, string tipo, string archivo, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> etiqueta, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN> categoria, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario, DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN reporte
                      )
 {
         this.init (ID, fecha, nombre, tipo, archivo, usuario, etiqueta, categoria, comentario, reporte);
@@ -161,7 +162,7 @@ public PublicacionEN(PublicacionEN publicacion)
 }
 
 private void init (int ID
-                   , Nullable<DateTime> fecha, string nombre, string tipo, string archivo, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> etiqueta, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN> categoria, DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN comentario, DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN reporte)
+                   , Nullable<DateTime> fecha, string nombre, string tipo, string archivo, DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> etiqueta, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN> categoria, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> comentario, DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN reporte)
 {
         this.ID = ID;
 

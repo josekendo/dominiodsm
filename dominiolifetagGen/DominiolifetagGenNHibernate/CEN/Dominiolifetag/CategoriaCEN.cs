@@ -38,7 +38,7 @@ public ICategoriaCAD get_ICategoriaCAD ()
         return this._ICategoriaCAD;
 }
 
-public int New_ (string p_nombre)
+public int New_ (string p_nombre, string p_descripcion, int p_edad)
 {
         CategoriaEN categoriaEN = null;
         int oid;
@@ -47,13 +47,17 @@ public int New_ (string p_nombre)
         categoriaEN = new CategoriaEN ();
         categoriaEN.Nombre = p_nombre;
 
+        categoriaEN.Descripcion = p_descripcion;
+
+        categoriaEN.Edad = p_edad;
+
         //Call to CategoriaCAD
 
         oid = _ICategoriaCAD.New_ (categoriaEN);
         return oid;
 }
 
-public void Modify (int p_Categoria_OID, string p_nombre)
+public void Modify (int p_Categoria_OID, string p_nombre, string p_descripcion, int p_edad)
 {
         CategoriaEN categoriaEN = null;
 
@@ -61,6 +65,8 @@ public void Modify (int p_Categoria_OID, string p_nombre)
         categoriaEN = new CategoriaEN ();
         categoriaEN.ID = p_Categoria_OID;
         categoriaEN.Nombre = p_nombre;
+        categoriaEN.Descripcion = p_descripcion;
+        categoriaEN.Edad = p_edad;
         //Call to CategoriaCAD
 
         _ICategoriaCAD.Modify (categoriaEN);
@@ -70,6 +76,14 @@ public void Destroy (int ID
                      )
 {
         _ICategoriaCAD.Destroy (ID);
+}
+
+public System.Collections.Generic.IList<CategoriaEN> ListadoCategorias (int first, int size)
+{
+        System.Collections.Generic.IList<CategoriaEN> list = null;
+
+        list = _ICategoriaCAD.ListadoCategorias (first, size);
+        return list;
 }
 }
 }

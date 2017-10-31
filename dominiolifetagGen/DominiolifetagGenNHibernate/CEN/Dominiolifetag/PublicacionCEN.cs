@@ -38,7 +38,7 @@ public IPublicacionCAD get_IPublicacionCAD ()
         return this._IPublicacionCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_nombre, string p_tipo, string p_archivo, int p_usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> p_etiqueta, DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN p_comentario, DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN p_reporte)
+public int New_ (Nullable<DateTime> p_fecha, string p_nombre, string p_tipo, string p_archivo, int p_usuario, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.EtiquetaEN> p_etiqueta, System.Collections.Generic.IList<int> p_categoria)
 {
         PublicacionEN publicacionEN = null;
         int oid;
@@ -63,9 +63,19 @@ public int New_ (Nullable<DateTime> p_fecha, string p_nombre, string p_tipo, str
 
         publicacionEN.Etiqueta = p_etiqueta;
 
-        publicacionEN.Comentario = p_comentario;
 
-        publicacionEN.Reporte = p_reporte;
+        publicacionEN.Categoria = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN>();
+        if (p_categoria != null) {
+                foreach (int item in p_categoria) {
+                        DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN en = new DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN ();
+                        en.ID = item;
+                        publicacionEN.Categoria.Add (en);
+                }
+        }
+
+        else{
+                publicacionEN.Categoria = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN>();
+        }
 
         //Call to PublicacionCAD
 
@@ -93,6 +103,19 @@ public void Destroy (int ID
                      )
 {
         _IPublicacionCAD.Destroy (ID);
+}
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BusquedaNormal (Nullable<DateTime> fecha, string cadena)
+{
+        return _IPublicacionCAD.BusquedaNormal (fecha, cadena);
+}
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BusquedaAvanz (string cadena, Nullable<DateTime> fecha, string categoria)
+{
+        return _IPublicacionCAD.BusquedaAvanz (cadena, fecha, categoria);
+}
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios ()
+{
+        return _IPublicacionCAD.ListadoComentarios ();
 }
 }
 }

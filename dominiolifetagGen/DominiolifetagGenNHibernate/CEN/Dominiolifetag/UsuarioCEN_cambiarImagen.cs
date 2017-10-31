@@ -24,7 +24,12 @@ public bool CambiarImagen (int p_oid, string ruta)
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_cambiarImagen) ENABLED START*/
 
         // Write here your custom code...
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
+        //si son diferentes cambiamos la ruta
+        if (usuario.Fotoruta.Equals (ruta) == false) usuario.Fotoruta = ruta;
+
+        _IUsuarioCAD.Modify (usuario);
         throw new NotImplementedException ("Method CambiarImagen() not yet implemented.");
 
         /*PROTECTED REGION END*/

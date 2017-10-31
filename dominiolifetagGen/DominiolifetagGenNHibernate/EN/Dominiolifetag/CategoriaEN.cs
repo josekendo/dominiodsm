@@ -33,6 +33,20 @@ private System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiol
 
 
 
+/**
+ *	Atributo descripcion
+ */
+private string descripcion;
+
+
+
+/**
+ *	Atributo edad
+ */
+private int edad;
+
+
+
 
 
 
@@ -60,6 +74,18 @@ public virtual System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.D
 
 
 
+public virtual string Descripcion {
+        get { return descripcion; } set { descripcion = value;  }
+}
+
+
+
+public virtual int Edad {
+        get { return edad; } set { edad = value;  }
+}
+
+
+
 
 
 public CategoriaEN()
@@ -70,20 +96,20 @@ public CategoriaEN()
 
 
 
-public CategoriaEN(int iD, string nombre, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador
+public CategoriaEN(int iD, string nombre, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador, string descripcion, int edad
                    )
 {
-        this.init (ID, nombre, publicacion, administrador);
+        this.init (ID, nombre, publicacion, administrador, descripcion, edad);
 }
 
 
 public CategoriaEN(CategoriaEN categoria)
 {
-        this.init (ID, categoria.Nombre, categoria.Publicacion, categoria.Administrador);
+        this.init (ID, categoria.Nombre, categoria.Publicacion, categoria.Administrador, categoria.Descripcion, categoria.Edad);
 }
 
 private void init (int ID
-                   , string nombre, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador)
+                   , string nombre, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> publicacion, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> administrador, string descripcion, int edad)
 {
         this.ID = ID;
 
@@ -93,6 +119,10 @@ private void init (int ID
         this.Publicacion = publicacion;
 
         this.Administrador = administrador;
+
+        this.Descripcion = descripcion;
+
+        this.Edad = edad;
 }
 
 public override bool Equals (object obj)

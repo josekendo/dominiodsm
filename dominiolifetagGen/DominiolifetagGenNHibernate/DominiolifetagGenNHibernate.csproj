@@ -129,6 +129,7 @@
 			
 			<Compile Include="CEN\Dominiolifetag\UsuarioCEN_Login.cs" />
 			
+			
 	<Compile Include="EN\Dominiolifetag\PublicacionEN.cs" />
 	<Compile Include="CEN\Dominiolifetag\PublicacionCEN.cs" />
 	<Compile Include="CAD\Dominiolifetag\IPublicacionCAD.cs" />
@@ -143,6 +144,9 @@
 			
 			<Compile Include="CEN\Dominiolifetag\PublicacionCEN_BuscarAvanzado.cs" />
 			
+			
+			
+			
 	<Compile Include="EN\Dominiolifetag\CategoriaEN.cs" />
 	<Compile Include="CEN\Dominiolifetag\CategoriaCEN.cs" />
 	<Compile Include="CAD\Dominiolifetag\ICategoriaCAD.cs" />
@@ -151,11 +155,13 @@
 			
 			
 			
+			
 	<Compile Include="EN\Dominiolifetag\EtiquetaEN.cs" />
 	<Compile Include="CEN\Dominiolifetag\EtiquetaCEN.cs" />
 	<Compile Include="CAD\Dominiolifetag\IEtiquetaCAD.cs" />
 	<Compile Include="CAD\Dominiolifetag\EtiquetaCAD.cs" />
 	<Compile Include="CP\Dominiolifetag\EtiquetaCP.cs" />
+			
 			
 			
 			

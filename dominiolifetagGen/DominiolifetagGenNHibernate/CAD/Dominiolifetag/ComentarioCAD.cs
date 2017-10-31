@@ -120,16 +120,18 @@ public int New_ (ComentarioEN comentario)
         {
                 SessionInitializeTransaction ();
                 if (comentario.Publicacion != null) {
-                        for (int i = 0; i < comentario.Publicacion.Count; i++) {
-                                comentario.Publicacion [i] = (DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN), comentario.Publicacion [i].ID);
-                                comentario.Publicacion [i].Comentario = comentario;
-                        }
+                        // Argumento OID y no colección.
+                        comentario.Publicacion = (DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN), comentario.Publicacion.ID);
+
+                        comentario.Publicacion.Comentario
+                        .Add (comentario);
                 }
                 if (comentario.Usuario != null) {
-                        for (int i = 0; i < comentario.Usuario.Count; i++) {
-                                comentario.Usuario [i] = (DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN), comentario.Usuario [i].ID);
-                                comentario.Usuario [i].Comentario = comentario;
-                        }
+                        // Argumento OID y no colección.
+                        comentario.Usuario = (DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN), comentario.Usuario.ID);
+
+                        comentario.Usuario.Comentario
+                        .Add (comentario);
                 }
 
                 session.Save (comentario);

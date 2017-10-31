@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Fecha" type="timestamp"> 
+					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
 					<property name="Nombre" type="string"> 
@@ -60,16 +60,23 @@
     					</bag>
 			
 		  			
-						<many-to-one name="Comentario" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN" cascade="delete">	
-								<column name="FK_id_idComentario"/> 
-						</many-to-one>
-											 					
+						<bag name="Comentario" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_ID_idPublicacion"/>
+					      	</key>
+							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN"/>
+					    </bag>
+					
 			
 		  			
-						<many-to-one name="Reporte" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN" cascade="delete">	
+					
+							<many-to-one name="Reporte" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.ReporteEN" cascade="delete">
 								<column name="FK_ID_idReporte"/> 
-						</many-to-one>
-											 					
+        					</many-to-one>
+					 
+						
 					
 					
 					
@@ -84,5 +91,8 @@
 		 </class>	
 		  
 		  <query name="PublicacionENReadAllHQL">from PublicacionEN</query>
+		  <query name="PublicacionENbusquedaNormalHQL"><![CDATA[FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like "%:cadena%"]]></query>
+		  <query name="PublicacionENbusquedaAvanzHQL"><![CDATA[FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like "%:cadena%" and pu.Fecha >= :fecha and ca.Nombre = :categoria]]></query>
+		  <query name="PublicacionENlistadoComentariosHQL"><![CDATA[FROM PublicacionEN as pu inner join pu.ComentarioEN as co]]></query>
 		</hibernate-mapping>
 	

@@ -145,15 +145,11 @@ public int New_ (PublicacionEN publicacion)
                                 session.Save (item);
                         }
                 }
-                if (publicacion.Comentario != null) {
-                        // p_comentario
-                        publicacion.Comentario.Publicacion.Add (publicacion);
-                        session.Save (publicacion.Comentario);
-                }
-                if (publicacion.Reporte != null) {
-                        // p_reporte
-                        publicacion.Reporte.Publicacion.Add (publicacion);
-                        session.Save (publicacion.Reporte);
+                if (publicacion.Categoria != null) {
+                        for (int i = 0; i < publicacion.Categoria.Count; i++) {
+                                publicacion.Categoria [i] = (DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN)session.Load (typeof(DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN), publicacion.Categoria [i].ID);
+                                publicacion.Categoria [i].Publicacion.Add (publicacion);
+                        }
                 }
 
                 session.Save (publicacion);
@@ -234,6 +230,99 @@ public void Destroy (int ID
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BusquedaNormal (Nullable<DateTime> fecha, string cadena)
+{
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like "%:cadena%"";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENbusquedaNormalHQL");
+                query.SetParameter ("fecha", fecha);
+                query.SetParameter ("cadena", cadena);
+
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in PublicacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BusquedaAvanz (string cadena, Nullable<DateTime> fecha, string categoria)
+{
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like "%:cadena%" and pu.Fecha >= :fecha and ca.Nombre = :categoria";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENbusquedaAvanzHQL");
+                query.SetParameter ("cadena", cadena);
+                query.SetParameter ("fecha", fecha);
+                query.SetParameter ("categoria", categoria);
+
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in PublicacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios ()
+{
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu inner join pu.ComentarioEN as co";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENlistadoComentariosHQL");
+
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in PublicacionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

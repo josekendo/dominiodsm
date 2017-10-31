@@ -20,5 +20,8 @@ void Modify (EtiquetaEN etiqueta);
 
 void Destroy (int ID
               );
+
+
+System.Collections.Generic.IList<EtiquetaEN> ListadoEtiquetas (int first, int size);
 }
 }

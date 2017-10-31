@@ -21,29 +21,29 @@ public partial class AdministradorCEN
 {
 public bool AddEtiqueta (int p_oid, string idcategoria)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_addEtiqueta) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_addEtiqueta) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            Boolean comprobante = true;
-            try
-            {
-                EtiquetaEN eti = new EtiquetaEN();
+        Boolean comprobante = true;
+
+        try
+        {
+                EtiquetaEN eti = new EtiquetaEN ();
                 eti.Nombre = idcategoria;
-                EtiquetaCAD etiquetas = new EtiquetaCAD();
-                etiquetas.New_(eti);
+                EtiquetaCAD etiquetas = new EtiquetaCAD ();
+                etiquetas.New_ (eti);
                 comprobante = false;
                 return true;
-            }
-            finally
-            {
-                if (comprobante)
-                {
-                    Console.WriteLine("No se ha podido  crear la etiqueta -> " + idcategoria);
+        }
+        finally
+        {
+                if (comprobante) {
+                        Console.WriteLine ("No se ha podido  crear la etiqueta -> " + idcategoria);
                 }
-            }
+        }
 
-            throw new NotImplementedException ("Method AddEtiqueta() not yet implemented.");
+        throw new NotImplementedException ("Method AddEtiqueta() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

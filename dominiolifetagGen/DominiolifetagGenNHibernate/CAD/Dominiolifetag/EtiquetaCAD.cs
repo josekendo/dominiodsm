@@ -196,5 +196,35 @@ public void Destroy (int ID
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<EtiquetaEN> ListadoEtiquetas (int first, int size)
+{
+        System.Collections.Generic.IList<EtiquetaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(EtiquetaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<EtiquetaEN>();
+                else
+                        result = session.CreateCriteria (typeof(EtiquetaEN)).List<EtiquetaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in EtiquetaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

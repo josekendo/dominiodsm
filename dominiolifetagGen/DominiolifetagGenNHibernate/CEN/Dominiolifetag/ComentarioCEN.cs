@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int New_ (string p_contenido, System.Collections.Generic.IList<int> p_publicacion, System.Collections.Generic.IList<int> p_usuario)
+public int New_ (string p_contenido, int p_publicacion, int p_usuario)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -48,31 +48,19 @@ public int New_ (string p_contenido, System.Collections.Generic.IList<int> p_pub
         comentarioEN.Contenido = p_contenido;
 
 
-        comentarioEN.Publicacion = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
-        if (p_publicacion != null) {
-                foreach (int item in p_publicacion) {
-                        DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN en = new DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN ();
-                        en.ID = item;
-                        comentarioEN.Publicacion.Add (en);
-                }
-        }
-
-        else{
-                comentarioEN.Publicacion = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
+        if (p_publicacion != -1) {
+                // El argumento p_publicacion -> Property publicacion es oid = false
+                // Lista de oids ID
+                comentarioEN.Publicacion = new DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN ();
+                comentarioEN.Publicacion.ID = p_publicacion;
         }
 
 
-        comentarioEN.Usuario = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN>();
-        if (p_usuario != null) {
-                foreach (int item in p_usuario) {
-                        DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN en = new DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN ();
-                        en.ID = item;
-                        comentarioEN.Usuario.Add (en);
-                }
-        }
-
-        else{
-                comentarioEN.Usuario = new System.Collections.Generic.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN>();
+        if (p_usuario != -1) {
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids ID
+                comentarioEN.Usuario = new DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN ();
+                comentarioEN.Usuario.ID = p_usuario;
         }
 
         //Call to ComentarioCAD

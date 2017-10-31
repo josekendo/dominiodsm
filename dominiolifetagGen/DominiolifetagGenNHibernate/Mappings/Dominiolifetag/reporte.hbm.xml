@@ -24,15 +24,10 @@
 			
 			
 		  			
-						<bag name="Publicacion" >
-							<key>
-							
-								
-								<column name="FK_ID_idReporte"/>
-					      	</key>
-							<one-to-many class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN"/>
-					    </bag>
 					
+							   <one-to-one name="Publicacion" class="DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN" property-ref="Reporte" />							
+					 
+						
 					
 					
 					

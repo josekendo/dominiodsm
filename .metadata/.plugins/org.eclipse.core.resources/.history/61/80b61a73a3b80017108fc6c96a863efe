@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:es.ua.dlsi.ooh="http://www.dlsi.ua.es/ooh/conceptualView/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <es.ua.dlsi.ooh:ConceptualModel xmi:id="_actuILifEeeL9YzGwqUx7A" name="dominiolifetag"/>
-  <notation:Diagram xmi:id="_acymoLifEeeL9YzGwqUx7A" type="ConceptualView" element="_actuILifEeeL9YzGwqUx7A" name="default.domainModel" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_acymobifEeeL9YzGwqUx7A"/>
-  </notation:Diagram>
-</xmi:XMI>
