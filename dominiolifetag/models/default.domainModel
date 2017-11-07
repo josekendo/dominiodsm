@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:es.ua.dlsi.ooh="http://www.dlsi.ua.es/ooh/conceptualView/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <es.ua.dlsi.ooh:ConceptualModel xmi:id="_actuILifEeeL9YzGwqUx7A" name="dominiolifetag">
+  <es.ua.dlsi.ooh:ConceptualModel xmi:id="_actuILifEeeL9YzGwqUx7A" name="dominiolifetag" aliasDB="DominiolifetagGenNHibernate">
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_CHV-YLiiEeecmbsQHmExCQ" name="Usuario" alias="Usuario" associationOrigin="_BzLrcLjSEeecmbsQHmExCQ _U2Y50LjWEeecmbsQHmExCQ _Y14F0LjkEeecmbsQHmExCQ">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_RybP0LilEeecmbsQHmExCQ" name="new" operationType="New" type="Object" typeObject="_CHV-YLiiEeecmbsQHmExCQ">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lO_aIL4fEeeflLPJDTHg9g" name="p_nombre"/>
