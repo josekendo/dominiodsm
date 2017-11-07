@@ -21,7 +21,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String pass = passArg;
 
         // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local); database=master; integrated security=yes");
+        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
@@ -81,21 +81,21 @@ public static void InitializeData ()
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 int user1 = usuarioCEN.New_ ("maria", "maria@prueba.com", "maria", "SPAIN", 666666666, "mariita", "/fotos/maria.png", true, "125,125", "12,15,8", false, null);
                 int user2 = usuarioCEN.New_ ("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
-                ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
-                PublicacionCEN publicacionCEN = new PublicacionCEN ();
-                int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);
-                int publi2 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg", user1, null, null);
-                int publi3 = publicacionCEN.New_ (DateTime.Today, "Mi isla", "Imagen", "/publicaciones/imagenes/islaco.jpg", user2, null, null);
-                AdministradorCEN administradorCEN = new AdministradorCEN ();
-                administradorCEN.New_ ("admin", "davidr", "admindr", "davidr@prueba.com");
-                administradorCEN.New_ ("modera", "davidb", "moderadb", "davidb@prueba.com");
-                CategoriaCEN categoriaCEN = new CategoriaCEN ();
-                EtiquetaCEN etiquetaCEN = new EtiquetaCEN ();
-                categoriaCEN.New_ ("Perros", "Categoria de los preciosos caninos llamados perros.", 5);
-                IList<int> lista = new List<int>();
-                lista.Add (publi1);
-                lista.Add (publi2);
-                etiquetaCEN.New_ ("Gatos", lista);
+                /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
+                 * PublicacionCEN publicacionCEN = new PublicacionCEN ();
+                 * int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);
+                 * int publi2 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg", user1, null, null);
+                 * int publi3 = publicacionCEN.New_ (DateTime.Today, "Mi isla", "Imagen", "/publicaciones/imagenes/islaco.jpg", user2, null, null);
+                 * AdministradorCEN administradorCEN = new AdministradorCEN ();
+                 * administradorCEN.New_ ("admin", "davidr", "admindr", "davidr@prueba.com");
+                 * administradorCEN.New_ ("modera", "davidb", "moderadb", "davidb@prueba.com");
+                 * CategoriaCEN categoriaCEN = new CategoriaCEN ();
+                 * EtiquetaCEN etiquetaCEN = new EtiquetaCEN ();
+                 * categoriaCEN.New_ ("Perros", "Categoria de los preciosos caninos llamados perros.", 5);
+                 * IList<int> lista = new List<int>();
+                 * lista.Add (publi1);
+                 * lista.Add (publi2);
+                 * etiquetaCEN.New_ ("Gatos", lista);*/
                 // Insert the initilizations of entities using the CEN classes
 
 
