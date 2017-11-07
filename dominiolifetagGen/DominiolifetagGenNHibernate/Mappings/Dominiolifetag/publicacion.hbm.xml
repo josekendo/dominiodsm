@@ -94,5 +94,6 @@
 		  <query name="PublicacionENbusquedaNormalHQL"><![CDATA[FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like "%:cadena%"]]></query>
 		  <query name="PublicacionENbusquedaAvanzHQL"><![CDATA[FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like "%:cadena%" and pu.Fecha >= :fecha and ca.Nombre = :categoria]]></query>
 		  <query name="PublicacionENlistadoComentariosHQL"><![CDATA[FROM PublicacionEN as pu inner join pu.ComentarioEN as co]]></query>
+		  <query name="PublicacionENlistaUltimasHQL"><![CDATA[FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE  ca.Categoria = :categoria ORDER BY pu.Fecha DESC]]></query>
 		</hibernate-mapping>
 	

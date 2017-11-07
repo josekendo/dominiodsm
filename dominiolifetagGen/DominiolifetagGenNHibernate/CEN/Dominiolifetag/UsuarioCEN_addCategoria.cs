@@ -25,15 +25,14 @@ public bool AddCategoria (int p_oid, string idcategoria)
 
         // Write here your custom code...
         UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
-            if (usuario.Categoriassuscrito != null && usuario.Categoriassuscrito.Length > 1)//permite categorias de una sola letra
-            {
+
+        if (usuario.Categoriassuscrito != null && usuario.Categoriassuscrito.Length > 1) {  //permite categorias de una sola letra
                 usuario.Categoriassuscrito = usuario.Categoriassuscrito + "," + idcategoria;
-            }
-            else
-            {
+        }
+        else{
                 usuario.Categoriassuscrito = idcategoria;
-            }
-                _IUsuarioCAD.Modify (usuario);
+        }
+        _IUsuarioCAD.Modify (usuario);
         return true;
         /*PROTECTED REGION END*/
 }

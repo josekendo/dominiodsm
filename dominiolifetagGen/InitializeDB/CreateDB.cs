@@ -21,7 +21,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String pass = passArg;
 
         // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
+        SqlConnection cnn = new SqlConnection (@"Server=(local); database=master; integrated security=yes");
 
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
@@ -91,7 +91,7 @@ public static void InitializeData ()
                 administradorCEN.New_ ("modera", "davidb", "moderadb", "davidb@prueba.com");
                 CategoriaCEN categoriaCEN = new CategoriaCEN ();
                 EtiquetaCEN etiquetaCEN = new EtiquetaCEN ();
-                categoriaCEN.New_ ("Perros","Categoria de los preciosos caninos llamados perros.",5);
+                categoriaCEN.New_ ("Perros", "Categoria de los preciosos caninos llamados perros.", 5);
                 IList<int> lista = new List<int>();
                 lista.Add (publi1);
                 lista.Add (publi2);

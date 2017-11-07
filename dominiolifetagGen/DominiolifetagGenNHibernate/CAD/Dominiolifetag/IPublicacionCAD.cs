@@ -32,5 +32,8 @@ System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.P
 
 
 System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios ();
+
+
+System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListaUltimas (string categoria, int first, int size);
 }
 }
