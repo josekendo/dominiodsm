@@ -23,8 +23,13 @@ void Destroy (int ID
 
 
 
+int AddEtiqueta (AdministradorEN administrador);
+
+int AddCategoria (AdministradorEN administrador);
 
 
+void DelCategoria (int ID
+                   );
 
 
 System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> SearchUser (string nickname, String password);
