@@ -269,7 +269,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like :cadena and pu.Fecha >= :fecha and ca.Nombre = :categoria";
+                //String sql = @"FROM PublicacionEN self where SELECT (pu) FROM PublicacionEN as pu inner join pu.Categoria as ca WHERE :cadena is not null and pu.Nombre like '%'+:cadena+'%' or :fecha is not null and  pu.Fecha >= :fecha or :categoria is not null and ca.Nombre = :categoria";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENbusquedaAvanzHQL");
                 query.SetParameter ("cadena", cadena);
@@ -330,7 +330,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE  ca.Categoria = :categoria ORDER BY pu.Fecha DESC";
+                //String sql = @"FROM PublicacionEN self where SELECT (pu) FROM PublicacionEN as pu inner join pu.Categoria as ca WHERE ca.Nombre = :categoria ORDER BY pu.Fecha DESC";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENlistaUltimasHQL");
                 query.SetParameter ("categoria", categoria);
