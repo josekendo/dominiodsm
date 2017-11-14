@@ -21,23 +21,19 @@ public partial class PublicacionCEN
 {
 public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BuscarPublicaciones (int p_oid, bool ordenacion, Nullable<DateTime> fecha, string cadena)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_buscarPublicaciones) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_buscarPublicaciones) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            try {
-
-                IList<PublicacionEN> publis = _IPublicacionCAD.BusquedaNormal(fecha, cadena);
+        try {
+                IList<PublicacionEN> publis = _IPublicacionCAD.BusquedaNormal (fecha, cadena);
 
                 return publis;
-
-            }
-            catch
-            {
-
-                throw new Exception("Method BuscarPublicaciones() ha fallado.");
-
-            }
+        }
+        catch
+        {
+                throw new Exception ("Method BuscarPublicaciones() ha fallado.");
+        }
 
         /*PROTECTED REGION END*/
 }

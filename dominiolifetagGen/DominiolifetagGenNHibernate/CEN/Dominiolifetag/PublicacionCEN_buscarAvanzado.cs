@@ -21,23 +21,19 @@ public partial class PublicacionCEN
 {
 public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BuscarAvanzado (int p_oid, bool ordenacion, string cadena, Nullable<DateTime> fecha, string categorias)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_buscarAvanzado) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_buscarAvanzado) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            try {
-
-                IList<PublicacionEN> publis = _IPublicacionCAD.BusquedaAvanz(cadena, fecha, categorias);
+        try {
+                IList<PublicacionEN> publis = _IPublicacionCAD.BusquedaAvanz (cadena, fecha, categorias);
 
                 return publis;
-
-            }
-            catch
-            {
-
-                throw new Exception("Method BuscarAvanzado() ha fallado.");
-
-            }
+        }
+        catch
+        {
+                throw new Exception ("Method BuscarAvanzado() ha fallado.");
+        }
 
         /*PROTECTED REGION END*/
 }

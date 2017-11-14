@@ -21,40 +21,36 @@ public partial class UsuarioCEN
 {
 public string Login (int p_oid, string email, string nickname, String password)
 {
-    /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Usuario_login) ENABLED START*/
 
-    // Write here your custom code...
+        // Write here your custom code...
 
 
 
-    UsuarioEN usuario = null;
-    UsuarioCEN usuarioCEN = new UsuarioCEN(_IUsuarioCAD);
-    IList<UsuarioEN> users = null;
+        UsuarioEN usuario = null;
+        UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
 
-    if (nickname != null)
-    {
-        users = usuarioCEN.Buscarusuario(nickname, password);
-    }
-    else
-    {
-        users = usuarioCEN.Buscarusuario(email, password);
-    }
+        IList<UsuarioEN> users = null;
 
-    if (users != null && users.Count >= 1)
-    {
-        usuario = _IUsuarioCAD.ReadOIDDefault(users[0].ID);
-    }
+        if (nickname != null) {
+                users = usuarioCEN.Buscarusuario (nickname, password);
+        }
+        else{
+                users = usuarioCEN.Buscarusuario (email, password);
+        }
 
-    if (usuario != null && password == usuario.Password && (nickname == usuario.Nickname || email == usuario.Email))
-    {
-        return Convert.ToString(p_oid);
-    }
-    else
-    {
-        return "usuario incorrecto";
-    }
+        if (users != null && users.Count >= 1) {
+                usuario = _IUsuarioCAD.ReadOIDDefault (users [0].ID);
+        }
 
-    /*PROTECTED REGION END*/
+        if (usuario != null && password == usuario.Password && (nickname == usuario.Nickname || email == usuario.Email)) {
+                return Convert.ToString (p_oid);
+        }
+        else{
+                return "usuario incorrecto";
+        }
+
+        /*PROTECTED REGION END*/
 }
 }
 }

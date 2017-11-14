@@ -26,7 +26,7 @@ public bool Activacion (int p_oid, string hash)
         // Write here your custom code...
         UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-        if (usuario.Hash.Equals(hash) == false)usuario.Activacion = true;     //activacion
+        if (usuario.Hash.Equals (hash) == false) usuario.Activacion = true;   //activacion
 
         _IUsuarioCAD.Modify (usuario);
         throw new NotImplementedException ("Method Activacion() not yet implemented.");

@@ -21,26 +21,22 @@ public partial class PublicacionCEN
 {
 public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> UltimasPublicaciones (int p_oid, string categoria)
 {
-            /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_ultimasPublicaciones) ENABLED START*/
+        /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_ultimasPublicaciones) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            try
-            {
-
-                IList<PublicacionEN> publis = _IPublicacionCAD.ListaUltimas(categoria, 0, 5);
+        try
+        {
+                IList<PublicacionEN> publis = _IPublicacionCAD.ListaUltimas (categoria, 0, 5);
 
                 return publis;
+        }
+        catch
+        {
+                throw new Exception ("Method BuscarPublicaciones() ha fallado.");
+        }
 
-            }
-            catch
-            {
-
-                throw new Exception("Method BuscarPublicaciones() ha fallado.");
-
-            }
-
-            throw new NotImplementedException ("Method UltimasPublicaciones() not yet implemented.");
+        throw new NotImplementedException ("Method UltimasPublicaciones() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

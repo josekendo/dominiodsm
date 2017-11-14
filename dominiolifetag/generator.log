@@ -3519,3 +3519,408 @@ java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolife
 5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
 5170 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
 5170 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+665  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+790  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+900  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1040 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+1040 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+1599 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+2786 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA808502267965514250.cfg
+enc:utf-8
+3698 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+3917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+3934 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@1e461e41; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3934 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3934 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+3935 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+978  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+1244 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1477 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1759 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+1759 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+2368 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+3523 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA1762609071120281406.cfg
+enc:utf-8
+4576 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+4901 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@1e461e41; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4917 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+14   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+14   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+14   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+14   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+14   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+1045 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+1305 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1508 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1738 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+1738 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+2331 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+3483 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA8847348530591833666.cfg
+enc:utf-8
+4609 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+4953 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@1e461e41; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4968 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4984 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+4984 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+15   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+16   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+16   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+16   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+16   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+626  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+735  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+844  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+970  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+970  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+1235 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+1744 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA7854443898307899805.cfg
+enc:utf-8
+2982 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+3451 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 0.469s
+3451 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 107
+3451 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 51
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+4402 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioCAD
+enc:utf-8
+4590 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - PublicacionCAD
+LA clase origen: Publicacion y el nombre de rol: usuario
+DISTINTO en: asoOrigin: categoria_publicacion. El nombre del rol origen: categoria de el rol destino: usuario
+DISTINTO en: asoOrigin: comentario_publicacion. El nombre del rol origen: comentario de el rol destino: usuario
+DISTINTO en: asoOrigin: reporte_publicacion. El nombre del rol origen: reporte de el rol destino: usuario
+LA clase destino: Publicacion y el nombre de rol: usuario
+Encontrado en: asoTarget: publicacion_usuario El nombre de rol origen (generado): publicacion y el nombre del rol destino:usuario
+LA clase origen: Publicacion y el nombre de rol: usuario
+DISTINTO en: asoOrigin: categoria_publicacion. El nombre del rol origen: categoria de el rol destino: usuario
+DISTINTO en: asoOrigin: comentario_publicacion. El nombre del rol origen: comentario de el rol destino: usuario
+DISTINTO en: asoOrigin: reporte_publicacion. El nombre del rol origen: reporte de el rol destino: usuario
+LA clase destino: Publicacion y el nombre de rol: usuario
+Encontrado en: asoTarget: publicacion_usuario El nombre de rol origen (generado): publicacion y el nombre del rol destino:usuario
+LA clase origen: Publicacion y el nombre de rol: usuario
+DISTINTO en: asoOrigin: categoria_publicacion. El nombre del rol origen: categoria de el rol destino: usuario
+DISTINTO en: asoOrigin: comentario_publicacion. El nombre del rol origen: comentario de el rol destino: usuario
+DISTINTO en: asoOrigin: reporte_publicacion. El nombre del rol origen: reporte de el rol destino: usuario
+LA clase destino: Publicacion y el nombre de rol: usuario
+Encontrado en: asoTarget: publicacion_usuario El nombre de rol origen (generado): publicacion y el nombre del rol destino:usuario
+enc:utf-8
+4809 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - CategoriaCAD
+enc:utf-8
+4981 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EtiquetaCAD
+enc:utf-8
+5106 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReporteCAD
+LA clase origen: Reporte y el nombre de rol: publicacion
+LA clase destino: Reporte y el nombre de rol: publicacion
+Encontrado en: asoTarget: reporte_publicacion El nombre de rol origen (generado): reporte y el nombre del rol destino:publicacion
+LA clase origen: Reporte y el nombre de rol: publicacion
+LA clase destino: Reporte y el nombre de rol: publicacion
+Encontrado en: asoTarget: reporte_publicacion El nombre de rol origen (generado): reporte y el nombre del rol destino:publicacion
+LA clase origen: Reporte y el nombre de rol: publicacion
+LA clase destino: Reporte y el nombre de rol: publicacion
+Encontrado en: asoTarget: reporte_publicacion El nombre de rol origen (generado): reporte y el nombre del rol destino:publicacion
+enc:utf-8
+5235 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ComentarioCAD
+LA clase origen: Comentario y el nombre de rol: publicacion
+LA clase destino: Comentario y el nombre de rol: publicacion
+Encontrado en: asoTarget: comentario_publicacion El nombre de rol origen (generado): comentario y el nombre del rol destino:publicacion
+LA clase origen: Comentario y el nombre de rol: publicacion
+LA clase destino: Comentario y el nombre de rol: publicacion
+Encontrado en: asoTarget: comentario_publicacion El nombre de rol origen (generado): comentario y el nombre del rol destino:publicacion
+LA clase origen: Comentario y el nombre de rol: publicacion
+LA clase destino: Comentario y el nombre de rol: publicacion
+Encontrado en: asoTarget: comentario_publicacion El nombre de rol origen (generado): comentario y el nombre del rol destino:publicacion
+LA clase origen: Comentario y el nombre de rol: usuario
+LA clase destino: Comentario y el nombre de rol: usuario
+DISTINTO en: asoTarget: comentario_publicacion. El nombre del rol destino: publicacion de el rol origen: usuario
+Encontrado en: asoTarget: comentario_usuario El nombre de rol origen (generado): comentario y el nombre del rol destino:usuario
+LA clase origen: Comentario y el nombre de rol: usuario
+LA clase destino: Comentario y el nombre de rol: usuario
+DISTINTO en: asoTarget: comentario_publicacion. El nombre del rol destino: publicacion de el rol origen: usuario
+Encontrado en: asoTarget: comentario_usuario El nombre de rol origen (generado): comentario y el nombre del rol destino:usuario
+LA clase origen: Comentario y el nombre de rol: usuario
+LA clase destino: Comentario y el nombre de rol: usuario
+DISTINTO en: asoTarget: comentario_publicacion. El nombre del rol destino: publicacion de el rol origen: usuario
+Encontrado en: asoTarget: comentario_usuario El nombre de rol origen (generado): comentario y el nombre del rol destino:usuario
+enc:utf-8
+5376 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorCAD
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+5860 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioCEN
+enc:utf-8
+5938 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - PublicacionCEN
+enc:utf-8
+6017 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - CategoriaCEN
+enc:utf-8
+6063 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EtiquetaCEN
+enc:utf-8
+6110 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReporteCEN
+enc:utf-8
+6157 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ComentarioCEN
+enc:utf-8
+6204 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorCEN
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@229f66ed (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@179ece50 (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7c6908d7 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3bf7ca37 (name: activacion, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4b2bac3f (name: deleteUser, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@bcec361 (name: cambiarImagen, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@3d285d7e (name: cambiarDatos, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1c1bbc4e (name: addCategoria, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1ce24091 (name: verCategoria, visibility: Public, operationType: Custom, description: null, type: Integer, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7a8c8dcf (name: addListaMeGusta, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@24aed80c (name: verListaMeGusta, visibility: Public, operationType: Custom, description: null, type: String, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2a5c8d3f (name: login, visibility: Public, operationType: Custom, description: null, type: String, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7091 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2925bf5b (name: buscarusuario, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM UsuarioEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname , precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7bedc48a (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7c9d8e2 (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@ae13544 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7dc0f706 (name: buscarPublicaciones, visibility: Public, operationType: Custom, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@2de23121 (name: ultimasPublicaciones, visibility: Public, operationType: Custom, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@c0c2f8d (name: buscarAvanzado, visibility: Public, operationType: Custom, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@17f7cd29 (name: busquedaNormal, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like :cadena, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@158a8276 (name: busquedaAvanz, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like :cadena and pu.Fecha >= :fecha and ca.Nombre = :categoria, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+7138 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1e66f1f5 (name: listadoComentarios, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM PublicacionEN as pu inner join pu.ComentarioEN as co, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+7185 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@4e50c791 (name: listaUltimas, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE  ca.Categoria = :categoria ORDER BY pu.Fecha DESC, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: true, customizedTransaction: false)
+enc:utf-8
+7216 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@385e9564 (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7216 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@f79e (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7216 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@26b3fd41 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7216 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@561b6512 (name: listadoCategorias, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7263 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@e4487af (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7263 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@10aa41f2 (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7263 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@ed7f8b4 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7263 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@38102d01 (name: listadoEtiquetas, visibility: Public, operationType: ReadAll, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7302 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6f45df59 (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7302 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@291b4bf5 (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7302 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@424e1977 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7303 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@117e949d (name: confirmar, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7336 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7a675056 (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7336 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@683dbc2c (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7336 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6ff29830 (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@6a03bcb1 (name: new, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@17a7f733 (name: modify, visibility: Public, operationType: Modifier, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@7c1e2a9e (name: destroy, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@672872e1 (name: login, visibility: Public, operationType: Custom, description: null, type: String, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7367 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@fd07cbb (name: addEtiqueta, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+7476 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@484970b0 (name: addCategoria, visibility: Public, operationType: New, description: null, type: Object, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+7617 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@740773a3 (name: blockUser, visibility: Public, operationType: Custom, description: null, type: Boolean, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: false)
+7617 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@60015ef5 (name: delCategoria, visibility: Public, operationType: Destroy, description: null, type: Void, collectionType: None, isStatic: false, isOrdered: false, filter: null, precondition: null, body: null, postcondition: null, automaticSynchronize: true, customized: false, paging: false, customizedTransaction: true)
+enc:utf-8
+7711 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - es.ua.dlsi.ooh.conceptualView.impl.OperationImpl@1018bde2 (name: searchUser, visibility: Public, operationType: ReadFilter, description: null, type: Object, collectionType: List, isStatic: false, isOrdered: false, filter: FROM AdministradorEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname, precondition: null, body: null, postcondition: null, automaticSynchronize: false, customized: false, paging: false, customizedTransaction: false)
+enc:utf-8
+7867 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - UsuarioEN
+enc:utf-8
+8086 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - PublicacionEN
+enc:utf-8
+8226 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - CategoriaEN
+enc:utf-8
+8351 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EtiquetaEN
+enc:utf-8
+8460 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ReporteEN
+enc:utf-8
+8538 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - ComentarioEN
+enc:utf-8
+8647 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - AdministradorEN
+enc:utf-8
+8788 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8835 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8897 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8897 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8913 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8913 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+8944 [main] INFO  ipse.xtend.util.stdlib.IOExtensions  - EN
+enc:utf-8
+enc:utf-8
+9194 [main] INFO         org.eclipse.xpand2.Generator  - Written 10 files to outlet [default](../dominiolifetagGen)
+9194 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 71 files to outlet [default](../dominiolifetagGen)
+9194 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+9241 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+9319 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CopyDLLs
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\Antlr3.Runtime.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\Castle.DynamicProxy2.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\Iesi.Collections.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\LinFu.DynamicProxy.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\log4net.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\NHibernate.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.core.dll
+../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.framework.dll
+9319 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 8349ms!
