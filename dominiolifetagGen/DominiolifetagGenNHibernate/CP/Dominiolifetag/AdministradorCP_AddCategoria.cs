@@ -26,20 +26,13 @@ public DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN AddCategoria (s
 
         IAdministradorCAD administradorCAD = null;
         AdministradorCEN administradorCEN = null;
-
-        DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN result = null;
-
+        CategoriaEN result = null;
 
         try
         {
                 SessionInitializeTransaction ();
                 administradorCAD = new AdministradorCAD (session);
                 administradorCEN = new  AdministradorCEN (administradorCAD);
-
-
-
-
-                int oid;
                 //Initialized AdministradorEN
                 CategoriaEN cateNew = new CategoriaEN ();
                 CategoriaCAD cateCAD = new CategoriaCAD (session);
@@ -47,6 +40,7 @@ public DominiolifetagGenNHibernate.EN.Dominiolifetag.CategoriaEN AddCategoria (s
                 cateNew.Edad = edad;
                 cateNew.Nombre = nombreCategoria;
                 cateCAD.New_ (cateNew); //finalmente enviamos la nueva categoria al cad para que la cree
+                result = cateNew;
                 SessionCommit ();
         }
         catch (Exception ex)
