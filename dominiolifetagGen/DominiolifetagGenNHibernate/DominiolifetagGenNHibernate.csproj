@@ -146,6 +146,7 @@
 			
 			
 			
+			<Compile Include="CP\Dominiolifetag\PublicacionCP_ListadoComentarios.cs" />
 			
 			
 	<Compile Include="EN\Dominiolifetag\CategoriaEN.cs" />
@@ -194,13 +195,13 @@
 			
 			<Compile Include="CEN\Dominiolifetag\AdministradorCEN_Login.cs" />
 			
-			<Compile Include="CEN\Dominiolifetag\AdministradorCEN_AddEtiqueta.cs" />
+			<Compile Include="CP\Dominiolifetag\AdministradorCP_AddEtiqueta.cs" />
 			
-			<Compile Include="CEN\Dominiolifetag\AdministradorCEN_AddCategoria.cs" />
+			<Compile Include="CP\Dominiolifetag\AdministradorCP_AddCategoria.cs" />
 			
 			<Compile Include="CEN\Dominiolifetag\AdministradorCEN_BlockUser.cs" />
 			
-			<Compile Include="CEN\Dominiolifetag\AdministradorCEN_DelCategoria.cs" />
+			<Compile Include="CP\Dominiolifetag\AdministradorCP_DelCategoria.cs" />
 			
 			
 	

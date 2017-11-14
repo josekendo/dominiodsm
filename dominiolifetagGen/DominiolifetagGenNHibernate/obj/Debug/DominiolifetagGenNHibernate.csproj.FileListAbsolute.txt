@@ -13,4 +13,3 @@ C:\Users\JVAC\Downloads\dominio\dominiodsm\dominiolifetagGen\DominiolifetagGenNH
 C:\Users\JVAC\Downloads\dominio\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\JVAC\Downloads\dominio\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.dll
 C:\Users\JVAC\Downloads\dominio\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.pdb
-C:\Users\JVAC\Downloads\dominio\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.csprojResolveAssemblyReference.cache

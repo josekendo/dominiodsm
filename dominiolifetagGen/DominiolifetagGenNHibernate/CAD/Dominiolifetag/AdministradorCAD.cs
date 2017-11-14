@@ -210,6 +210,83 @@ public void Destroy (int ID
         }
 }
 
+public int AddEtiqueta (AdministradorEN administrador)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+
+                session.Save (administrador);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return administrador.ID;
+}
+
+public int AddCategoria (AdministradorEN administrador)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+
+                session.Save (administrador);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return administrador.ID;
+}
+
+public void DelCategoria (int ID
+                          )
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), ID);
+                session.Delete (administradorEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
 public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> SearchUser (string nickname, String password)
 {
         System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.AdministradorEN> result;

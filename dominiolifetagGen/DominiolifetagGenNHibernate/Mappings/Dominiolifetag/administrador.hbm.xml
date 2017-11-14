@@ -16,13 +16,13 @@
 						<column name="tipo"  not-null="true"/>
 					</property>
 					<property name="Nickname" type="string"> 
-						<column name="nickname"  not-null="true"/>
+						<column name="nickname"  unique="true" not-null="true"/>
 					</property>
 					<property name="Password" type="string"> 
 						<column name="password"  not-null="true"/>
 					</property>
 					<property name="Email" type="string"> 
-						<column name="email"  not-null="true"/>
+						<column name="email"  unique="true" not-null="true"/>
 					</property>
 			
 			
