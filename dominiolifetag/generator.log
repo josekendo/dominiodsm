@@ -3397,3 +3397,125 @@ enc:utf-8
 ../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.core.dll
 ../dominiolifetagGen\dominiolifetagGenNHibernate\AppLib\nunit.framework.dll
 12966 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 11178ms!
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+908  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+1112 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1318 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1546 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+1546 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+1982 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+2942 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA1391852480429346455.cfg
+enc:utf-8
+7416 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+7708 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@1e461e41; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7716 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7720 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+7720 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+6    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe
+7    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+1117 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\JVAC\Downloads\dominio\dominiodsm'
+1425 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1628 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1893 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/JVAC/Downloads/dominio/dominiodsm/dominiolifetag/templates/workflow/generator.mwe:10
+1893 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+2518 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+3641 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen]
+configuroConf:C:\Users\JVAC\AppData\Local\Temp\OOH4RIA3586896071069965497.cfg
+enc:utf-8
+4889 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+java.lang.IllegalStateException: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:347)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@1e461e41; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5154 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5170 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])
+5170 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Id 'DominiolifetagGenNHibernate.CEN.Dominiolifetag_Administrador_login' occuring in files ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\UsuarioCEN_Login.cs and ..\dominiolifetagGen\DominiolifetagGenNHibernate\CEN\Dominiolifetag\AdministradorCEN_Login.cs is not unique(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../dominiolifetagGen(overwrite=false,append=false,fileEncoding=utf-8), ../dominiolifetagGen])

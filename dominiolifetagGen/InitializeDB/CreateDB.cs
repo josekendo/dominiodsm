@@ -79,8 +79,7 @@ public static void InitializeData ()
         {
                 //Usuarios pre-cargados en la base de datos
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                int user1 = usuarioCEN.New_ ("maria", "maria@prueba.com", "maria", "SPAIN", 666666666, "mariita", "/fotos/maria.png", true, "125,125", "12,15,8", false, null);
-                int user2 = usuarioCEN.New_ ("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
+                int user1 = usuarioCEN.New_ ("david berenguer","db@gmail.com","622633667","spain",622667339,"db","/img/perfildb.png",true,"","",false,null);
                 /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
                  * PublicacionCEN publicacionCEN = new PublicacionCEN ();
                  * int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);

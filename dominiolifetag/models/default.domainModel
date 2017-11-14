@@ -130,11 +130,11 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_7ztxcLjTEeecmbsQHmExCQ" name="fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Bg0qUL4bEeeflLPJDTHg9g" name="categorias"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_TJfmoL4aEeeflLPJDTHg9g" name="busquedaNormal" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like &quot;%:cadena%&quot;" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_TJfmoL4aEeeflLPJDTHg9g" name="busquedaNormal" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like :cadena" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XOpeIL4aEeeflLPJDTHg9g" name="fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_v5F-oL4aEeeflLPJDTHg9g" name="cadena"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mn-jIL4bEeeflLPJDTHg9g" name="busquedaAvanz" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like &quot;%:cadena%&quot; and pu.Fecha >= :fecha and ca.Nombre = :categoria" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mn-jIL4bEeeflLPJDTHg9g" name="busquedaAvanz" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="FROM PublicacionEN as pu inner join pu.CategoriaEN as ca WHERE pu.Nombre like :cadena and pu.Fecha >= :fecha and ca.Nombre = :categoria" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_q4YBUL4bEeeflLPJDTHg9g" name="cadena"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vz1OsL4bEeeflLPJDTHg9g" name="fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_0OgDML4bEeeflLPJDTHg9g" name="categoria"/>
