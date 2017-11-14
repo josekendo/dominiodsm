@@ -139,7 +139,9 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_vz1OsL4bEeeflLPJDTHg9g" name="fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_0OgDML4bEeeflLPJDTHg9g" name="categoria"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Ee1hUL4gEeeflLPJDTHg9g" name="listadoComentarios" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="FROM PublicacionEN as pu inner join pu.ComentarioEN as co" automaticSynchronize="false" customizedTransaction="true"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Ee1hUL4gEeeflLPJDTHg9g" name="listadoComentarios" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="SELECT (co) FROM PublicacionEN as pu inner join pu.Comentario as co WHERE pu.ID = :idPublicacion" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_h46VAMkpEee794s3mGruAw" name="idPublicacion" type="Integer"/>
+      </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_R5ceUMOcEeeG_9V2MWAMdQ" name="listaUltimas" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GFs7cLjQEeecmbsQHmExCQ" filter="SELECT (pu) FROM PublicacionEN as pu inner join pu.Categoria as ca WHERE ca.Nombre = :categoria ORDER BY pu.Fecha DESC" automaticSynchronize="false" paging="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Yrx4UMOdEeeG_9V2MWAMdQ" name="categoria"/>
       </operations>

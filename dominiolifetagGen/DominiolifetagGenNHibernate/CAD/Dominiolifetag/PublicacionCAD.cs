@@ -295,15 +295,16 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
 
         return result;
 }
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios ()
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios (int ? idPublicacion)
 {
         System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu inner join pu.ComentarioEN as co";
+                //String sql = @"FROM PublicacionEN self where SELECT (co) FROM PublicacionEN as pu inner join pu.Comentario as co WHERE pu.ID = :idPublicacion";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENlistadoComentariosHQL");
+                query.SetParameter ("idPublicacion", idPublicacion);
 
                 result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
                 SessionCommit ();

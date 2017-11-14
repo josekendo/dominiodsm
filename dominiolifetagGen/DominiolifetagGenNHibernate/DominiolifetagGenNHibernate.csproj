@@ -146,7 +146,6 @@
 			
 			
 			
-			<Compile Include="CP\Dominiolifetag\PublicacionCP_ListadoComentarios.cs" />
 			
 			
 	<Compile Include="EN\Dominiolifetag\CategoriaEN.cs" />

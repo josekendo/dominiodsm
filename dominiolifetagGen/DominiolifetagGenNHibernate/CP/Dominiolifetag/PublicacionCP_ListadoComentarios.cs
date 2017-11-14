@@ -20,7 +20,7 @@ namespace DominiolifetagGenNHibernate.CP.Dominiolifetag
 {
 public partial class PublicacionCP : BasicCP
 {
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios ()
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios (int idPublicacion)
 {
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CP.Dominiolifetag_Publicacion_listadoComentarios) ENABLED START*/
 
