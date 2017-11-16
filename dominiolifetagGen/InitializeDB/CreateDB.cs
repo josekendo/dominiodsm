@@ -78,23 +78,81 @@ public static void InitializeData ()
         try
         {
                 //Usuarios pre-cargados en la base de datos
+
+                //cargamos modulos de logica
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                int user1 = usuarioCEN.New_ ("david berenguer", "db@gmail.com", "622633667", "spain", 622667339, "db", "/img/perfildb.png", true, "", "", false, null);
-                /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
-                 * PublicacionCEN publicacionCEN = new PublicacionCEN ();
-                 * int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);
-                 * int publi2 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg", user1, null, null);
-                 * int publi3 = publicacionCEN.New_ (DateTime.Today, "Mi isla", "Imagen", "/publicaciones/imagenes/islaco.jpg", user2, null, null);
-                 * AdministradorCEN administradorCEN = new AdministradorCEN ();
-                 * administradorCEN.New_ ("admin", "davidr", "admindr", "davidr@prueba.com");
-                 * administradorCEN.New_ ("modera", "davidb", "moderadb", "davidb@prueba.com");
-                 * CategoriaCEN categoriaCEN = new CategoriaCEN ();
-                 * EtiquetaCEN etiquetaCEN = new EtiquetaCEN ();
-                 * categoriaCEN.New_ ("Perros", "Categoria de los preciosos caninos llamados perros.", 5);
-                 * IList<int> lista = new List<int>();
-                 * lista.Add (publi1);
-                 * lista.Add (publi2);
-                 * etiquetaCEN.New_ ("Gatos", lista);*/
+                UsuarioCEN usuarioCEN2 = new UsuarioCEN ();
+                PublicacionCEN puCEN = new PublicacionCEN ();
+                EtiquetaCEN etiCEN = new EtiquetaCEN ();
+                CategoriaCEN cateCEN = new CategoriaCEN ();
+                ReporteCEN reCEN = new ReporteCEN ();
+                ComentarioCEN coCEN = new ComentarioCEN ();
+                //fin de logica
+
+                //llamamos a modulos de base de datos CAD
+                PublicacionCAD puCAD = new PublicacionCAD ();
+                CategoriaCAD cateCAD = new CategoriaCAD ();
+                EtiquetaCAD etiCAD = new EtiquetaCAD ();
+                //fin cad
+
+
+                IList<int> catel = new List<int>();
+                IList<EtiquetaEN> etil = new List<EtiquetaEN>();
+                int categoria1 = cateCEN.New_ ("GATOS", "Para los amantes de los gatos.", 0);
+                int categoria2 = cateCEN.New_ ("PERROS", "Para los que quieren a estos maravillosos caninos.", 0);
+                catel.Add (categoria1);
+
+                int user1 = usuarioCEN.New_ ("enrique", "enri@gmail.com", "622633667", "spain", 622667339, "enri", "/img/perfildb.png", true, "", "", false, null);
+                //int user2 = usuarioCEN2.New_ ("jose vicente", "jv@gmail.com", "54665465465", "cataluya", 123456789, "jv", "/img/perfiljv.png", true, "", "", false, new List<PublicacionEN>()); //error pero no se de que
+                //int user3 = usuarioCEN.New_ ("david ramon", "dr@gmail.com", "622633667", "spain", 622667339, "dr", "/img/perfildb.png", true, "", "", false, null);
+                Console.WriteLine ("creado usuario con id -> " + user1);
+                int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "/publicaciones/imagenes/" + user1 + "monogato/", user1, etil, catel);
+
+                PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);
+                Console.WriteLine ("creada publicacion con id -> " + publicacion1);
+                Console.WriteLine ("creada publicacion con id (recuperada) -> " + publi1.ID);
+                Console.WriteLine ("(recuperada) informacion -> titulo:" + publi1.Nombre + "; tipo:" + publi1.Tipo + "; ruta del archivo:" + publi1.Archivo + ";");
+                //vamos agregar etiquetas
+                IList<int> lista = new List<int>();
+                lista.Add (publicacion1);
+                int etiqueta1 = etiCEN.New_ ("mono", lista);
+                int etiqueta2 = etiCEN.New_ ("neko", lista);
+
+                //vamos a probar UltimasPublicaciones
+                IList<PublicacionEN> listaultimas = puCEN.UltimasPublicaciones ("GATOS"); //quitar id
+                IList<PublicacionEN> listaultimas2 = puCEN.UltimasPublicaciones ("PERROS"); //quitar id
+                Console.WriteLine ("Busqueda ultimas categoria GATOS (1)-> " + listaultimas.Count);
+                foreach (PublicacionEN i in listaultimas) {
+                        Console.WriteLine (i.Nombre);
+                }
+                Console.WriteLine ("Busqueda ultimas categoria PERROS (0)-> " + listaultimas2.Count);
+                foreach (PublicacionEN i in listaultimas2) {
+                        Console.WriteLine (i.Nombre);
+                }
+                //ok
+                Console.WriteLine ("BuscarPublicaciones gato y fecha publicacion (1)-> " + puCEN.BuscarPublicaciones (true, publi1.Fecha, "Gato").Count);
+                //vamos a probar buscarPublicaciones
+                foreach (PublicacionEN i in puCEN.BuscarPublicaciones (true, publi1.Fecha, "Gato")) {
+                        Console.WriteLine (i.Nombre);
+                }
+                //ok
+                Console.WriteLine ("BuscarAvanzada gato y fecha publicacion (1)-> " + puCEN.BuscarAvanzado (true, "Gato", publi1.Fecha, "GATOS").Count);
+                //vamos a probar BuscarAvanzada
+                foreach (PublicacionEN i in puCEN.BuscarAvanzado (true, "Gato", publi1.Fecha, "GATOS")) {
+                        Console.WriteLine (i.Nombre);
+                }
+                //ok
+
+
+                //vamos a probar listadoComentarios
+                int comentario1 = coCEN.New_ ("que gato mas mono", publicacion1, user1);
+                int comentario2 = coCEN.New_("que gato mas monisimo", publicacion1, user1);
+                Console.WriteLine ("se ha creado comentario de user1 en la publicacion1, id comentario -> " + comentario1);
+                foreach (ComentarioEN i in puCEN.ListadoComentarios (publicacion1)) {
+                        Console.WriteLine (i.Contenido);
+                }
+                //ok
+
                 // Insert the initilizations of entities using the CEN classes
 
 
