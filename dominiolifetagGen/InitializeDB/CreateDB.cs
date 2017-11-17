@@ -153,6 +153,42 @@ public static void InitializeData ()
                 }
                 //ok
 
+            
+                PublicacionCEN pubCEN = new PublicacionCEN();
+                CategoriaCEN categCEN = new CategoriaCEN();
+                EtiquetaCEN etiqCEN = new EtiquetaCEN();
+                UsuarioCEN usrCEN = new UsuarioCEN();
+                //fin de logica
+
+                //llamamos a modulos de base de datos CAD
+                PublicacionCAD pubCAD = new PublicacionCAD();
+                CategoriaCAD categCAD = new CategoriaCAD();
+                EtiquetaCAD etiqCAD = new EtiquetaCAD();
+                //fin cad
+
+                IList<int> cat = new List<int>();
+                IList<EtiquetaEN> eti = new List<EtiquetaEN>();
+
+                int categ1 = categCEN.New_("Perros", "Para los amantes de los perros.", 0);
+                cat.Add(categ1);
+
+                int usr1 = usrCEN.New_("josera", "josera@gmail.com", "697400104", "spain", 697400104, "josera", "/img/perfildb.png", true, "", "", false, null);
+                int pub1 = pubCEN.New_(DateTime.Today, "Mono grillo", "Imagen", "/publicaciones/imagenes/" + user1 + "monogrillo/", usr1, etil, catel);
+                int etiq1 = etiqCEN.New_("Mono grillo", cat);
+
+
+                categCEN.Modify(categoria1, "perritos", "muy perros", 13);
+                categCEN.ListadoCategorias(1, 12);
+                categCEN.Destroy(categoria1);
+                Console.WriteLine(categCEN);
+
+                etiqCEN.Modify(pub1, "Etiquetao");
+                Console.WriteLine(etiqCEN);
+                etiqCEN.Destroy(etiq1);
+                Console.WriteLine(etiqCEN);
+
+
+
                 // Insert the initilizations of entities using the CEN classes
 
 
@@ -162,7 +198,7 @@ public static void InitializeData ()
 
 
                 /*PROTECTED REGION END*/
-        }
+            }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
