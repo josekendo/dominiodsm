@@ -80,6 +80,7 @@ public static void InitializeData ()
                 //Usuarios pre-cargados en la base de datos
 
                 //cargamos modulos de logica
+                AdministradorCEN adminCEN = new AdministradorCEN ();
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 UsuarioCEN usuarioCEN2 = new UsuarioCEN ();
                 PublicacionCEN puCEN = new PublicacionCEN ();
@@ -101,7 +102,15 @@ public static void InitializeData ()
                 int categoria1 = cateCEN.New_ ("GATOS", "Para los amantes de los gatos.", 0);
                 int categoria2 = cateCEN.New_ ("PERROS", "Para los que quieren a estos maravillosos caninos.", 0);
                 catel.Add (categoria1);
-                
+
+                //Administrador 
+                int admin1 = adminCEN.New_("Administrador", "david", "12345", "davids@gmail.com");
+                int admin2 = adminCEN.New_("Administrador", "jose", "54321", "josev@gmail.com");
+                int admin3 = adminCEN.New_("Moderador", "pepito", "11123", "pepito@gmail.com");
+                Console.WriteLine("creado administrador con id -> " + admin1);
+                Console.WriteLine("creado administrador con id -> " + admin2);
+                Console.WriteLine("creado administrador con id -> " + admin3);
+
                 int user1 = usuarioCEN.New_ ("enrique", "enri@gmail.com", "622633667", "spain", 622667339, "enri", "/img/perfildb.png", false, "", "", false, null);
                 //int user2 = usuarioCEN2.New_ ("jose vicente", "jv@gmail.com", "54665465465", "cataluya", 123456789, "jv", "/img/perfiljv.png", true, "", "", false, new List<PublicacionEN>()); //error pero no se de que
                 //int user3 = usuarioCEN.New_ ("david ramon", "dr@gmail.com", "622633667", "spain", 622667339, "dr", "/img/perfildb.png", true, "", "", false, null);
@@ -115,7 +124,7 @@ public static void InitializeData ()
                 bool cambiaimg1 = usuarioCEN.CambiarImagen(user1, "/img/nuevaimagen.png");
                 Console.WriteLine("¿Nueva imagen del usuario? -> " + cambiaimg1);
 
-                //Cambiar imagen
+                //Cambiar Datos del usuario
                 bool cambiardat1 = usuarioCEN.CambiarDatos(user1,"123456789","newenri@gmail.com","enriquenuevo",966231423);
                 Console.WriteLine("¿Datos de usuario cambiado? -> " + cambiardat1);
 
@@ -125,6 +134,7 @@ public static void InitializeData ()
                 Console.WriteLine ("creada publicacion con id -> " + publicacion1);
                 Console.WriteLine ("creada publicacion con id (recuperada) -> " + publi1.ID);
                 Console.WriteLine ("(recuperada) informacion -> titulo:" + publi1.Nombre + "; tipo:" + publi1.Tipo + "; ruta del archivo:" + publi1.Archivo + ";");
+                
                 //vamos agregar etiquetas
                 IList<int> lista = new List<int>();
                 lista.Add (publicacion1);
