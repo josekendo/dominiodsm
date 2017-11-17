@@ -97,7 +97,7 @@ public static void InitializeData ()
                 ReporteCAD repCAD = new ReporteCAD();//----------------------
                 //fin cad
 
-                IList<int> report1 = new List<int>();//----------------------
+                //IList<int> report1 = new List<int>();//----------------------
                 IList<int> catel = new List<int>();
                 IList<EtiquetaEN> etil = new List<EtiquetaEN>();
                 
@@ -111,8 +111,8 @@ public static void InitializeData ()
                 Console.WriteLine ("creado usuario con id -> " + user1);
                 int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "/publicaciones/imagenes/" + user1 + "monogato/", user1, etil, catel);
                 
-                //int reporte1 = reCEN.New_(.Fecha, true, publicacion1);//(fecha,confirmacion, publicacion)-----------------------------
-
+                int reporte1 = reCEN.New_(DateTime.Today, false, publicacion1);//(fecha,confirmacion, publicacion)-----------------------------
+                //int reporte2 = reCEN.New_(DateTime.Today, true, publicacion1);
 
                 PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);
                 Console.WriteLine ("creada publicacion con id -> " + publicacion1);
@@ -149,6 +149,14 @@ public static void InitializeData ()
                 }
                 //ok
 
+                /*Vamos a probar listado categorias*/
+
+                Console.WriteLine("Listado de categorias: ---->"+cateCEN.ListadoCategorias(1,6));
+
+                /*vamos a probar confirmar Reporte*/
+
+                Console.WriteLine("Confirmamos reporte: ---->" + reCEN.Confirmar(publicacion1));
+
 
                 //vamos a probar listadoComentarios
                 int comentario1 = coCEN.New_ ("que gato mas mono", publicacion1, user1);
@@ -159,17 +167,7 @@ public static void InitializeData ()
                 }
                 //ok
 
-                /*vamos a probar confirmar Reporte
-                foreach (ReporteEN i in reCEN.Confirmar())
-                {
-                    Console.WriteLine(i.p_oid);
-                }*/
-
-
-
-
-
-
+                
 =======
                 int user1 = usuarioCEN.New_ ("maria", "maria@prueba.com", "maria", "SPAIN", 666666666, "mariita", "/fotos/maria.png", true, "125,125", "12,15,8", false, null);
                 int user2 = usuarioCEN.New_ ("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
