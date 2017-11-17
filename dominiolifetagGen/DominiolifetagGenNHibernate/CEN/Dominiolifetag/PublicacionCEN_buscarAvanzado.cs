@@ -19,7 +19,7 @@ namespace DominiolifetagGenNHibernate.CEN.Dominiolifetag
 {
 public partial class PublicacionCEN
 {
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BuscarAvanzado (bool ordenacion, string cadena, Nullable<DateTime> fecha, string categorias)
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BuscarAvanzado (int p_oid, bool ordenacion, string cadena, Nullable<DateTime> fecha, string categorias)
 {
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_buscarAvanzado) ENABLED START*/
 

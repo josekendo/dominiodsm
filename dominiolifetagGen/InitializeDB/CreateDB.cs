@@ -78,9 +78,8 @@ public static void InitializeData ()
         try
         {
                 //Usuarios pre-cargados en la base de datos
-
-                //cargamos modulos de logica
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                 UsuarioCEN usuarioCEN2 = new UsuarioCEN ();
                 PublicacionCEN puCEN = new PublicacionCEN ();
@@ -175,6 +174,10 @@ public static void InitializeData ()
                 int user2 = usuarioCEN.New_ ("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
                 
                   /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
+=======
+                int user1 = usuarioCEN.New_ ("david berenguer", "db@gmail.com", "622633667", "spain", 622667339, "db", "/img/perfildb.png", true, "", "", false, null);
+                /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
+>>>>>>> parent of 2a966da... comprobado todas las funciones de publicacion
                  * PublicacionCEN publicacionCEN = new PublicacionCEN ();
                  * int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);
                  * int publi2 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg", user1, null, null);
@@ -189,6 +192,7 @@ public static void InitializeData ()
                  * lista.Add (publi1);
                  * lista.Add (publi2);
                  * etiquetaCEN.New_ ("Gatos", lista);*/
+<<<<<<< HEAD
 >>>>>>> Stashed changes
                 // Insert the initilizations of entities using the CEN classes
 
@@ -200,6 +204,18 @@ public static void InitializeData ()
 
                 /*PROTECTED REGION END*/
             }
+=======
+                // Insert the initilizations of entities using the CEN classes
+
+
+                // p.e. CustomerCEN customer = new CustomerCEN();
+                // customer.New_ (p_user:"user", p_password:"1234");
+
+
+
+                /*PROTECTED REGION END*/
+        }
+>>>>>>> parent of 2a966da... comprobado todas las funciones de publicacion
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);

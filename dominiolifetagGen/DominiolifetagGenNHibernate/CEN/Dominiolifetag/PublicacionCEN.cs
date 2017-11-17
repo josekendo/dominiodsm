@@ -113,7 +113,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
 {
         return _IPublicacionCAD.BusquedaAvanz (cadena, fecha, categoria);
 }
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> ListadoComentarios (int ? idPublicacion)
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios (int ? idPublicacion)
 {
         return _IPublicacionCAD.ListadoComentarios (idPublicacion);
 }

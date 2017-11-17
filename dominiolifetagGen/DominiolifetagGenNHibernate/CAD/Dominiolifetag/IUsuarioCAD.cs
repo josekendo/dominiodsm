@@ -13,6 +13,15 @@ void ModifyDefault (UsuarioEN usuario);
 
 
 
+int New_ (UsuarioEN usuario);
+
+void Modify (UsuarioEN usuario);
+
+
+void Destroy (int ID
+              );
+
+
 
 
 
@@ -23,14 +32,5 @@ void ModifyDefault (UsuarioEN usuario);
 
 
 System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password);
-
-
-int New_ (UsuarioEN usuario);
-
-void Modify (UsuarioEN usuario);
-
-
-void Destroy (int ID
-              );
 }
 }

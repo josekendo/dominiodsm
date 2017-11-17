@@ -31,7 +31,7 @@ System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.P
 System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> BusquedaAvanz (string cadena, Nullable<DateTime> fecha, string categoria);
 
 
-System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> ListadoComentarios (int ? idPublicacion);
+System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios (int ? idPublicacion);
 
 
 System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListaUltimas (string categoria, int first, int size);

@@ -238,7 +238,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PublicacionEN self where SELECT (pu) FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha or pu.Nombre like :cadena";
+                //String sql = @"FROM PublicacionEN self where FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like :cadena";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENbusquedaNormalHQL");
                 query.SetParameter ("fecha", fecha);
@@ -295,9 +295,9 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
 
         return result;
 }
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> ListadoComentarios (int ? idPublicacion)
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> ListadoComentarios (int ? idPublicacion)
 {
-        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN> result;
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -306,7 +306,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
                 IQuery query = (IQuery)session.GetNamedQuery ("PublicacionENlistadoComentariosHQL");
                 query.SetParameter ("idPublicacion", idPublicacion);
 
-                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.ComentarioEN>();
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN>();
                 SessionCommit ();
         }
 

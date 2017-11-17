@@ -148,37 +148,6 @@ public void ModifyDefault (UsuarioEN usuario)
 }
 
 
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password)
-{
-        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname ";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarusuarioHQL");
-                query.SetParameter ("nickname", nickname);
-                query.SetParameter ("password", password);
-
-                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 public int New_ (UsuarioEN usuario)
 {
         try
@@ -293,6 +262,38 @@ public void Destroy (int ID
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password)
+{
+        System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarusuarioHQL");
+                query.SetParameter ("nickname", nickname);
+                query.SetParameter ("password", password);
+
+                result = query.List<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

@@ -91,7 +91,7 @@
 		 </class>	
 		  
 		  <query name="PublicacionENReadAllHQL">from PublicacionEN</query>
-		  <query name="PublicacionENbusquedaNormalHQL"><![CDATA[SELECT (pu) FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha or pu.Nombre like :cadena]]></query>
+		  <query name="PublicacionENbusquedaNormalHQL"><![CDATA[FROM PublicacionEN as pu WHERE pu.Fecha >= :fecha and pu.Nombre like :cadena]]></query>
 		  <query name="PublicacionENbusquedaAvanzHQL"><![CDATA[SELECT (pu) FROM PublicacionEN as pu inner join pu.Categoria as ca WHERE :cadena is not null and pu.Nombre like '%'+:cadena+'%' or :fecha is not null and  pu.Fecha >= :fecha or :categoria is not null and ca.Nombre = :categoria]]></query>
 		  <query name="PublicacionENlistadoComentariosHQL"><![CDATA[SELECT (co) FROM PublicacionEN as pu inner join pu.Comentario as co WHERE pu.ID = :idPublicacion]]></query>
 		  <query name="PublicacionENlistaUltimasHQL"><![CDATA[SELECT (pu) FROM PublicacionEN as pu inner join pu.Categoria as ca WHERE ca.Nombre = :categoria ORDER BY pu.Fecha DESC]]></query>

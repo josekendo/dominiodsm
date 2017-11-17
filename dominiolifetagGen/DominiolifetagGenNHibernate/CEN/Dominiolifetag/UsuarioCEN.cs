@@ -38,10 +38,6 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password)
-{
-        return _IUsuarioCAD.Buscarusuario (nickname, Utils.Util.GetEncondeMD5 (password));
-}
 public int New_ (string p_nombre, string p_email, String p_password, string p_pais, int p_telefono, string p_nickname, string p_fotoruta, bool p_activacion, string p_listamegusta, string p_categoriassuscrito, bool p_bloqueado, System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> p_publicacion)
 {
         UsuarioEN usuarioEN = null;
@@ -107,6 +103,11 @@ public void Destroy (int ID
                      )
 {
         _IUsuarioCAD.Destroy (ID);
+}
+
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.UsuarioEN> Buscarusuario (string nickname, String password)
+{
+        return _IUsuarioCAD.Buscarusuario (nickname, Utils.Util.GetEncondeMD5 (password));
 }
 }
 }

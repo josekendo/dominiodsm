@@ -19,7 +19,7 @@ namespace DominiolifetagGenNHibernate.CEN.Dominiolifetag
 {
 public partial class PublicacionCEN
 {
-public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> UltimasPublicaciones (string categoria)
+public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN> UltimasPublicaciones (int p_oid, string categoria)
 {
         /*PROTECTED REGION ID(DominiolifetagGenNHibernate.CEN.Dominiolifetag_Publicacion_ultimasPublicaciones) ENABLED START*/
 
