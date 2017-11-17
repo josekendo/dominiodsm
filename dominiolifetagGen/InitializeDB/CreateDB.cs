@@ -81,11 +81,12 @@ public static void InitializeData ()
 
                 //cargamos modulos de logica
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
+<<<<<<< Updated upstream
                 UsuarioCEN usuarioCEN2 = new UsuarioCEN ();
                 PublicacionCEN puCEN = new PublicacionCEN ();
                 EtiquetaCEN etiCEN = new EtiquetaCEN ();
                 CategoriaCEN cateCEN = new CategoriaCEN ();
-                ReporteCEN reCEN = new ReporteCEN ();
+                ReporteCEN reCEN = new ReporteCEN ();//----------------------
                 ComentarioCEN coCEN = new ComentarioCEN ();
                 //fin de logica
 
@@ -93,11 +94,13 @@ public static void InitializeData ()
                 PublicacionCAD puCAD = new PublicacionCAD ();
                 CategoriaCAD cateCAD = new CategoriaCAD ();
                 EtiquetaCAD etiCAD = new EtiquetaCAD ();
+                ReporteCAD repCAD = new ReporteCAD();//----------------------
                 //fin cad
 
-
+                IList<int> report1 = new List<int>();//----------------------
                 IList<int> catel = new List<int>();
                 IList<EtiquetaEN> etil = new List<EtiquetaEN>();
+                
                 int categoria1 = cateCEN.New_ ("GATOS", "Para los amantes de los gatos.", 0);
                 int categoria2 = cateCEN.New_ ("PERROS", "Para los que quieren a estos maravillosos caninos.", 0);
                 catel.Add (categoria1);
@@ -107,6 +110,9 @@ public static void InitializeData ()
                 //int user3 = usuarioCEN.New_ ("david ramon", "dr@gmail.com", "622633667", "spain", 622667339, "dr", "/img/perfildb.png", true, "", "", false, null);
                 Console.WriteLine ("creado usuario con id -> " + user1);
                 int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "/publicaciones/imagenes/" + user1 + "monogato/", user1, etil, catel);
+                
+                //int reporte1 = reCEN.New_(.Fecha, true, publicacion1);//(fecha,confirmacion, publicacion)-----------------------------
+
 
                 PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);
                 Console.WriteLine ("creada publicacion con id -> " + publicacion1);
@@ -153,6 +159,37 @@ public static void InitializeData ()
                 }
                 //ok
 
+                /*vamos a probar confirmar Reporte
+                foreach (ReporteEN i in reCEN.Confirmar())
+                {
+                    Console.WriteLine(i.p_oid);
+                }*/
+
+
+
+
+
+
+=======
+                int user1 = usuarioCEN.New_ ("maria", "maria@prueba.com", "maria", "SPAIN", 666666666, "mariita", "/fotos/maria.png", true, "125,125", "12,15,8", false, null);
+                int user2 = usuarioCEN.New_ ("jose ramon", "joser@prueba.com", "jose ramon", "SPAIN", 666666666, "joser", "/fotos/joser.png", true, "125,125", "12,15,8", false, null);
+                
+                  /*ReporteEN reporteEN = new ReporteEN (1, DateTime.Today, false, null);
+                 * PublicacionCEN publicacionCEN = new PublicacionCEN ();
+                 * int publi1 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos", "Imagen", "/publicaciones/imagenes/losgatos.jpg", user1, null, null);
+                 * int publi2 = publicacionCEN.New_ (DateTime.Today, "Los gatos son monos 2", "Imagen", "/publicaciones/imagenes/losgatos2.jpg", user1, null, null);
+                 * int publi3 = publicacionCEN.New_ (DateTime.Today, "Mi isla", "Imagen", "/publicaciones/imagenes/islaco.jpg", user2, null, null);
+                 * AdministradorCEN administradorCEN = new AdministradorCEN ();
+                 * administradorCEN.New_ ("admin", "davidr", "admindr", "davidr@prueba.com");
+                 * administradorCEN.New_ ("modera", "davidb", "moderadb", "davidb@prueba.com");
+                 * CategoriaCEN categoriaCEN = new CategoriaCEN ();
+                 * EtiquetaCEN etiquetaCEN = new EtiquetaCEN ();
+                 * categoriaCEN.New_ ("Perros", "Categoria de los preciosos caninos llamados perros.", 5);
+                 * IList<int> lista = new List<int>();
+                 * lista.Add (publi1);
+                 * lista.Add (publi2);
+                 * etiquetaCEN.New_ ("Gatos", lista);*/
+>>>>>>> Stashed changes
                 // Insert the initilizations of entities using the CEN classes
 
 
@@ -162,7 +199,7 @@ public static void InitializeData ()
 
 
                 /*PROTECTED REGION END*/
-        }
+            }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
