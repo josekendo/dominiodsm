@@ -95,17 +95,30 @@ public static void InitializeData ()
                 EtiquetaCAD etiCAD = new EtiquetaCAD ();
                 //fin cad
 
-
+                //Catetorias
                 IList<int> catel = new List<int>();
                 IList<EtiquetaEN> etil = new List<EtiquetaEN>();
                 int categoria1 = cateCEN.New_ ("GATOS", "Para los amantes de los gatos.", 0);
                 int categoria2 = cateCEN.New_ ("PERROS", "Para los que quieren a estos maravillosos caninos.", 0);
                 catel.Add (categoria1);
-
-                int user1 = usuarioCEN.New_ ("enrique", "enri@gmail.com", "622633667", "spain", 622667339, "enri", "/img/perfildb.png", true, "", "", false, null);
+                
+                int user1 = usuarioCEN.New_ ("enrique", "enri@gmail.com", "622633667", "spain", 622667339, "enri", "/img/perfildb.png", false, "", "", false, null);
                 //int user2 = usuarioCEN2.New_ ("jose vicente", "jv@gmail.com", "54665465465", "cataluya", 123456789, "jv", "/img/perfiljv.png", true, "", "", false, new List<PublicacionEN>()); //error pero no se de que
                 //int user3 = usuarioCEN.New_ ("david ramon", "dr@gmail.com", "622633667", "spain", 622667339, "dr", "/img/perfildb.png", true, "", "", false, null);
                 Console.WriteLine ("creado usuario con id -> " + user1);
+                
+                //Activacion de usuario
+                bool activa1 = usuarioCEN.Activacion(user1,"1234");
+                Console.WriteLine("¿user1 activado? -> " + activa1);
+
+                //Cambiar imagen
+                bool cambiaimg1 = usuarioCEN.CambiarImagen(user1, "/img/nuevaimagen.png");
+                Console.WriteLine("¿Nueva imagen del usuario? -> " + cambiaimg1);
+
+                //Cambiar imagen
+                bool cambiardat1 = usuarioCEN.CambiarDatos(user1,"123456789","newenri@gmail.com","enriquenuevo",966231423);
+                Console.WriteLine("¿Datos de usuario cambiado? -> " + cambiardat1);
+
                 int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "/publicaciones/imagenes/" + user1 + "monogato/", user1, etil, catel);
 
                 PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);

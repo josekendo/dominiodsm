@@ -32,8 +32,7 @@ public bool CambiarDatos (int p_oid, String password, string email, string nombr
         if (usuario.Nombre.Equals (nombre) == false) usuario.Nombre = nombre;
         if (usuario.Telefono.Equals (telefono) == false) usuario.Telefono = telefono;
 
-        _IUsuarioCAD.Modify (usuario);
-        throw new NotImplementedException ("Method CambiarDatos() not yet implemented.");
+        return true;
 
         /*PROTECTED REGION END*/
 }
