@@ -26,11 +26,16 @@ public bool CambiarImagen (int p_oid, string ruta)
         // Write here your custom code...
         UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-        //si son diferentes cambiamos la ruta
-        if (usuario.Fotoruta.Equals (ruta) == false) usuario.Fotoruta = ruta;
-
-        _IUsuarioCAD.Modify (usuario);
-        throw new NotImplementedException ("Method CambiarImagen() not yet implemented.");
+            //si son diferentes cambiamos la ruta
+            if (usuario.Fotoruta.Equals(ruta) == false)
+            {
+                usuario.Fotoruta = ruta;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         /*PROTECTED REGION END*/
 }
