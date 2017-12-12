@@ -14,6 +14,7 @@ namespace TagLifeASPMVC.Models
         {
           Comentario cat = new Comentario ();
           cat.Contenido = en.Contenido;
+          cat.iD = en.ID;
           return cat;
         }
         public IList<Comentario> ConvertListENToModel(IList<ComentarioEN> ens)
