@@ -225,6 +225,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Administrador.cs" />
+    <Compile Include="Models\AdministradorAssembler.cs" />
     <Compile Include="Models\PublicacionAssembler.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Comentario.cs" />
