@@ -10,7 +10,7 @@ namespace TagLifeASPMVC.Models
 {
     public class ComentarioAssembler
     {
-        public Comentario ComentarioENToModelUI(ComentarioEN en)
+        public Comentario ConvertENToModelUI(ComentarioEN en)
         {
           Comentario cat = new Comentario ();
           cat.Contenido = en.Contenido;
@@ -21,7 +21,7 @@ namespace TagLifeASPMVC.Models
             IList<Comentario> arts = new List<Comentario>();
             foreach (ComentarioEN en in ens)
             {
-                arts.Add(ComentarioENToModelUI(en));
+                arts.Add(ConvertENToModelUI(en));
             }
             return arts;
         }
