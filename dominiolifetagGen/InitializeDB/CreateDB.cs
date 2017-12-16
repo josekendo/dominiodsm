@@ -128,7 +128,14 @@ public static void InitializeData ()
                 bool cambiardat1 = usuarioCEN.CambiarDatos(user1,"123456789","newenri@gmail.com","enriquenuevo",966231423);
                 Console.WriteLine("¿Datos de usuario cambiado? -> " + cambiardat1);
 
-                int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "/publicaciones/imagenes/" + user1 + "monogato/", user1, etil, catel);
+                int publicacion1 = puCEN.New_ (DateTime.Today, "Gato Mono", "Imagen", "https://coo3.tuvotacion.com/imagenes_unicas/que-gato-es-mas-mono-967242.jpg", user1, etil, catel);
+                int publicacion2 = puCEN.New_(DateTime.Today, "Gato Mono 2", "Imagen", "http://fondosdepantallashd.com/wp-content/uploads/2017/06/Peque%C3%B1o-gato-mono-frotando-su-cabeza-en-el-piso.jpg", user1, etil, catel);
+                int publicacion3 = puCEN.New_(DateTime.Today, "Gato Mono 3", "Imagen", "https://s-media-cache-ak0.pinimg.com/originals/50/17/10/501710db7440b6d2f35ee96c34afccb7.jpg", user1, etil, catel);
+                int publicacion4 = puCEN.New_(DateTime.Today, "Gato Mono 4", "Imagen", "http://3.bp.blogspot.com/-kf5Kk01uosA/T51WVYW81II/AAAAAAAACaA/LyRrrzEDWMU/s1600/SAM_4047.JPG", user1, etil, catel);
+                int publicacion5 = puCEN.New_(DateTime.Today, "Gato Mono 5", "Imagen", "https://previews.123rf.com/images/magphoto/magphoto0810/magphoto081000042/3657483-gato-gato-mono-animal-ni-o-joven-pelo-ojos-azules-el-gato-la-raza-siameses-mira--Foto-de-archivo.jpg", user1, etil, catel);
+                int publicacion6 = puCEN.New_(DateTime.Today, "Gato Mono 6", "Imagen", "https://upload.wikimedia.org/wikipedia/commons/c/ca/Niobe050905-Siamese_Cat.jpeg", user1, etil, catel);
+                int publicacion7 = puCEN.New_(DateTime.Today, "Gato Mono 7", "Imagen", "https://coo4.tuvotacion.com/imagenes_unicas/cual-es-mas-mono-de-los-gatos-165173.jpg", user1, etil, catel);
+                int publicacion8 = puCEN.New_(DateTime.Today, "Gato Mono 8", "Imagen", "https://img.buzzfeed.com/buzzfeed-static/static/2015-06/25/10/campaign_images/webdr12/este-puede-ser-el-gato-mas-triste-y-mono-de-la-hi-2-5356-1435241579-5_dblbig.jpg", user1, etil, catel);
 
                 PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);
                 Console.WriteLine ("creada publicacion con id -> " + publicacion1);
@@ -192,23 +199,23 @@ public static void InitializeData ()
                 IList<int> cat = new List<int>();
                 IList<EtiquetaEN> eti = new List<EtiquetaEN>();
 
-                int categ1 = categCEN.New_("Perros", "Para los amantes de los perros.", 0);
+                int categ1 = categCEN.New_("Girafas", "Para los amantes de las girafas locas.", 0);//CUIDADO!!  "Perros" que esta categoria ya se crea arriba(el nombre es unico)
                 cat.Add(categ1);
 
-                int usr1 = usrCEN.New_("josera", "josera@gmail.com", "697400104", "spain", 697400104, "josera", "/img/perfildb.png", true, "", "", false, null);
-                int pub1 = pubCEN.New_(DateTime.Today, "Mono grillo", "Imagen", "/publicaciones/imagenes/" + user1 + "monogrillo/", usr1, etil, catel);
-                int etiq1 = etiqCEN.New_("Mono grillo", cat);
+               // int usr1 = usrCEN.New_("josera", "josera@gmail.com", "697400104", "spain", 697400104, "josera", "/img/perfildb.png", true, "", "", false, null);
+               // int pub1 = pubCEN.New_(DateTime.Today, "Mono grillo", "Imagen", "/publicaciones/imagenes/" + user1 + "monogrillo/", usr1, etil, catel);
+               // int etiq1 = etiqCEN.New_("Mono grillo", cat);
 
 
-                categCEN.Modify(categoria1, "perritos", "muy perros", 13);
-                categCEN.ListadoCategorias(1, 12);
-                categCEN.Destroy(categoria1);
-                Console.WriteLine(categCEN);
+                //categCEN.Modify(categoria1, "perritos", "muy perros", 13);
+                //categCEN.ListadoCategorias(1, 12);
+                //categCEN.Destroy(categoria1);
+                //Console.WriteLine(categCEN);
 
-                etiqCEN.Modify(pub1, "Etiquetao");
-                Console.WriteLine(etiqCEN);
-                etiqCEN.Destroy(etiq1);
-                Console.WriteLine(etiqCEN);
+                //etiqCEN.Modify(pub1, "Etiquetao");
+                //Console.WriteLine(etiqCEN);
+                //etiqCEN.Destroy(etiq1);
+                //Console.WriteLine(etiqCEN);
 
 
 

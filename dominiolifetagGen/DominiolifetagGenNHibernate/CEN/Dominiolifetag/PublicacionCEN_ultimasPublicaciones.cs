@@ -27,7 +27,7 @@ public System.Collections.Generic.IList<DominiolifetagGenNHibernate.EN.Dominioli
 
         try
         {
-                IList<PublicacionEN> publis = _IPublicacionCAD.ListaUltimas (categoria, 0, 5);
+                IList<PublicacionEN> publis = _IPublicacionCAD.ListaUltimas (categoria, 0, 6);
 
                 return publis;
         }

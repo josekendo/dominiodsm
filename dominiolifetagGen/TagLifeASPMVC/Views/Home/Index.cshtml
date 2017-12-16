@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@section featured {
     <br />
     <div class="row">
         <div class="col-xs-2"></div>
@@ -14,72 +13,8 @@
         </div>
     </div>
     <br/>
-    <br />
+    <br/>
     <div class="row"><div class="col-xs-12"><h3>&nbsp;Ultimas publicaciones:</h3></div></div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="https://www.w3schools.com/w3images/lights.jpg">
-                    <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-                    <div class="caption">
-                        <p>Lorem ipsum...</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="https://www.w3schools.com/w3images/nature.jpg">
-                    <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Nature" style="width:100%">
-                    <div class="caption">
-                        <p>Lorem ipsum...</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="https://www.w3schools.com/w3images/fjords.jpg">
-                    <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-                    <div class="caption">
-                        <p>Lorem ipsum...</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+    <div id="vista1">
+        @{Html.RenderAction("CargarUltimasPublicaciones", "Publicacion");} 
     </div>
-    
-<div class="row">
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="https://www.w3schools.com/w3images/lights.jpg">
-                <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum...</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="https://www.w3schools.com/w3images/nature.jpg">
-                <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Nature" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum...</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="https://www.w3schools.com/w3images/fjords.jpg">
-                <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum...</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div> 
-}

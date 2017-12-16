@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DominiolifetagGenNHibernate.CAD.Dominiolifetag;
+using DominiolifetagGenNHibernate.CEN.Dominiolifetag;
 using DominiolifetagGenNHibernate.EN.Dominiolifetag;
 using TagLifeASPMVC.Models;
 
@@ -14,6 +15,18 @@ namespace TagLifeASPMVC.Controllers
         //
         // GET: /Publicacion/
 
+        //vista parcial es como hacer un pedazo de una pagina para luego cargarla (un include por decirlo de alguna forma)
+        //se crea vista parcial
+
+        public ActionResult CargarUltimasPublicaciones()
+        {
+            // Codigo
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones("GATOS");
+
+            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
+            return PartialView(ulpu);
+        }
         public ActionResult Index()
         {
             return View();
