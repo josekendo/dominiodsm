@@ -21,7 +21,7 @@ namespace TagLifeASPMVC.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginModelS model)
         {
             UsuarioCEN cen = new UsuarioCEN();
             String mensaje = cen.Login(0, model.Email, model.Nick, model.Pass);

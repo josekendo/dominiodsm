@@ -10,12 +10,13 @@ namespace TagLifeASPMVC.Models
     {
 
         [ScaffoldColumn(false)]
-        public int iD {get;set;}
+        public int ID { get; set; }
 
 
 
         /**
          *	Atributo nombre
          */
-        public string Contenido {get;set;}
+        public string Contenido { get; set; }
+    }
 }

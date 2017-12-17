@@ -24,7 +24,7 @@ namespace TagLifeASPMVC.Models
         public bool Bloqueado { get; set; }
     }
     //modelo que nos servira para recorger los datos del login, uno de los dos estara vacio por defecto el email
-    public class LoginModel
+    public class LoginModelS
     {
         [Required]
         public string Nick { get; set; }

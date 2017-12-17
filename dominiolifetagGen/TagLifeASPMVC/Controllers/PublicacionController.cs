@@ -23,7 +23,6 @@ namespace TagLifeASPMVC.Controllers
             // Codigo
             PublicacionCEN publicacionCEN = new PublicacionCEN();
             IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones("GATOS");
-
             IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
             return PartialView(ulpu);
         }
