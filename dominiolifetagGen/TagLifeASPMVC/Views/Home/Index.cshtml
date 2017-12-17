@@ -6,15 +6,106 @@
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
             <div class="btn-group btn-group-justified">
-                <a href="@Url.Action("Login", "Account")" class="btn btn-primary">Login</a>
-                <a href="@Url.Action("Register", "Account")" class="btn btn-primary">Registro</a>
+                <a href="#" data-toggle="modal" data-target="#login" class="btn btn-default">Login</a>
+                <a href="#" data-toggle="modal" data-target="#registro" class="btn btn-default">Registro</a>
         </div> 
         </div>
+        @Url.Action("Login", "Usuario")
+        @Url.Action("Registro", "Usuario")
         </div>
     </div>
     <br/>
     <br/>
     <div class="row"><div class="col-xs-12"><h3>&nbsp;Ultimas publicaciones:</h3></div></div>
-    <div id="vista1">
-        @{Html.RenderAction("CargarUltimasPublicaciones", "Publicacion");} 
+    @{Html.RenderAction("CargarUltimasPublicaciones", "Publicacion");} 
+      <!-- Modal -->
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Login", "Usuario", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="Nick">Nickname:</label>
+                            <input type="text" class="form-control" id="Nick">
+                        </div>
+                        <p align="center">O</p>
+                        <div class="form-group">
+                            <label for="Email">Email:</label>
+                            <input type="email" class="form-control" id="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="Pass">Password:</label>
+                            <input type="password" class="form-control" id="Pass">
+                        </div>
+                        <button type="submit" class="btn btn-default">Entrar</button>
+                    } 
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
+   </div>
+      <!-- Modal -->
+    <div class="modal fade" id="registro" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registro</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="form-group">
+                        <label for="nick">Nickname:</label>
+                        <input type="text" class="form-control" id="nick">
+                    </div>      
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefono(opcional):</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="pais">Selecciona tu Pais:</label>
+                        <select class="form-control" id="pais">
+                            <option value="es" selected>España</option>
+                            <option value="en">Inglaterra</option>
+                            <option value="ja">Japon</option>
+                            <option value="ch">China</option>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd2">Repetir password:</label>
+                        <input type="password" class="form-control" id="pwd2">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"><a href="#">Acepto las politicas</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Registrarse</button>
+                </form> 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

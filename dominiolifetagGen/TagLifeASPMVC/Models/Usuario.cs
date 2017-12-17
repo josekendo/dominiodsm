@@ -10,23 +10,8 @@ namespace TagLifeASPMVC.Models
     {
 
         [ScaffoldColumn(false)]
-        public int iD {get;set;}
-
-
-
-        /**
-         *	Atributo nombre
-         */
+        public int ID {get;set;}
         public string Nombre {get;set;}
-
-
-
-
-
-
-        /**
-         *	Atributo descripcion
-         */
         public string Email { get; set; }
         public string Password { get; set; }
         public string Pais { get; set; }
@@ -37,7 +22,19 @@ namespace TagLifeASPMVC.Models
         public string Listamegusta { get; set; }
         public string Categoriassuscrito { get; set; }
         public bool Bloqueado { get; set; }
+    }
+    //modelo que nos servira para recorger los datos del login, uno de los dos estara vacio por defecto el email
+    public class LoginModel
+    {
+        [Required]
+        public string Nick { get; set; }
+  
+        [Required]
+        [DataType(DataType.Password)]
+        public string Pass { get; set; }
 
-
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email{ get; set; }
     }
 }

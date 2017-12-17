@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DominiolifetagGenNHibernate.CAD.Dominiolifetag;
+using DominiolifetagGenNHibernate.CEN.Dominiolifetag;
 using DominiolifetagGenNHibernate.EN.Dominiolifetag;
 using TagLifeASPMVC.Models;
 
@@ -18,91 +19,15 @@ namespace TagLifeASPMVC.Controllers
         {
             return View();
         }
-
-        //
-        // GET: /Usuario/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Usuario/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Usuario/Create
-
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [AllowAnonymous]
+        public ActionResult Login(LoginModel model)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Usuario/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Usuario/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Usuario/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Usuario/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            UsuarioCEN cen = new UsuarioCEN();
+            String mensaje = cen.Login(0, model.Email, model.Nick, model.Pass);
+            Console.WriteLine(mensaje," --- ",model.Pass);
+            //si es correcto creamos la session con el id (seria incorrecto tendriamos que crear la seguridad debidad con claves en rsa y tal pero bueno)
+            return RedirectToAction("Index", "Home", new {men=mensaje});
         }
     }
 }

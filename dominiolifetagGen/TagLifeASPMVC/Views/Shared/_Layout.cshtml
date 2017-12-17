@@ -20,7 +20,7 @@
                     <li><a href="@Url.Action("Contact", "Home")"><span class="glyphicon glyphicon-earphone"></span></a></li>
                     <li><a href="@Url.Action("About", "Home")"><span class="glyphicon glyphicon-info-sign"></span></a></li>
                     <!--<span class=\"glyphicon glyphicon - earphone\"></span>-->
-                    <li><a href="#"><span class="glyphicon glyphicon-share-alt"></span></a></li>
+                    <li><a class="a2a_dd" href="https://www.addtoany.com/share"><span class="glyphicon glyphicon-share-alt"></span></a></li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="input-group">
@@ -52,3 +52,10 @@
         </div>
     </body>
 </html>
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.onclick = 1;
+    a2a_config.locale = "es";
+    a2a_config.num_services = 16;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
