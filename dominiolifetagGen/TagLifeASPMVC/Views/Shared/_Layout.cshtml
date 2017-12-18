@@ -14,7 +14,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    @Html.ActionLink("LifeTag", "Index", "Home", htmlAttributes: new { @class = "navbar-brand" })
+                    <a href="@Url.Action("Index", "Home")" class="navbar-brand"><b style="color:red;">L</b>ife<b style="color:red;">T</b>ag</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("Contact", "Home")"><span class="glyphicon glyphicon-earphone"></span></a></li>

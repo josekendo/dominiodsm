@@ -74,3 +74,4 @@ C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\DominiolifetagGen
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.pdb
+C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\DominiolifetagGenNHibernate\obj\Debug\DominiolifetagGenNHibernate.csprojResolveAssemblyReference.cache
