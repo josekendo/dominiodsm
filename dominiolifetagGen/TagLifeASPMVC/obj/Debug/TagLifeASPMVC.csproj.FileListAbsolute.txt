@@ -174,7 +174,6 @@ C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\System.Web.WebPages.xml
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\System.Web.WebPages.Deployment.xml
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\System.Web.WebPages.Razor.xml
-C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\WebMatrix.Data.xml
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\Microsoft.Web.WebPages.OAuth.xml
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\WebMatrix.WebData.xml
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\DotNetOpenAuth.AspNet.xml
@@ -198,7 +197,6 @@ C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\System.Web.WebPages.resources.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\WebMatrix.Data.resources.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\Microsoft.Web.WebPages.OAuth.resources.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\WebMatrix.WebData.resources.dll
 C:\Users\JVAC\Documents\DominiDSM\dominiodsm\dominiolifetagGen\TagLifeASPMVC\bin\es\System.Web.Http.OData.resources.dll

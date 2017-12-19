@@ -1,12 +1,21 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "LifeTag | Inicio";
 }
     <br />
+    @if (ViewBag.Men == "usuario incorrecto")
+    {
+        @:<div class="container">
+            @:<h2>Error</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+            @:</div>
+        @:</div>
+    }
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
             <div class="btn-group btn-group-justified">
-                <a href="#" data-toggle="modal" data-target="#login" class="btn btn-default">Login</a>
+                <a href="#" data-toggle="modal" data-target="#login" class="btn btn-default">Login @ViewBag.Men</a>
                 <a href="#" data-toggle="modal" data-target="#registro" class="btn btn-default">Registro</a>
         </div> 
         </div>
@@ -25,24 +34,23 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("Login", "Usuario", FormMethod.Post))
+                    @using (Html.BeginForm("LoginUsuario", "Usuario", FormMethod.Post))
                     {
                         <div class="form-group">
-                            <label for="Nick">Nickname:</label>
-                            <input type="text" class="form-control" id="Nick">
+                            <label for="nickname">Nickname:</label>
+                            <input type="text" class="form-control" id="nickname" name="nickname">
                         </div>
                         <p align="center">O</p>
                         <div class="form-group">
-                            <label for="Email">Email:</label>
-                            <input type="email" class="form-control" id="Email">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="Pass">Password:</label>
-                            <input type="password" class="form-control" id="Pass">
+                            <label for="pass">Password:</label>
+                            <input type="password" class="form-control" name="pass" id="pass">
                         </div>
-                        <button type="submit" class="btn btn-default">Entrar</button>
+                        <button type="submit" class="btn btn-danger">Entrar</button>
                     } 
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

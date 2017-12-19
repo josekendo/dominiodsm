@@ -17,33 +17,6 @@ namespace TagLifeASPMVC.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        //
-        // GET: /Account/Login
-
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
-        //
-        // POST: /Account/Login
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
-        {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
-            {
-                return RedirectToLocal(returnUrl);
-            }
-
-            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
-            ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
-            return View(model);
-        }
 
         //
         // POST: /Account/LogOff
