@@ -1,0 +1,22 @@
+﻿@model TagLifeASPMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "LifeTag | Perfil";
+	Layout = "~/Views/Shared/_LayoutUSER.cshtml";
+}
+  <br/>
+    @if (ViewBag.Men == "usuario incorrecto")
+    {
+        @:<div class="container">
+            @:<h2>Error</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+            @:</div>
+        @:</div>
+    }
+
+    <br/>
+    <br/>
+    <div class="row"><div class="col-xs-12 text-center"><img src="like.png" class="img-responsive" style="margin:0 auto;"><h3>&nbsp;Mis Publicaciones'</h3></div></div>
+    @{Html.RenderAction("CargarUltimasPublicaciones", "Publicacion");}
+    <!--en lugar de cargar las ultimas se cargan las publicaciones de este perfil concretamente-->
