@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>@ViewBag.Title</title>
+        <!--Se quita render(content css y bundles/moderniz)-->
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index", "Home")" class="navbar-brand"><b style="color:red;">L</b>ife<b style="color:red;">T</b>ag</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Contact", "Home")"><span class="glyphicon glyphicon-earphone"></span></a></li>
+                    <li><a href="@Url.Action("About", "Home")"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+                    <!--<span class=\"glyphicon glyphicon - earphone\"></span>-->
+                    <li><a class="a2a_dd" href="https://www.addtoany.com/share"><span class="glyphicon glyphicon-share-alt"></span></a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Escribe tu busqueda">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <select class="form-control" id="sel1">
+                            <option>ES</option>
+                            <option>EN</option>
+                            <option>CH</option>
+                            <option>JA</option>
+                        </select>
+                    </div>
+                </form>
+</div>
+        </nav>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+    </body>
+</html>
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.onclick = 1;
+    a2a_config.locale = "es";
+    a2a_config.num_services = 16;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
