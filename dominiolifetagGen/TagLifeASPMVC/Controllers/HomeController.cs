@@ -8,12 +8,13 @@ namespace TagLifeASPMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string men)
         {
             ViewBag.Message = "Home LifeTag";
-
+            ViewBag.Men = men;
             return View();
         }
+
 
         public ActionResult About()
         {

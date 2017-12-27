@@ -27,10 +27,11 @@ namespace TagLifeASPMVC.Controllers
         {
             UsuarioCEN cen = new UsuarioCEN();
             String passencrip = Encrypt.GetMD5(pass);
-            String mensaje;
+            String mensaje; 
             if (email.Length > 5)//a@a.c
             {
                 mensaje = cen.Login(0, email, null, pass);
+                
                 if (mensaje != "usuario incorrecto")
                 {
                     Session["iduser"] = mensaje;
@@ -40,7 +41,7 @@ namespace TagLifeASPMVC.Controllers
             }
             else if (nickname.Length > 1)
             {
-                mensaje = cen.Login(0, email, nickname, passencrip);
+                mensaje = cen.Login(0, email, nickname, pass);
                 if (mensaje != "usuario incorrecto")
                 {
                     Session["iduser"] = mensaje;
@@ -54,7 +55,15 @@ namespace TagLifeASPMVC.Controllers
             }
             //si es correcto creamos la session con el id (seria incorrecto tendriamos que crear la seguridad debidad con claves en rsa y tal pero bueno)
             ViewBag.Men = mensaje;
-            return RedirectToAction("Index", "Home");
+            if (Session["iduser"] != null)
+            {
+                String idu = Convert.ToString(Session["iduser"]);
+                if (idu.Length > 1)
+                {
+                    return RedirectToAction("Index", "Usuario", new { men = mensaje });
+                }
+            }
+            return RedirectToAction("Index", "Home",new{men = mensaje});
         }
 
         public class Encrypt
