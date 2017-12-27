@@ -2,12 +2,25 @@
     ViewBag.Title = "LifeTag | Inicio";
 }
     <br />
+    @if (Session["iduser"] != null && (String)Session["iduser"] != " ")
+    {
+        <script> window.location.href='@Url.Action("Index", "Usuario")'; </script>
+    }
     @if (ViewBag.Men == "usuario incorrecto")
     {
         @:<div class="container">
             @:<h2>Error</h2>
             @:<div class="alert alert-danger">
                 @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+            @:</div>
+        @:</div>
+    }
+    @if (ViewBag.Men == "registro incorrecto")
+    {
+        @:<div class="container">
+            @:<h2>Error</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Error de Registro:</strong> Los datos que ha introducido no son correctos o ya existe el usuario
             @:</div>
         @:</div>
     }
@@ -68,22 +81,23 @@
                 <h4 class="modal-title">Registro</h4>
             </div>
             <div class="modal-body">
-                <form action="#">
+                @using (Html.BeginForm("RegistroUser", "Usuario", FormMethod.Post))
+                {
                     <div class="form-group">
                         <label for="nick">Nickname:</label>
-                        <input type="text" class="form-control" id="nick">
+                        <input type="text" class="form-control" name="nick" id="nick">
                     </div>      
                     <div class="form-group">
                         <label for="name">Nombre:</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefono(opcional):</label>
-                        <input type="text" class="form-control" id="phone">
+                        <input type="text" class="form-control" name="phone" id="phone">
                     </div>
                     <div class="form-group">
                         <label for="pais">Selecciona tu Pais:</label>
-                        <select class="form-control" id="pais">
+                        <select class="form-control" id="pais" name="pais">
                             <option value="es" selected>España</option>
                             <option value="en">Inglaterra</option>
                             <option value="ja">Japon</option>
@@ -92,21 +106,21 @@
                     </div> 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <input type="password" class="form-control" id="pwd" name="pwd">
                     </div>
                     <div class="form-group">
                         <label for="pwd2">Repetir password:</label>
-                        <input type="password" class="form-control" id="pwd2">
+                        <input type="password" class="form-control" id="pwd2" name="pwd2">
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox"><a href="#">Acepto las politicas</a></label>
+                        <label><input type="checkbox" name="poli"><a href="#">Acepto las politicas</a></label>
                     </div>
                     <button type="submit" class="btn btn-default">Registrarse</button>
-                </form> 
+                }
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

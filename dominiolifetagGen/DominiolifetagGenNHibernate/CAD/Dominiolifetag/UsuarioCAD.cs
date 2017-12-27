@@ -184,22 +184,17 @@ public int New_ (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                if (usuario.Publicacion != null) {
-                        foreach (DominiolifetagGenNHibernate.EN.Dominiolifetag.PublicacionEN item in usuario.Publicacion) {
-                                item.Usuario = usuario;
-                                session.Save (item);
-                        }
-                }
-
+                usuario.Publicacion = new System.Collections.Generic.List<PublicacionEN>();
+                usuario.ID =DateTime.Now.Day+DateTime.Now.Month + DateTime.Now.Year + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
+                usuario.Hash = usuario.ID + 1;
+                System.Diagnostics.Debug.WriteLine(usuario.ID + " clave " +usuario.Hash);
                 session.Save (usuario);
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new DominiolifetagGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                usuario.ID = -1;
         }
 
 

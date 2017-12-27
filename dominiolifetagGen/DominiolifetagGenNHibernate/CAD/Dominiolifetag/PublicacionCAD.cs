@@ -151,7 +151,7 @@ public int New_ (PublicacionEN publicacion)
                                 publicacion.Categoria [i].Publicacion.Add (publicacion);
                         }
                 }
-
+                Console.WriteLine(publicacion.ID + " clave publicacion");
                 session.Save (publicacion);
                 SessionCommit ();
         }
