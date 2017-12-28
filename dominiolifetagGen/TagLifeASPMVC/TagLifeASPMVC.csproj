@@ -354,10 +354,12 @@
     <Content Include="Views\Shared\_LayoutADMIN.cshtml" />
     <Content Include="Views\Shared\_LayoutUSER.cshtml" />
     <Content Include="Views\Publicacion\CargarUltimasPublicaciones.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Publicacion\searchi.cshtml" />
+    <Content Include="Views\Home\BusquedaInvitado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administrador\" />
     <Folder Include="Views\Comentario\" />
     <Folder Include="Views\Etiqueta\" />
     <Folder Include="Views\Reporte\" />

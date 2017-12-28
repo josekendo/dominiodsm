@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Busqueda Invitado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+    <h3>Resultados de la busqueda "@ViewBag.Busqueda":</h3>
+
+    </div>
+</div>
+@{Html.RenderAction("Searchi", "Publicacion", new { busqueda = ViewBag.Busqueda});}

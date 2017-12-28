@@ -34,10 +34,10 @@ public string Login (int p_oid, string email, string nickname, String password)
 
         if (nickname != null) {
                 users = usuarioCEN.Buscarusuario (nickname, password);
-        }
+            }
         else{
                 users = usuarioCEN.Buscarusuario (email, password);
-        }
+            }
 
         if (users != null && users.Count >= 1) {
                 usuario = _IUsuarioCAD.ReadOIDDefault (users [0].ID);

@@ -26,7 +26,17 @@ namespace TagLifeASPMVC.Controllers
             IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
             return PartialView(ulpu);
         }
-        public ActionResult Index()
+
+        public ActionResult Searchi(String busqueda)
+        {
+            System.Diagnostics.Debug.WriteLine(busqueda);
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            IList<PublicacionEN> ultimas = publicacionCEN.BuscarPublicaciones(true, new DateTime(1970,1,1), busqueda);
+            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
+            System.Diagnostics.Debug.WriteLine(ultimas.Count);
+            return PartialView(ulpu);
+        }
+            public ActionResult Index()
         {
             return View();
         }

@@ -9,6 +9,7 @@ using DominiolifetagGenNHibernate.EN.Dominiolifetag;
 using TagLifeASPMVC.Models;
 using System.Diagnostics;
 using System.Text;
+using System.IO;
 
 namespace TagLifeASPMVC.Controllers
 {
@@ -23,15 +24,15 @@ namespace TagLifeASPMVC.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult LoginUsuario(String nickname, String email,String pass)
+        public ActionResult LoginUsuario(String nickname, String email, String pass)
         {
             UsuarioCEN cen = new UsuarioCEN();
             String passencrip = Encrypt.GetMD5(pass);
-            String mensaje; 
+            String mensaje;
             if (email.Length > 5)//a@a.c
             {
                 mensaje = cen.Login(0, email, null, pass);
-                
+
                 if (mensaje != "usuario incorrecto")
                 {
                     Session["iduser"] = mensaje;
@@ -63,12 +64,12 @@ namespace TagLifeASPMVC.Controllers
                     return RedirectToAction("Index", "Usuario", new { men = mensaje });
                 }
             }
-            return RedirectToAction("Index", "Home",new{men = mensaje});
+            return RedirectToAction("Index", "Home", new { men = mensaje });
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult RegistroUser(String nick, String name, String phone, String pais, String email, String pwd, String pwd2, String poli)
+        public ActionResult RegistroUser(String nick, String name, String phone, String pais, String email, String pwd, String pwd2, HttpPostedFileBase fil,String poli)
         {
             System.Diagnostics.Debug.WriteLine(nick+" - "+name+" "+phone+" "+pais+" "+email+" "+pwd+" "+pwd2+" "+poli+" ");
             UsuarioCAD cen = new UsuarioCAD();
@@ -87,11 +88,26 @@ namespace TagLifeASPMVC.Controllers
                 us.Bloqueado = false;
                 us.Categoriassuscrito = "";
                 us.Email = email;
-                us.Fotoruta = "nula";
+                var path = "";
+                if (fil != null && fil.ContentLength > 0)
+                {
+                    var nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
+                    path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
+                    us.Fotoruta = path;
+                }
+                else
+                {
+                    us.Fotoruta = "nula";
+                }
                 int use = cen.New_(us);
                 System.Diagnostics.Debug.WriteLine(use+" id devuelto");
                 if (use != -1)
                 {
+                    //aqui subimos la imagen
+                    if (fil != null && fil.ContentLength > 0)
+                    {
+                        fil.SaveAs(path);
+                    }
                     Session["iduser"] = Convert.ToString(use);
                     String mensaje2 = "registro correcto";
                     return RedirectToAction("Index", "Home", new { men = mensaje2 });

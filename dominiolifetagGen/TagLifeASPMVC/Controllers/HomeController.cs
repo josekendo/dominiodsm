@@ -15,6 +15,13 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult BusquedaInvitado(String busqueda)
+        {
+            ViewBag.Busqueda = busqueda;
+            return View();
+        }
 
         public ActionResult About()
         {
