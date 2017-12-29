@@ -1,9 +1,14 @@
 ﻿@{
     ViewBag.Title = "Estadisticas";
     Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
+    ViewBag.Titulop = "Ver Estadisticas";
+}
+
+@if (Session["idadmin"] == null || (String)Session["idadmin"] == "") //ponerlo en todos es quien le dice que sin session no tiene acceso
+{
+    <script> window.location.href='@Url.Action("Index", "Administrador")'; </script>
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-<h2>Estadisticas:</h2>
 <div class="row">
     <div class="col-sm-6">
         <div class="panel panel-default">
@@ -15,7 +20,7 @@
     </div>
     <div class="col-sm-6">
         <div class="panel panel-default">
-            <div class="panel-heading">Ni idea</div>
+            <div class="panel-heading">Reportes vs Publicaciones</div>
             <div class="panel-body">
                 <canvas id="publicaciones2"></canvas>
             </div>
@@ -23,6 +28,6 @@
     </div>
 </div>
     <script>
-        var myDoughnutChart = new Chart(document.getElementById("publicaciones"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [300, 50], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
-        var myDoughnutChart2 = new Chart(document.getElementById("publicaciones2"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [300, 50], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
+        var myDoughnutChart = new Chart(document.getElementById("publicaciones"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [@ViewBag.ni, @ViewBag.nv], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
+        var myDoughnutChart2 = new Chart(document.getElementById("publicaciones2"), { "type": "pie", "data": { "labels": ["Reportes", "Publicaciones totales"], "datasets": [{ "label": "Imagenes vs Videos", "data": [@ViewBag.nr, @ViewBag.np], "backgroundColor": ["rgb(204, 51, 0)", "rgb(102, 255, 153)"] }] } });
     </script>

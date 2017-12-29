@@ -1,6 +1,11 @@
 ﻿@{
     Layout = null;
 }
+
+@if (Session["idadmin"] != null)
+{
+    <script> window.location.href='@Url.Action("Menu", "Administrador")'; </script>
+}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +19,24 @@
     <!--Se quita render(content css y bundles/moderniz)-->
 </head>
 <body>
+    @if (ViewBag.Men == "usuario incorrecto")
+    {
+        @:<div class="container">
+            @:<h2>Error</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+            @:</div>
+        @:</div>
+    }
+    @if (ViewBag.Men == "close")
+    {
+        @:<div class="container">
+            @:<h2>Cierre de sesion</h2>
+            @:<div class="alert alert-info">
+                @:<strong>Sesion cerrada:</strong> cerrada correctamente.
+                @:</div>
+            @:</div>
+    }
     <div class="container">
         <div class="card card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
@@ -22,13 +45,14 @@
             <h4 align="center"><b>Administradores/Moderadores</b></h4>
             
             <img class="img-circle" width="20%" style="margin-left:39%;" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <form class="form-signin">
+            @using (Html.BeginForm("Login", "Administrador", FormMethod.Post))
+            {
                 <br />
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo / Gmail" required autofocus>
                 <input type="password" name="pass" id="inputPassword" class="form-control" placeholder="Password" required>
                 <br />
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar </button>
-            </form><!-- /form -->
+            }<!-- /form -->
         </div><!-- /card-container -->
     </div>
 </body>

@@ -106,6 +106,8 @@ public static void InitializeData ()
                 int admin1 = adminCEN.New_("Administrador", "david", "12345", "davids@gmail.com");
                 int admin2 = adminCEN.New_("Administrador", "jose", "54321", "josev@gmail.com");
                 int admin3 = adminCEN.New_("Moderador", "pepito", "11123", "pepito@gmail.com");
+                int admin4 = adminCEN.New_("Moderador", "pepito2", "11123", "pepito2@gmail.com");
+                int admin5 = adminCEN.New_("Moderador", "pepito3", "11123", "pepito3@gmail.com");
                 Console.WriteLine("creado administrador con id -> " + admin1);
                 Console.WriteLine("creado administrador con id -> " + admin2);
                 Console.WriteLine("creado administrador con id -> " + admin3);

@@ -1,6 +1,77 @@
 ﻿@{
     ViewBag.Title = "Menu";
+    ViewBag.Titulop = "Menu Administrador/Moderador";
     Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
 }
 
-<h2>Menu</h2>
+@if (Session["idadmin"] == null || (String)Session["idadmin"] == "") //ponerlo en todos es quien le dice que sin session no tiene acceso
+{
+    <script> window.location.href='@Url.Action("Index", "Administrador")'; </script>
+}
+<div class="row">
+    @if (ViewBag.Tipo == "Administrador")
+    {
+        <div class="col-sm-2"></div>
+    }
+    else
+    {
+        <div class="col-sm-3"></div>
+    }
+        <div class="col-sm-2">
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Ver Reportes</p></div>
+        </div>
+    @if(ViewBag.Tipo == "Administrador"){
+        <div class="col-sm-2">
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Crear Categoria</p></div>
+        </div>
+    }
+        <div class="col-sm-2">
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Bloquear Usuario</p></div>
+        </div>
+        <div class="col-sm-2">
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("Estadisticas", "Administrador")">Ver Estadisticas</a></p></div>
+        </div>
+        @if (ViewBag.Tipo == "Administrador")
+        {
+            <div class="col-sm-2"></div>
+        }
+        else
+        {
+            <div class="col-sm-3"></div>
+        }
+</div>
+<br/><br />
+<div class="row">
+    @if (ViewBag.Tipo == "Administrador")
+    {
+        <div class="col-sm-2"></div>
+    }
+    else
+    {
+        <div class="col-sm-3"></div>
+    }
+
+@if (ViewBag.Tipo == "Administrador")
+{
+    <div class="col-sm-2">
+        <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("EditarModerador", "Administrador")">Editar Moderadores</a></p></div>
+    </div>
+}
+    <div class="col-sm-2">
+        <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Quitar Bloqueo</div>
+    </div>
+    <div class="col-sm-2">
+             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Editar Usuario</div>
+     </div>
+     <div class="col-sm-2">
+             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Buscar Publicaciones</div>
+     </div>
+@if (ViewBag.Tipo == "Administrador")
+{
+    <div class="col-sm-2"></div>
+}
+else
+{
+    <div class="col-sm-3"></div>
+}
+</div>

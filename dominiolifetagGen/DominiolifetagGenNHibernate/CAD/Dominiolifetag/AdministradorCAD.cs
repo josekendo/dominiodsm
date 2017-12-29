@@ -62,14 +62,13 @@ public System.Collections.Generic.IList<AdministradorEN> ReadAllDefault (int fir
         System.Collections.Generic.IList<AdministradorEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
+                SessionInitializeTransaction();
                         if (size > 0)
                                 result = session.CreateCriteria (typeof(AdministradorEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<AdministradorEN>();
                         else
                                 result = session.CreateCriteria (typeof(AdministradorEN)).List<AdministradorEN>();
-                }
+                SessionClose();
         }
 
         catch (Exception ex) {

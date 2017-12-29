@@ -28,13 +28,14 @@ public string Login (int p_oid, String password, string arg2)
         AdministradorEN admin = null;
         AdministradorCEN adminCEN = new AdministradorCEN (_IAdministradorCAD);
 
-        IList<AdministradorEN> admins = adminCEN.SearchUser (arg2, password);
-        if (admins != null && admins.Count >= 1) {
+        IList<AdministradorEN> admins = adminCEN.SearchUser (arg2,password);
+        if (admins != null && admins.Count >= 1)
+        {
                 admin = _IAdministradorCAD.ReadOIDDefault (admins [0].ID);
         }
-
-        if (admin != null && password == admin.Password && (arg2 == admin.Nickname || arg2 == admin.Email)) {
-                return Convert.ToString (p_oid);
+   
+        if (admin != null && Utils.Util.GetEncondeMD5(password) == admin.Password && (arg2 == admin.Nickname || arg2 == admin.Email)) {
+                return Convert.ToString (admin.ID);
         }
         else{
                 return "usuario incorrecto";

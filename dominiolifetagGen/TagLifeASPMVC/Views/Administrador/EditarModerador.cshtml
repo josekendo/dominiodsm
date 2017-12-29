@@ -1,57 +1,96 @@
-﻿@model TagLifeASPMVC.Models.Administrador
+﻿@model IEnumerable<TagLifeASPMVC.Models.Administrador>
 
 @{
     ViewBag.Title = "EditarModerador";
+    ViewBag.Titulop = "Edicion de Moderadores";
     Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
 }
 
-<h2>EditarModerador</h2>
+    @if (ViewBag.Info == "nada")
+    {
+        @:<div class="container">
+            @:<h2>Informacion</h2>
+            @:<div class="alert alert-info">
+                @:<strong>Operaciones realizadas:</strong> Ninguna
+            @:</div>
+        @:</div>
+    }
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @if (ViewBag.Info == "cambio")
+    {
+        @:<div class="container">
+            @:<h2>Informacion</h2>
+            @:<div class="alert alert-info">
+                @:<strong>Operaciones realizadas:</strong> Cambios realizados en la contraseña de los usuarios seleccionados
+            @:</div>
+        @:</div>
+    }
 
-    <fieldset>
-        <legend>Administrador</legend>
+    @if (ViewBag.Info == "correcto")
+    {
+        @:<div class="container">
+            @:<h2>Informacion</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Operaciones realizadas:</strong> Borrados los usuarios
+            @:</div>
+        @:</div>
+    }
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nickname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nickname)
-            @Html.ValidationMessageFor(model => model.Nickname)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo)
-            @Html.ValidationMessageFor(model => model.Tipo)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Ir al menu", "Menu")
+<input class="form-control" id="myInput" type="text" placeholder="Busca al moderador">
+<br>
+@using (Html.BeginForm("EdicionM", "Administrador", FormMethod.Post))
+{
+<div class="row">
+<div class="col-sm-12">
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Seleccion</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Gmail</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+            if (item.Tipo == "Moderador")
+            {
+                @:<tr>
+                    @:<td><input type="checkbox" name="sele" id="sele" value="@item.iD"></td>
+                    @:<td>@item.iD</td>
+                    @:<td>@item.Nickname</td>
+                    @:<td>@item.Email</td>
+                @:</tr>
+            }
+        }
+    </tbody>
+</table>
 </div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+    <label for="sel1">Selecciona una opcion de la lista:</label>
+    <select onchange="var obj= document.getElementById('pass');if(this.value=='camp'){obj.style='display:inline-block;';}else{obj.style='display:none;';};" class="form-control" name="sel1" id="sel1">
+        <option value="del">Borrar</option>
+        <option value="camp">Cambiar Password</option>
+    </select>
+    <input type="password" name="pass" style="display:none;" class="form-control" placeholder="Nuevo password" id="pass"/>
+    <button type="submit" class="btn btn-default">Realizar Operacion</button>
+</div>
+</div>
+}
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+

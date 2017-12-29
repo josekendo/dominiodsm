@@ -62,14 +62,13 @@ public System.Collections.Generic.IList<PublicacionEN> ReadAllDefault (int first
         System.Collections.Generic.IList<PublicacionEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
+                        SessionInitializeTransaction();
                         if (size > 0)
                                 result = session.CreateCriteria (typeof(PublicacionEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<PublicacionEN>();
                         else
                                 result = session.CreateCriteria (typeof(PublicacionEN)).List<PublicacionEN>();
-                }
+                        SessionClose();
         }
 
         catch (Exception ex) {
