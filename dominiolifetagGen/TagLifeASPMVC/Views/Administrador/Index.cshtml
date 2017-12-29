@@ -1,8 +1,35 @@
-﻿@model TagLifeASPMVC.Models.Administrador
-
-@{
-    ViewBag.Title = "Login Administradores/Moderadores";
-    Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
+﻿@{
+    Layout = null;
 }
-
-<h2>Login administradores</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Zona Administradores</title>
+    <!--Se quita render(content css y bundles/moderniz)-->
+</head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <br />
+            <h3 align="center"><b>Login</b></h3>
+            <h4 align="center"><b>Administradores/Moderadores</b></h4>
+            
+            <img class="img-circle" width="20%" style="margin-left:39%;" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <form class="form-signin">
+                <br />
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo / Gmail" required autofocus>
+                <input type="password" name="pass" id="inputPassword" class="form-control" placeholder="Password" required>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar </button>
+            </form><!-- /form -->
+        </div><!-- /card-container -->
+    </div>
+</body>
+</html>

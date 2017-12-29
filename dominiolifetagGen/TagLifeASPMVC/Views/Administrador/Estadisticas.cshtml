@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Estadisticas";
+    Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<h2>Estadisticas:</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Imagenes vs Videos</div>
+            <div class="panel-body">
+                <canvas id="publicaciones"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Ni idea</div>
+            <div class="panel-body">
+                <canvas id="publicaciones2"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var myDoughnutChart = new Chart(document.getElementById("publicaciones"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [300, 50], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
+        var myDoughnutChart2 = new Chart(document.getElementById("publicaciones2"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [300, 50], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
+    </script>
