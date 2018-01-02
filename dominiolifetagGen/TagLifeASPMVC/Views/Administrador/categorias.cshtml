@@ -6,3 +6,59 @@
 }
 
 <h2>categorias</h2>
+
+<br />
+@if (ViewBag.Men == "usuario incorrecto")
+{
+    @:<div class="container">
+        @:<h2>Error</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+                @:</div>
+            @:</div>
+    }
+
+<br />
+<br />
+<div class="row">
+    <div class="col-xs-6">        
+        <h3>&nbsp;Categorias</h3>
+        <!--for (var i = 0; i < 4; i++){
+
+        <span class="glyphicon glyphicon-eye</span>
+             <button type="button" class="btn btn-default">Categoria name</button>
+
+        }-->
+
+
+    </div>
+
+    <div class="col-xs-6">       
+        <h3>&nbsp;Nueva categoria</h3>
+
+        <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombre">nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">descripcion:</label>
+                            <input type="descripcion" class="form-control" id="descripcion" name="descripcion">
+                        </div>
+                     <div class="form-group">
+                       <label for="quantity">rango de edad: </label>
+                        <input type="number" name="quantity" min="1" max="100">
+                         <label for="edad"> - </label>
+                         <input type="number" name="edad" min="1" max="100">
+                    </div> 
+                        <div class="form-group">
+                            <label for="fil">Imagen de perfil:</label>
+                            <input type="file" class="form-control" id="fil" name="fil">
+                        </div>
+                        <button type="submit" class="btn btn-danger">Crear</button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+           
+
+
+    </div>
+</div>
