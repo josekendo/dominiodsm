@@ -22,6 +22,18 @@ namespace TagLifeASPMVC.Controllers
             ViewBag.Men = men;
             return View();
         }
+        public ActionResult bloquear()
+        {
+            return View();
+        }
+        public ActionResult edicion()
+        {
+            return View();
+        }
+        public ActionResult categorias()
+        {
+            return View();
+        }
         //pagina de inicio
         public ActionResult Menu()
         {

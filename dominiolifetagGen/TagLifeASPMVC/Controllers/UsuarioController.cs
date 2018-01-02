@@ -22,6 +22,17 @@ namespace TagLifeASPMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult perfil()
+        {
+            return View();
+        }
+
+        public ActionResult favoritos()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult LoginUsuario(String nickname, String email, String pass)

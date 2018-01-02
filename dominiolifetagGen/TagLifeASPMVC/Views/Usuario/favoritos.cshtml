@@ -17,6 +17,11 @@
 
     <br/>
     <br/>
-    <div class="row"><div class="col-xs-12 text-center"><img src="like.png" class="img-responsive" style="margin:0 auto;"><h3>&nbsp;Mi Lista de 'Me gustas'</h3></div></div>
-    @{Html.RenderAction("CargarUltimasPublicaciones", "Publicacion");}
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <img src="https://image.flaticon.com/icons/png/128/54/54806.png" class="img-responsive" style="margin:0 auto;">
+            <h3>&nbsp;Mi Lista de 'Me gustas'</h3>
+        </div>
+    </div>
+    @{Html.RenderAction("CargarMeGusta", "Publicacion");}
     <!--en lugar de cargar las ultimas se cargan las publicaciones que le gustan a este perfil concretamente-->
