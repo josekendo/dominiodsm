@@ -4,61 +4,58 @@
     ViewBag.Title = "LifeTag | Perfil";
 	Layout = "~/Views/Shared/_LayoutUSER.cshtml";
 }
-  <br/>
-    @if (ViewBag.Men == "usuario incorrecto")
-    {
-        @:<div class="container">
-            @:<h2>Error</h2>
-            @:<div class="alert alert-danger">
-                @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
+ 
+
+<br />
+@if (Session["iduser"] != null && (String)Session["iduser"] != " ")
+{
+    <script> window.location.href='@Url.Action("Index", "Usuario")'; </script>
+}
+@if (ViewBag.Men == "usuario incorrecto")
+{
+    @:<div class="container">
+        @:<h2>Error</h2>
+        @:<div class="alert alert-danger">
+            @:<strong>Error de usuario:</strong> Los datos que ha introducido no son correctos
             @:</div>
-        @:</div>
+                @:</div>
     }
 
-    <br/>
-    <br/>
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <img src="https://image.freepik.com/iconos-gratis/user-avatar_318-85029.jpg" class="img-responsive" style="margin:0 auto;">
-            <h3>&nbsp;Mi perfil'</h3>
-        </div>
+
+<br />
+<br />
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <img src="https://image.freepik.com/iconos-gratis/user-avatar_318-85029.jpg" class="img-responsive" style="margin:0 auto;">
+        <h3>&nbsp;Mi perfil</h3>
     </div>
+</div>
 <!-- porque nunca funciona visual studio?-->
 
-<div>
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Registro</h4>
-</div>
-<div>
-    @using (Html.BeginForm("RegistroUser", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div class="form-group">
-            <label for="nick">Nickname:</label>
-            <input type="text" class="form-control" name="nick" id="nick">
-        </div>
+
+<div class="row">
+    <div class="col-xs-10" style="margin-left:10%;">
+        <h4 class="">Editar</h4>
+        @using (Html.BeginForm("RegistroUser", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label for="nick">Nickname:</label>
+                <input type="text" class="form-control" name="nick" id="nick">
+            </div>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefono(opcional):</label>
+                <input type="text" class="form-control" name="phone" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
                     <div class="form-group">
-                        <label for="name">Nombre:</label>
-                        <input type="text" class="form-control" name="name" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefono(opcional):</label>
-                        <input type="text" class="form-control" name="phone" id="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="pais">Selecciona tu Pais:</label>
-                        <select class="form-control" id="pais" name="pais">
-                            <option value="es" selected>España</option>
-                            <option value="en">Inglaterra</option>
-                            <option value="ja">Japon</option>
-                            <option value="ch">China</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
+                        <label for="pwd">Cambiar Password:</label>
                         <input type="password" class="form-control" id="pwd" name="pwd">
                     </div>
                     <div class="form-group">
@@ -72,9 +69,9 @@
                     <div class="checkbox">
                         <label><input type="checkbox" name="poli"><a href="#">Acepto las politicas</a></label>
                     </div>
-                    <button type="submit" class="btn btn-success">Registrarse</button>
-    }
+                    <button type="submit" class="btn btn-success">Confirmar</button>
+                    <button type="button" class="btn btn-default">Cancelar</button>
+        }
+    </div>
 </div>
-<div>
-    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-</div>
+
