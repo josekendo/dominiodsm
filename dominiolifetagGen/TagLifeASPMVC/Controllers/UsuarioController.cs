@@ -33,6 +33,11 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        public ActionResult Subircontenido()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult LoginUsuario(String nickname, String email, String pass)

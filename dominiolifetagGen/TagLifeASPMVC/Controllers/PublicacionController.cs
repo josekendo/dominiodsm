@@ -41,6 +41,18 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        public ActionResult CrearEtiqueta()
+        {
+            return View();
+        }
+        public ActionResult AddEtiqueta()
+        {
+            return View();
+        }
+        public ActionResult AddCategoria()
+        {
+            return View();
+        }
         //
         // GET: /Publicacion/Details/5
 
