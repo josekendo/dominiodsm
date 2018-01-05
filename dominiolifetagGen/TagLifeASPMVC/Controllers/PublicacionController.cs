@@ -43,21 +43,18 @@ namespace TagLifeASPMVC.Controllers
 
         public ActionResult CrearEtiqueta(String etiquetas)
         {
-            System.Diagnostics.Debug.WriteLine(etiquetas);
+            /*System.Diagnostics.Debug.WriteLine(etiquetas);
             string[] etiqueta = etiquetas.Split(',');
             foreach (string i in etiqueta)
             {
                 //Comprobar
                 EtiquetaEN et = new EtiquetaEN();
                 et.Nombre = i;
-            }
+            }*/
             return View();
         }
-        public ActionResult AddEtiqueta()
-        {
-            return View();
-        }
-        public ActionResult AddCategoria()
+
+        public ActionResult Asignacategoria()
         {
             return View();
         }
