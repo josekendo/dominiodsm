@@ -18,6 +18,36 @@ namespace TagLifeASPMVC.Controllers
         //vista parcial es como hacer un pedazo de una pagina para luego cargarla (un include por decirlo de alguna forma)
         //se crea vista parcial
 
+        public ActionResult CargarMeGusta()
+        {
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+            IList<PublicacionEN> favs = new List<PublicacionEN>();
+
+            System.Diagnostics.Debug.WriteLine("comprobando favoritos" + Session["iduser"]);
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                System.Diagnostics.Debug.WriteLine(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    System.Diagnostics.Debug.WriteLine(usr.Nickname);
+                    UsuarioCEN usuarioCEN = new UsuarioCEN();
+                    IList<string> lista = usuarioCEN.VerListaMeGusta(int.Parse((String)Session["iduser"]));
+
+
+                    foreach (String contador in lista)
+                    { //Me recorro uno a uno los ids de las publicaciones
+                        PublicacionCAD pubcen = new PublicacionCAD();
+                        favs.Add(pubcen.ReadOIDDefault(int.Parse(contador)));
+                    }
+
+                }
+            }
+            IEnumerable<Publicacion> favo = new PublicacionAssembler().ConvertListENToModel(favs).ToList();
+            return PartialView(favo);
+        }
+
         public ActionResult CargarUltimasPublicaciones()
         {
             // Codigo
