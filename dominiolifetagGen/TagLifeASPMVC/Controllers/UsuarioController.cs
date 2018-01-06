@@ -25,6 +25,22 @@ namespace TagLifeASPMVC.Controllers
 
         public ActionResult perfil()
         {
+
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+          
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    ViewBag.name = usr.Nombre;
+                    ViewBag.phone = usr.Telefono;
+                    ViewBag.email = usr.Email;
+                    ViewBag.avatar = usr.Fotoruta;
+                }
+            }
             return View();
         }
 
@@ -134,7 +150,7 @@ namespace TagLifeASPMVC.Controllers
 
                 Session["iduser"] = Convert.ToString(use);
                 String mensaje2 = "registro correcto";
-                return RedirectToAction("Index", "perfil", new { men = mensaje2 });
+                return RedirectToAction("perfil", "usuario", new { men = mensaje2 });
 
             
         }
