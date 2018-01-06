@@ -83,6 +83,62 @@ namespace TagLifeASPMVC.Controllers
             return RedirectToAction("Index", "Home", new { men = mensaje });
         }
 
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult EditarUser(String name, String phone, String email, String pwd, String pwd2, HttpPostedFileBase fil)
+        {
+
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+            var path = "";
+            System.Diagnostics.Debug.WriteLine("comprobando perfil" + Session["iduser"]);
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                System.Diagnostics.Debug.WriteLine(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    System.Diagnostics.Debug.WriteLine(usr.Nickname);
+
+                    //comprobando archivo
+                    if (fil != null && fil.ContentLength > 0)
+                    {
+                        var nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
+                        path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
+
+                    }
+                    else
+                    {
+                        path = "nula";
+                    }
+
+
+                }
+
+                /*asegurarme que las dos contraseñas son iguales pwd y pwd2*/
+            }
+            bool use = usuarioCEN.CambiarDatos(int.Parse((String)Session["iduser"]), pwd, email, name, int.Parse(phone));
+            if (use != false)
+                {
+                    //aqui subimos la imagen
+                    if (fil != null && fil.ContentLength > 0)
+                    {
+                        fil.SaveAs(path);
+                    }
+                    
+                }
+
+            usuarioCEN.CambiarImagen(int.Parse((String)Session["iduser"]), path);
+
+                Session["iduser"] = Convert.ToString(use);
+                String mensaje2 = "registro correcto";
+                return RedirectToAction("Index", "perfil", new { men = mensaje2 });
+
+            
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public ActionResult RegistroUser(String nick, String name, String phone, String pais, String email, String pwd, String pwd2, HttpPostedFileBase fil,String poli)
