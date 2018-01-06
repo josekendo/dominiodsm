@@ -37,6 +37,8 @@
         <h3>&nbsp;Nueva categoria</h3>
 
         <div class="modal-body">
+		@using (Html.BeginForm("CrearCategoria", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
                         <div class="form-group">
                             <label for="nombre">nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre">
@@ -58,7 +60,7 @@
                         <button type="submit" class="btn btn-danger">Crear</button>
                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
            
-
+		}
 
     </div>
 </div>

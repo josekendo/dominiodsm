@@ -22,10 +22,45 @@ namespace TagLifeASPMVC.Controllers
             return RedirectToAction("Listar");
         }
 
+        public ActionResult categorias()
+        {
+            CategoriaCAD cad = new CategoriaCAD();
+            //que empieze por la categoria 1 y saque 6
+            IList<CategoriaEN> lista = cad.ListadoCategorias(1, 6);
+            ViewData["listas"] = lista;
+            return View();
+        }
+
         //
         // GET: /Categoria/Details/5
 
-        public ActionResult Details(int id)
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult CrearCategoria(String nombre, String descripcion, String edad)
+        {
+            CategoriaCAD cen = new CategoriaCAD();
+            CategoriaEN us = new CategoriaEN();
+            if (Session["idadmin"] != null || (String)Session["idadmin"] != "")
+            {                
+                us.Nombre = nombre;
+                us.Descripcion = descripcion;
+                us.Edad = Convert.ToInt32(edad);
+
+            }
+            int use = cen.New_(us);
+
+            if (use != -1)
+            {               
+                String mensaje2 = "categoria creada";
+                return RedirectToAction("Categorias", "Publicacion", new { men = mensaje2 });
+            }
+        
+            String mensaje = "categoria incorrecta";
+
+            return RedirectToAction("Categorias", "Publicacion", new { men = mensaje });
+        }
+
+            public ActionResult Details(int id)
         {
             return View();
         }
