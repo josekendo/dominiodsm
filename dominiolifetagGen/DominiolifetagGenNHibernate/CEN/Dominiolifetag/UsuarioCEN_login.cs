@@ -39,12 +39,13 @@ public string Login (int p_oid, string email, string nickname, String password)
                 users = usuarioCEN.Buscarusuario (email, password);
             }
 
-        if (users != null && users.Count >= 1) {
+        if (users != null && users.Count == 1) {
                 usuario = _IUsuarioCAD.ReadOIDDefault (users [0].ID);
         }
 
-        if (usuario != null && password == usuario.Password && (nickname == usuario.Nickname || email == usuario.Email)) {
-                return Convert.ToString (p_oid);
+        if (usuario != null)
+        {
+                return Convert.ToString (Convert.ToString(usuario.ID));
         }
         else{
                 return "usuario incorrecto";

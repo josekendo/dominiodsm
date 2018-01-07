@@ -61,7 +61,7 @@ namespace TagLifeASPMVC.Controllers
             UsuarioCEN cen = new UsuarioCEN();
             String passencrip = Encrypt.GetMD5(pass);
             String mensaje;
-            if (email.Length > 5)//a@a.c
+            if (email.Length >= 5)//a@a.c
             {
                 mensaje = cen.Login(0, email, null, pass);
 
@@ -70,7 +70,7 @@ namespace TagLifeASPMVC.Controllers
                     Session["iduser"] = mensaje;
                     Session["password"] = pass;
                 }
-                System.Diagnostics.Debug.WriteLine(email + "1<--->" + pass);
+                System.Diagnostics.Debug.WriteLine(email + "1<--->" + pass +"devolucion ->"+ mensaje);
             }
             else if (nickname.Length > 1)
             {
@@ -80,7 +80,7 @@ namespace TagLifeASPMVC.Controllers
                     Session["iduser"] = mensaje;
                     Session["password"] = pass;
                 }
-                System.Diagnostics.Debug.WriteLine(nickname + "2<--->" + pass);
+                System.Diagnostics.Debug.WriteLine(nickname + "2<--->" + pass+ "devolucion ->" + mensaje);
             }
             else
             {
@@ -157,10 +157,10 @@ namespace TagLifeASPMVC.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult RegistroUser(String nick, String name, String phone, String pais, String email, String pwd, String pwd2, HttpPostedFileBase fil,String poli)
+        public ActionResult RegistroUser(string nick, string name, string phone, string pais, string email, String pwd, String pwd2, HttpPostedFileBase fil,string poli)
         {
             System.Diagnostics.Debug.WriteLine(nick+" - "+name+" "+phone+" "+pais+" "+email+" "+pwd+" "+pwd2+" "+poli+" ");
-            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioCEN cen = new UsuarioCEN();
 
             if (Session["iduser"] == null || (String)Session["iduser"] == "")
             {
@@ -177,17 +177,19 @@ namespace TagLifeASPMVC.Controllers
                 us.Categoriassuscrito = "";
                 us.Email = email;
                 var path = "";
+                var nombreArchivo = "";
                 if (fil != null && fil.ContentLength > 0)
                 {
-                    var nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
+                    nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
                     path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
                     us.Fotoruta = path;
                 }
                 else
                 {
                     us.Fotoruta = "nula";
+                    nombreArchivo = "default.jpg";
                 }
-                int use = cen.New_(us);
+                int use = cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, nombreArchivo, false, "", "", false, new List<PublicacionEN>());
                 System.Diagnostics.Debug.WriteLine(use+" id devuelto");
                 if (use != -1)
                 {
@@ -200,7 +202,7 @@ namespace TagLifeASPMVC.Controllers
                     String mensaje2 = "registro correcto";
                     return RedirectToAction("Index", "Home", new { men = mensaje2 });
                 }
-                //cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, "nula", false, "", "", false, new List<PublicacionEN>()); }
+                
             }
             Session["iduser"] = null;
             String mensaje = "registro incorrecto";
