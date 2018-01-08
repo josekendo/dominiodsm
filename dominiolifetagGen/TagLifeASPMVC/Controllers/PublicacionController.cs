@@ -89,6 +89,25 @@ namespace TagLifeASPMVC.Controllers
             return PartialView(favo);
         }
 
+        public ActionResult Comentarios(int IdPubli)
+        {
+            PublicacionCAD publiCAD = new PublicacionCAD();
+            //ComentarioCEN com = new ComentarioCEN();
+            PublicacionEN pu = publiCAD.ReadOIDDefault(IdPubli);//publicacion
+            IEnumerable<Comentario> ulpu = new ComentarioAssembler().ConvertListENToModel(pu.Comentario).ToList();
+            
+            return View(ulpu);
+        }
+
+        public ActionResult Categ(int IdPubli)
+        {
+            PublicacionCAD publiCAD = new PublicacionCAD();
+            PublicacionEN pu = publiCAD.ReadOIDDefault(IdPubli);//publicacion
+            IEnumerable<Categoria> ulpu = new CategoriaAssembler().ConvertListENToModel(pu.Categoria).ToList();
+
+            return View(ulpu);
+        }
+
         public ActionResult CargarUltimasPublicaciones()
         {
             // Codigo
