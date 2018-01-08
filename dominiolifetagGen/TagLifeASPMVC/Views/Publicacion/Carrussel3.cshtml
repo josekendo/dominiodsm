@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+
+    
+
+    @if (Model != null)
+    {
+        var contador = 0;
+        foreach (var item in Model)
+        {
+            if (contador != 1)
+            {
+                @:<div class="item active">
+            }
+            else {
+                @:<div class="item">
+            }
+            contador++;
+                <!--item.imagenes-->
+            @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)">
+            @:<div class="carousel-caption">
+                @:<h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+            @:</div>
+            @:</div>
+
+    }
+}
+

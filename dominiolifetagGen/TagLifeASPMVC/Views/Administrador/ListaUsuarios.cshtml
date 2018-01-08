@@ -1,140 +1,88 @@
-﻿@model TagLifeASPMVC.Models.Administrador
-
+﻿@model IEnumerable<TagLifeASPMVC.Models.Usuario>
 @{
     ViewBag.Title = "ListaUsuarios";
+    ViewBag.Titulop = "Edicion de Usuarios";
     Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
 }
 
+@if (ViewBag.Info == "nada")
+{
+    @:<div class="container">
+        @:<h2>Informacion</h2>
+            @:<div class="alert alert-info">
+                @:<strong>Operaciones realizadas:</strong> Ninguna
+                @:</div>
+            @:</div>
+    }
+@if (ViewBag.Info == "cambio")
+{
+    @:<div class="container">
+        @:<h2>Informacion</h2>
+            @:<div class="alert alert-info">
+                @:<strong>Operaciones realizadas:</strong> Cambios realizados en la contraseña de los usuarios seleccionados
+                @:</div>
+            @:</div>
+    }
+@if (ViewBag.Info == "correcto")
+{
+    @:<div class="container">
+        @:<h2>Informacion</h2>
+            @:<div class="alert alert-danger">
+                @:<strong>Operaciones realizadas:</strong> Borrados los usuarios
+                @:</div>
+            @:</div>
+    }
 
-<h2><kbd>Editar moderador</kbd></h2>
 
-<form class="navbar-form navbar-left">
-    <div class="input-group text-center">
-        <input type="text" class="form-control" placeholder="Buscar Usuario">
-        <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-eye-open"></i>
-            </button>
-        </div>
-    </div>
-</form>
-
-
-
-<body>
-
-    <div class="container">
-        <table class="table table-hover table-striped ">
-            <thead>
-                <tr>
-                    <th>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </th>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Rol</th>
-                    <th>Fecha de registro</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                        </div>
-                    </td>
-                    <td>id</td>
-                    <td>Mery</td>
-                    <td>Moderador</td>
-                    <td>12/08/1982</td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <label for="sel1">Seleccionar acción:</label>
+<input class="form-control" id="myInput" type="text" placeholder="Busca al usuario">
+<br>
+@using (Html.BeginForm("EdicionU", "Administrador", FormMethod.Post))
+{
     <div class="row">
-        <div class="col-sm-2">
-            <div class="form-group">
-
-                <select class="form-control" id="sel1">
-                    <option>Seleccione una...</option>
-                    <option>Crear usuario</option>
-                    <option>Borrar usuario</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <button type="button" class="btn btn-success">Aplicar</button>
+        <div class="col-sm-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Seleccion</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Gmail</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    @foreach (var item in Model)
+                    {
+                            @:<tr>
+                                @:<td><input type="checkbox" name="sele" id="sele" value="@item.ID"></td>
+                                @:<td>@item.ID</td>
+                                @:<td>@item.Nickname</td>
+                                @:<td>@item.Email</td>
+                            @:</tr>
+            
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
-
-</body>
-
-
-
-
-
-
-
-
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="sel1">Selecciona una opcion de la lista:</label>
+            <select onchange="var obj= document.getElementById('pass');if(this.value=='camp'){obj.style='display:inline-block;';}else{obj.style='display:none;';};" class="form-control" name="sel1" id="sel1">
+                <option value="del">Borrar</option>
+                <option value="camp">Cambiar Password</option>
+            </select>
+            <input type="password" name="pass" style="display:none;" class="form-control" placeholder="Nuevo password" id="pass" />
+            <button type="submit" class="btn btn-default">Realizar Operacion</button>
+        </div>
+    </div>
+}
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

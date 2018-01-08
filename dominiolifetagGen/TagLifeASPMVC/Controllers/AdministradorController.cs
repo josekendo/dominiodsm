@@ -82,6 +82,15 @@ namespace TagLifeASPMVC.Controllers
             }
             return RedirectToAction("Index", "Administrador", new { men = mensaje });
         }
+        //metodo para desbloquear usuarios bloqueados
+        /*public ActionResult desbloquear()
+        {
+            
+            UsuarioCAD cen = new UsuarioCAD();
+            IList<UsuarioEN> ultimas = cen.Buscarusuario();
+
+        }*/
+
         //pagina de estadisticas
         public ActionResult Estadisticas()
         {
@@ -120,6 +129,66 @@ namespace TagLifeASPMVC.Controllers
             Session["idadmin"] = null;
             return RedirectToAction("Index", "Administrador", new { men = "close" });
         }
+        //pagina de edicion de usuario
+        public ActionResult ListaUsuarios(String men)
+        {
+            if (men != null && men.Length > 0)
+            {
+                ViewBag.Info = men;
+            }
+            UsuarioCAD cad = new UsuarioCAD();
+            IList<UsuarioEN> admins = cad.ReadAllDefault(0, 0);
+            System.Diagnostics.Debug.WriteLine(admins.Count+"aqui estoy, num usuarios");
+            IEnumerable<Usuario> ulpu = new UsuarioAssembler().ConvertListENToModel(admins).ToList();
+            return View(ulpu);
+        }
+
+        public ActionResult EdicionU(FormCollection sele, String sel1, String pass)
+        {
+            System.Diagnostics.Debug.WriteLine(sele[0]);
+            if (sele[0] != "camp" && sele[0] != "del")
+            {
+                if (sel1 == "del")
+                {
+                    UsuarioCEN cen = new UsuarioCEN();
+                    String[] users = sele[0].Split(',');
+                    if (users.Length < 1)
+                    {
+                        users = new String[1];
+                        users[0] = sele[0];
+                    }
+
+                    foreach (String item in users)
+                    {
+                        cen.Destroy(int.Parse(item));
+                    }
+
+                    return RedirectToAction("ListaUsuarios", "Administrador", new { men = "correcto" });
+                }
+
+                if (sel1 == "camp" && pass.Length > 0)
+                {
+                    UsuarioCEN cen = new UsuarioCEN();
+                    UsuarioCAD cad = new UsuarioCAD();
+                    String[] users = sele[0].Split(',');
+                    if (users.Length < 1)
+                    {
+                        users = new String[1];
+                        users[0] = sele[0];
+                    }
+                    foreach (String item in users)
+                    {
+                        UsuarioEN us = cad.ReadOIDDefault(int.Parse(item));
+                        
+                        cen.Modify(us.ID, us.Nombre, us.Email, pass, us.Pais, us.Telefono, us.Nickname, us.Fotoruta, us.Activacion, us.Listamegusta, us.Categoriassuscrito, us.Bloqueado, us.Hash);
+                    }
+                    return RedirectToAction("ListaUsuarios", "Administrador", new { men = "cambio" });
+                }
+            }
+
+            return RedirectToAction("ListaUsuarios", "Administrador", new { men = "nada" });
+        }
+
         //pagina de edicion de moderador
         public ActionResult EditarModerador(String men)
         {
@@ -243,8 +312,7 @@ namespace TagLifeASPMVC.Controllers
         {
             return View();
         }
-
-        //
+        
         // POST: /Administrador/Delete/5
 
         [HttpPost]

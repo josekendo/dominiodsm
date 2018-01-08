@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_LayoutUSER.cshtml";
 }
 
-
 <div class="container-fluid">
     <!--solo con container se ajusta mas-->
     <h1><kbd> Top Visitas </kbd></h1>
@@ -20,21 +19,15 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="http://portugalresident.com/sites/default/files/field/image/gruta_benagil_0.jpg" alt="Chania">
-                    <div class="carousel-caption">
-                        <h3>Sitios con alma</h3>
-                        <p> Lugares que hay que visitar 1 vez en la vida </p>
-                    </div>
-                </div>
-
+               @{Html.RenderAction("Carrussel1", "Publicacion");} 
+                <!--
                 <div class="item">
                     <img src="https://awol.junkee.com/wp-content/uploads/2017/07/3598596321_4cfde29fe7_o.jpg" alt="Chicago">
                     <div class="carousel-caption">
                         <h3>Auroras boreales en Islandia</h3>
                         <p>Espectáculo que nadie se debería perderse</p>
                     </div>
-                </div>
+                </div>-->
 
             </div>
 
@@ -61,22 +54,9 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="https://supercurioso.com/wp-content/uploads/2015/06/S36rZlVG8tyAMSA-AAUssL1hOBw02-Copy.jpeg" alt="Chania">
-                    <div class="carousel-caption">
-                        <h3>La mirada de la naturaleza</h3>
-                        <p>Momentos capturados en la selva africana</p>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="http://www.nexofin.com/archivos/2017/08/datos-sobre-tigres-1.jpg.imgw_.1280.1280.jpeg" alt="Chicago">
-                    <div class="carousel-caption">
-                        <h3>Tigres</h3>
-                        <p>Tigres vistos en Tailandia</p>
-                    </div>
-                </div>
-
+                
+                @{Html.RenderAction("Carrussel2", "Publicacion");}
+                
             </div>
 
             <!-- Left and right controls -->
@@ -102,22 +82,9 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="https://i.ytimg.com/vi/ceXsI-tODZE/maxresdefault.jpg" alt="Chania">
-                    <div class="carousel-caption">
-                        <h3>Asia</h3>
-                        <p>Diferentes culturas del mundo</p>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="http://cdn5.upsocl.com/wp-content/uploads/2014/08/download-6.jpg" alt="Chicago">
-                    <div class="carousel-caption">
-                        <h3>Tradiciones</h3>
-                        <p>Culturas desde otro punto de vista</p>
-                    </div>
-                </div>
-
+                
+                @{Html.RenderAction("Carrussel3", "Publicacion");}
+                
             </div>
 
             <!-- Left and right controls -->
@@ -133,153 +100,16 @@
 
     </div>
 </div>
-<head>
 
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-</head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- <div class="container-fluid">-->
+<h1><kbd> Categorias </kbd></h1>
 
-    <h1><kbd> Categorias </kbd></h1>
-    <div class="container text-center">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#section1">FAUNA MARINA</a></li>
-            <li class="page-item"><a class="page-link" href="#section2">TIGRES</a></li>
-            <li class="page-item"><a class="page-link" href="#section3">ARTE</a></li>
-            <li class="page-item"><a class="page-link" href="#section4">OUR WORLD</a></li>
-            <li class="page-item"><a class="page-link" href="#section5">CUADROS</a></li>
-            <li class="page-item"><a class="page-link" href="#section6">BARCOS DE LUJO</a></li>
-            <li class="page-item"><a class="page-link" href="#section7">DEPORTES</a></li>
-            <li class="page-item"><a class="page-link" href="#section8">EL POLO NORTE</a></li>
-            <li class="page-item"><a class="page-link" href="#section9">CULTURAS</a></li>
-            <li class="page-item"><a class="page-link" href="#section10">VEGETACIÓN</a></li>
-        </ul>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    </ul>
+
+    <div class="tab-content">
+        @{Html.RenderAction("Capa", "Publicacion", new { cate = "GATOS" });}
     </div>
-
-
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div id="section1" class="thumbnail">
-                    <a href="wp-content/uploads/2012/07/liveaboard-diving-the-great-barrier-reef.jpg" target="_blank">
-                        <img src="https://cdn-blog.queensland.com/wp-content/uploads/2012/07/liveaboard-diving-the-great-barrier-reef.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>FAUNA MARINA</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section2" class="thumbnail">
-                    <a href="archivos/2017/08/datos-sobre-tigres-1.jpg.imgw_.1280.1280.jpeg" target="_blank">
-                        <img src="http://www.nexofin.com/archivos/2017/08/datos-sobre-tigres-1.jpg.imgw_.1280.1280.jpeg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>TIGRES</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section3" class="thumbnail">
-                    <a href="originals/48/14/8f/48148f62c744ff866d91472a2f4a1248.jpg" target="_blank">
-                        <img src="https://i.pinimg.com/originals/48/14/8f/48148f62c744ff866d91472a2f4a1248.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>ARTE</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section4" class="thumbnail">
-                    <a href="hub/i/r/2016/07/12/8dfc7522-bb26-4bd5-82eb-ce3c813ce875/resize/620xg8/8cf9712f5af2df30e569f15c417e9799/moon-photobomb-earth-dscovr.gif" target="_blank">
-                        <img src="https://cbsnews3.cbsistatic.com/hub/i/r/2016/07/12/8dfc7522-bb26-4bd5-82eb-ce3c813ce875/resize/620xg8/8cf9712f5af2df30e569f15c417e9799/moon-photobomb-earth-dscovr.gif" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>OUR WORLD</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section5" class="thumbnail">
-                    <a href="wallpaper/2560_1600/1001/2560_1600_201001030143554045092.jpg" target="_blank">
-                        <img src="http://www.v3wall.com/wallpaper/2560_1600/1001/2560_1600_201001030143554045092.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>CUADROS</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section6" class="thumbnail">
-                    <a href="img/Yates%20Veleros%20Yachs%20Vessels%20Alquiler%20Ibiza%20Boat%20Charter_01.jpg" target="_blank">
-                        <img src="http://www.barcoibiza.com/img/Yates%20Veleros%20Yachs%20Vessels%20Alquiler%20Ibiza%20Boat%20Charter_01.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>BARCOS DE LUJO</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section7" class="thumbnail">
-                    <a href="wikipedia/commons/5/58/Defense.gov_photo_essay_090918-A-9131V-005.jpg" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Defense.gov_photo_essay_090918-A-9131V-005.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>DEPORTES</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section8" class="thumbnail">
-                    <a href="/uploads/picture/395/197/197395/picture-197395.jpg?width=665" target="_blank">
-                        <img src="http://cdn2.wallpapersok.com/uploads/picture/395/197/197395/picture-197395.jpg?width=665" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>EL POLO NORTE</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section9" class="thumbnail">
-                    <a href="wp-content/uploads/2014/08/download-6.jpg" target="_blank">
-                        <img src="http://cdn5.upsocl.com/wp-content/uploads/2014/08/download-6.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>CULTURAS</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="section10" class="thumbnail">
-                    <a href="/2015/11/jungla.jpg" target="_blank">
-                        <img src="https://eldiariodeshackleton.files.wordpress.com/2015/11/jungla.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                        <div class="caption text-center">
-                            <p><kbd>VEGETACIÓN</kbd></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-
-
-
-<!--
-=======
-<h2>Inicio Usuario</h2>
->>>>>>> master-->
-=======
-
-</body>
->>>>>>> master

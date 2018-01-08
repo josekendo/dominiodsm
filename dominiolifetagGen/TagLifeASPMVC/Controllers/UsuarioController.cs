@@ -23,6 +23,12 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        public ActionResult Close()
+        {
+            Session["iduser"] = null;
+            return RedirectToAction("Index", "Usuario", new { men = "close" });
+        }
+
         public ActionResult perfil()
         {
             return View();
@@ -119,6 +125,9 @@ namespace TagLifeASPMVC.Controllers
 
                 /*asegurarme que las dos contraseñas son iguales pwd y pwd2*/
             }
+         
+        
+
             bool use = usuarioCEN.CambiarDatos(int.Parse((String)Session["iduser"]), pwd, email, name, int.Parse(phone));
             if (use != false)
                 {
@@ -190,6 +199,50 @@ namespace TagLifeASPMVC.Controllers
             String mensaje = "registro incorrecto";
             return RedirectToAction("Index", "Home", new { men = mensaje });
         }
+
+        /*** PARTE INICIO USUARIO (ENLACES) ***/
+        /*public ActionResult EnlacesPublicacionUsuario()
+        {
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+
+                if (usr != null)
+                {
+
+                    publicacionCEN.ListadoComentarios(idPublicacion:);
+                }
+            }
+
+        }*/
+        /*** Recoger todas las publicaciones del usuario ***/
+       /* public ActionResult RecogerUltimasPublicaciones()
+        {
+
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+
+            if (Session["iduser"] == null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+
+                if (usr == null){
+
+                    return RedirectToAction("Index", "Home", new { men = "usuario incorrecto" });
+                   
+                }
+            }
+            IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones("GATOS");
+            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
+            return PartialView(ulpu);
+        }
+        */
+
         public class Encrypt
         {
             public static string GetMD5(string str)
