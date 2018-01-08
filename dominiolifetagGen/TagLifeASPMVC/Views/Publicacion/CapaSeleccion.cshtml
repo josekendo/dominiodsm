@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+
+
+
+@if (Model != null)
+{
+    @:<div class="tab-pane fade">
+    foreach (var item in Model)
+    {
+        var cont = 0;
+        if (cont != 1)
+        {
+            @:<li class="active">
+        }
+        else
+        {
+            @:<li>
+        }
+        @:<a data-toggle="tab" href="#@Html.DisplayFor(modelItem => item.Nombre)">@Html.DisplayFor(modelItem => item.Nombre)</a>
+        @:</li>
+
+
+        @:<div class="thumbnail">
+            @:<a href="href= " @Url.Action("Index", "Publicaciones", new { idpublicacion = "@item.id" }) ">
+                @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)">
+                @:<div class="caption">
+                    @:<p>@Html.DisplayFor(modelItem => item.Nombre)</p>
+                    @:</div>
+                @:</a>
+            @:</div>
+
+
+    }
+}
+

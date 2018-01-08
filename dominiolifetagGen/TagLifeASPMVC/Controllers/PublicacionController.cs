@@ -138,14 +138,14 @@ namespace TagLifeASPMVC.Controllers
         [AllowAnonymous]
         public ActionResult BorrarCategoria(int dato)
         {            
-            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+            return RedirectToAction("edicion", "Administrador");
         }
 
         [HttpPost]
         [AllowAnonymous]
         public ActionResult BorrarEtiqueta(int dato)
         {
-            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+            return RedirectToAction("edicion", "Administrador");
         }
 
         public ActionResult Asignacategoria()
