@@ -25,6 +25,7 @@
         <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-heart"></i>Like</button>
     </div>
     <div class="col-sm-4">
+<<<<<<< HEAD
         <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
 
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
@@ -34,19 +35,19 @@
         <p>Usuario</p>
         <p>Fecha de publicación</p>
         <p>Muy interesante!:D</p>
+=======
+
+        @{Html.RenderAction("Comentarios", "Publicacion", new { IdPubli = Model.iD });}
+>>>>>>> 052f013fd2d739933f1b58037767d3e36c192229
 
     </div>
     <div class="col-sm-1">
 
     </div>
     <div class="col-sm-3">
-        <br />
-        <h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>CATEGORIAS</h2>
-        <p> TERROR</p>
-        <p> ANIMALES</p>
-        <p> GATOS</p>
-        <h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>ETIQUETAS</h2>
-        <p> GATO</p>
-        <p> SUSPENSE</p>
+
+        @{Html.RenderAction("Categ", "Publicacion", new { IdPubli = Model.iD });}
+        @{Html.RenderAction("Etique", "Publicacion", new { IdPubli = Model.iD });}
+
     </div>
 </div>

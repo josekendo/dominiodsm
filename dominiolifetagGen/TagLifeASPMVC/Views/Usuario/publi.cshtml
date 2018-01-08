@@ -1,0 +1,17 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+    <!--<a href="/files/news/part_0/781/16853-12653010-R3L8T8D-1000-0-1000-d15be3e366-1484729578.jpg" target="_blank">-->
+        @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+        @:<div class="caption text-center">
+            @:<p><kbd>@Html.DisplayFor(modelItem => item.Nombre)</kbd></p>
+        @:</div>
+    <!--</a>-->
+
+    }
+}

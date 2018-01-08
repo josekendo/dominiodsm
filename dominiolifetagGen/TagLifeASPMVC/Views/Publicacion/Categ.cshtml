@@ -1,0 +1,16 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+        @:<br />
+        @:<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>CATEGORIAS</h2>
+        @:<p>Html.DisplayFor(modelItem => item.Categoria)</p>
+        @:<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>ETIQUETAS</h2>
+        @:<p>Html.DisplayFor(modelItem => item.Etiqueta)</p>
+
+    }
+}
