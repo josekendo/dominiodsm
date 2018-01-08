@@ -24,40 +24,40 @@ namespace TagLifeASPMVC.Controllers
             IEnumerable<Publicacion> mode = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
             return PartialView(mode);
         }
+        public ActionResult CapaSeleccion()
+        {
+           return PartialView();
+        }
+        public ActionResult CargarMeGusta()
+        {
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+            IList<PublicacionEN> favs = new List<PublicacionEN>();
 
-        public ActionResult Etiquetando(string name)
-        {  String[] etis= name.Split(',');
-            EtiquetaCAD cen = new EtiquetaCAD();
-            IList<EtiquetaEN> ust = cen.ReadAllDefault(0, 0);
-            PublicacionCAD pub = new PublicacionCAD;
-            PublicacionEN em;
-            //falta  recoger el id de la publicacion para usar em
-
-            if (Session["idadmin"] != null || (String)Session["idadmin"] != "")
+            System.Diagnostics.Debug.WriteLine("comprobando favoritos" + Session["iduser"]);
+            if (Session["iduser"] != null)
             {
-
-
-                foreach (EtiquetaEN intem in ust)
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                System.Diagnostics.Debug.WriteLine(int.Parse((String)Session["iduser"]));
+                if (usr != null)
                 {
-                    foreach (String totem in etis)
-                    {
-                        if (intem.Nombre == totem) //la etiqueta existe en la base de datos
-                        {
-                            em.Etiqueta.Add(intem);
-                            String mensaje2 = "etiqueta añadida";
+                    System.Diagnostics.Debug.WriteLine(usr.Nickname);
+                    UsuarioCEN usuarioCEN = new UsuarioCEN();
+                    IList<string> lista = usuarioCEN.VerListaMeGusta(int.Parse((String)Session["iduser"]));
 
-                        }
+
+                    foreach (String contador in lista)
+                    { //Me recorro uno a uno los ids de las publicaciones
+                        PublicacionCAD pubcen = new PublicacionCAD();
+                        favs.Add(pubcen.ReadOIDDefault(int.Parse(contador)));
                     }
-
-
 
                 }
             }
-
-            String mensaje = "categoria incorrecta";
-
-            return RedirectToAction("Categorias", "Publicacion", new { men = mensaje });
+            IEnumerable<Publicacion> favo = new PublicacionAssembler().ConvertListENToModel(favs).ToList();
+            return PartialView(favo);
         }
+
         public ActionResult CargarUltimasPublicaciones()
         {
             // Codigo
@@ -142,14 +142,14 @@ namespace TagLifeASPMVC.Controllers
         [AllowAnonymous]
         public ActionResult BorrarCategoria(int dato)
         {            
-            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+            return RedirectToAction("edicion", "Administrador");
         }
 
         [HttpPost]
         [AllowAnonymous]
         public ActionResult BorrarEtiqueta(int dato)
         {
-            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+            return RedirectToAction("edicion", "Administrador");
         }
 
         public ActionResult Asignacategoria()
