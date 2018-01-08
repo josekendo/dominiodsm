@@ -1,5 +1,4 @@
-﻿@model TagLifeASPMVC.Models.Publicacion
-
+﻿@model TagLifeASPMVC.Models.Usuario
 @{
     ViewBag.Title = "Publicaciones";
     Layout = "~/Views/Shared/_LayoutUSER.cshtml";
@@ -11,109 +10,14 @@
     <div class="text-center">
         <span class="glyphicon glyphicon-user" style="font-size:100px;"></span>
     </div>
-        <h1 class="text-center">Sr. Smith</h1>
+        <h1 class="text-center">@Model.Nombre</h1>
         <h2 class="text-center"><kbd>Mis Publicaciones</kbd></h2>
     
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <div id="section1" class="thumbnail">
-                        <a href="/files/news/part_0/781/16853-12653010-R3L8T8D-1000-0-1000-d15be3e366-1484729578.jpg" target="_blank">
-                            <img src="https://files.genial.guru/files/news/part_0/781/16853-12653010-R3L8T8D-1000-0-1000-d15be3e366-1484729578.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>ARDILLAS</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section2" class="thumbnail">
-                        <a href="/wp-content/uploads/2015/07/fotos-impresionantes-03.jpg" target="_blank">
-                            <img src="http://www.dogguie.net/wp-content/uploads/2015/07/fotos-impresionantes-03.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>EL HORIZONTE</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section3" class="thumbnail">
-                        <a href="/6d9b/f/2013/106/9/3/sunset_on_the_beach_with_surfing_ocean_wave_by_vitaly_sokol-d61ypqt.jpg" target="_blank">
-                            <img src="https://orig00.deviantart.net/6d9b/f/2013/106/9/3/sunset_on_the_beach_with_surfing_ocean_wave_by_vitaly_sokol-d61ypqt.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>LA CRESTA DE LA OLA</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section4" class="thumbnail">
-                        <a href="/wp-content/uploads/2015/07/Fotos-impresionantes-15.jpg" target="_blank">
-                            <img src="http://nosolotendencias.es/wp-content/uploads/2015/07/Fotos-impresionantes-15.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>INFANCIA EN TAILANDIA</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section5" class="thumbnail">
-                        <a href="/files/news/part_0/781/16854-12655210-R3L8T8D-1000-foto-prikol-16012015-016-1000-1709c4665d-1484729578.jpg" target="_blank">
-                            <img src="https://files.genial.guru/files/news/part_0/781/16854-12655210-R3L8T8D-1000-foto-prikol-16012015-016-1000-1709c4665d-1484729578.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>CIUDAD DE HIELO</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section6" class="thumbnail">
-                        <a href="/gawker-media/image/upload/s--VIbJlobo--/c_scale,f_auto,fl_progressive,q_80,w_800/19fmbcjkrjadfjpg.jpg" target="_blank">
-                            <img src="https://i.kinja-img.com/gawker-media/image/upload/s--VIbJlobo--/c_scale,f_auto,fl_progressive,q_80,w_800/19fmbcjkrjadfjpg.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>OCEANO AZUL</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section7" class="thumbnail">
-                        <a href="/originals/65/b3/24/65b3245eda3611d24a5d51d34a372142.jpg" target="_blank">
-                            <img src="https://i.pinimg.com/originals/65/b3/24/65b3245eda3611d24a5d51d34a372142.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>CAMINO AL INFINITO</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section8" class="thumbnail">
-                        <a href="/2014/05/14-end-of-the-world.jpg" target="_blank">
-                            <img src="https://twistedsifter.files.wordpress.com/2014/05/14-end-of-the-world.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>AL BORDE DEL ABISMO</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section9" class="thumbnail">
-                        <a href="/sites/default/files/images/fotos/2015/Febrero%202015/Selfies%20realmente%20impresionantes/01.jpg" target="_blank">
-                            <img src="http://www.muycurioso.net/sites/default/files/images/fotos/2015/Febrero%202015/Selfies%20realmente%20impresionantes/01.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>VUELOS DE COMBATE</kbd></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div id="section10" class="thumbnail">
-                        <a href="/media/Blq_cfbIAAAjVlO.jpg" target="_blank">
-                            <img src="https://pbs.twimg.com/media/Blq_cfbIAAAjVlO.jpg" alt="Lights" class="img-rounded" style="width:150%">
-                            <div class="caption text-center">
-                                <p><kbd>EL CONEJO MÁS GRANDE DEL MUNDO</kbd></p>
-                            </div>
-                        </a>
+                        @{Html.RenderAction("publi", "Publicacion");}
                     </div>
                 </div>
             </div>

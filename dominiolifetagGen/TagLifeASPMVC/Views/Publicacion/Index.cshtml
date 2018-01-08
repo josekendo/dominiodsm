@@ -23,23 +23,17 @@
         <button href="@Url.Action("Index", "Publicacion", new { idpublicacion = Model.iD })" type="button" class="btn btn-success"><i class="glyphicon glyphicon-heart"></i>Like</button>
     </div>
     <div class="col-sm-4">
-        <h2>COMENTARIOS:</h2>
-        <p>Usuario</p>
-        <p>Fecha de publicación</p>
-        <p>Muy interesante!:D</p>
+
+        @{Html.RenderAction("Comentarios", "Publicacion", new { IdPubli = Model.iD });}
 
     </div>
     <div class="col-sm-1">
 
     </div>
     <div class="col-sm-3">
-        <br />
-        <h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>CATEGORIAS</h2>
-        <p> TERROR</p>
-        <p> ANIMALES</p>
-        <p> GATOS</p>
-        <h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>ETIQUETAS</h2>
-        <p> GATO</p>
-        <p> SUSPENSE</p>
+
+        @{Html.RenderAction("Categ", "Publicacion", new { IdPubli = Model.iD });}
+        @{Html.RenderAction("Etique", "Publicacion", new { IdPubli = Model.iD });}
+
     </div>
 </div>
