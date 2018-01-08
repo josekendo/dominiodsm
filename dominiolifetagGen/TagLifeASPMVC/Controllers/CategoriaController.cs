@@ -60,6 +60,26 @@ namespace TagLifeASPMVC.Controllers
             return RedirectToAction("Categorias", "Publicacion", new { men = mensaje });
         }
 
+		
+		[HttpPost]
+        [AllowAnonymous]
+        public ActionResult BorrarCategoria(int dato)
+        {
+            CategoriaCAD cen = new CategoriaCAD();
+            CategoriaEN us = new CategoriaEN();
+            if (Session["idadmin"] != null || (String)Session["idadmin"] != "")
+            {
+                //no se si falta convertir de alguna forma dato para usarlo
+                cen.Destroy(dato);
+                String mensaje2 = "categoria eliminada";
+                return RedirectToAction("Categorias", "Publicacion", new { men = mensaje2 });
+            }
+        
+            String mensaje = "error";
+
+            return RedirectToAction("Categorias", "Publicacion", new { men = mensaje });
+        }
+		
             public ActionResult Details(int id)
         {
             return View();
