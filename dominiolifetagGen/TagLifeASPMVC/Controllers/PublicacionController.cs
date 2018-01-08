@@ -24,9 +24,29 @@ namespace TagLifeASPMVC.Controllers
             IEnumerable<Publicacion> mode = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
             return PartialView(mode);
         }
-        public ActionResult CapaSeleccion()
+        public ActionResult CapaSeleccion(String cate)
         {
-           return PartialView();
+            UsuarioCAD cen = new UsuarioCAD();
+            UsuarioEN usr;
+            if (Session["iduser"] != null && cate.Length >= 1)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    String[] categorias = usr.Categoriassuscrito.Split(',');
+                    if (categorias.Count() >= 1)
+                    {
+                        return PartialView();
+                    }
+                    else
+                    {//solo 1 categoria
+                        return PartialView();
+                    }
+                }
+            }
+            ViewBag.Mensaje = "NoCategorias";
+
+            return PartialView();
         }
         public ActionResult CargarMeGusta()
         {

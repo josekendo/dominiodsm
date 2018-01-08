@@ -2,7 +2,7 @@
 
 
 
-@if (Model != null)
+@if (Model != null && ViewBag.Mensaje != "NoCategorias")
 {
     @:<div class="tab-pane fade">
     foreach (var item in Model)
@@ -20,16 +20,18 @@
         @:</li>
 
 
-        @:<div class="thumbnail">
-            @:<a href="href= " @Url.Action("Index", "Publicaciones", new { idpublicacion = "@item.id" }) ">
-                @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)">
-                @:<div class="caption">
-                    @:<p>@Html.DisplayFor(modelItem => item.Nombre)</p>
-                    @:</div>
-                @:</a>
-            @:</div>
-
 
     }
 }
 
+    @if (ViewBag.Mensaje != "NoCategorias")
+    {
+
+          @:<div class="tab-content">
+              {Html.RenderAction("Capa", "Publicacion", new { cate = "GATOS" });}
+          @:</div>
+    }
+
+    @if(ViewBag.Mensaje == "NoCategorias"){
+        <h3>No estás siguiendo ninguna categoría.</h3>
+    }

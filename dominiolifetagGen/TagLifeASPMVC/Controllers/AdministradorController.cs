@@ -22,10 +22,7 @@ namespace TagLifeASPMVC.Controllers
             ViewBag.Men = men;
             return View();
         }
-        public ActionResult bloquear()
-        {
-            return View();
-        }
+     
         public ActionResult edicion()
         {
             return View();
@@ -129,6 +126,81 @@ namespace TagLifeASPMVC.Controllers
             Session["idadmin"] = null;
             return RedirectToAction("Index", "Administrador", new { men = "close" });
         }
+
+        public ActionResult BloquearUser(int Bloquear)
+        {
+            AdministradorCEN cenA = new AdministradorCEN();
+            UsuarioCAD cad = new UsuarioCAD();
+            UsuarioEN usu;
+
+            usu = cad.ReadOIDDefault(Bloquear);
+            cenA.BlockUser(usu.ID, Bloquear.ToString());
+
+            return RedirectToAction("Bloquear", "Administrador", new { men = "close" });
+        }
+
+        public ActionResult Bloquear()
+        {
+            UsuarioCAD cad = new UsuarioCAD();
+            IList<UsuarioEN> admins = cad.ReadAllDefault(0, 0);
+            IList<UsuarioEN> admins1 = new List<UsuarioEN>();
+            System.Diagnostics.Debug.WriteLine(admins.Count + "aqui estoy, num usuarios");
+            if (admins != null)
+            {
+                foreach (UsuarioEN item in admins)
+                {
+                    if (item.Bloqueado == false)
+                    {
+                        admins1.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.Mensaje = "NohayUsuarios";
+                return View();
+            }
+            IEnumerable<Usuario> ulpu = new UsuarioAssembler().ConvertListENToModel(admins1).ToList();
+            return View(ulpu);
+        }
+
+        public ActionResult DesbloquearUser(int Desbloquear)
+        {
+            //AdministradorCEN cenA = new AdministradorCEN();
+            UsuarioCAD cad = new UsuarioCAD();
+            UsuarioEN usu;
+
+            usu = cad.ReadOIDDefault(Desbloquear);
+            usu.Bloqueado = false;
+            cad.Modify(usu);
+
+            return RedirectToAction("Bloqueados", "Administrador", new { men = "close" });
+        }
+
+        public ActionResult Bloqueados()
+        {
+            UsuarioCAD cad = new UsuarioCAD();
+            IList<UsuarioEN> admins = cad.ReadAllDefault(0, 0);
+            IList<UsuarioEN> admins1 = new List<UsuarioEN>();
+            System.Diagnostics.Debug.WriteLine(admins.Count + "aqui estoy, num usuarios");
+            if (admins !=null) {
+                foreach (UsuarioEN item in admins)
+                {
+                    if (item.Bloqueado == true)
+                    {
+                        admins1.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.Mensaje = "NohayUsuarios";
+                return View();
+            }
+            IEnumerable<Usuario> ulpu = new UsuarioAssembler().ConvertListENToModel(admins1).ToList();
+            return View(ulpu);
+        }
+
         //pagina de edicion de usuario
         public ActionResult ListaUsuarios(String men)
         {
