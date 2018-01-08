@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Reporte>
+
+@{
+    ViewBag.Title = "VerReportes";
+    Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
+}
+
+<h3>Reportes</h3>
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id Reporte:</th>
+                    <th>Fecha:</th>
+                    <th>Estado:</th>
+                    <th>Opciones:</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            if (item.Confirmacion != true)
+                            {   @:<tr>
+                                @:<td>@item.iD</td>
+                                @:<td>@item.fecha</td>
+                                @:<td>No resuelto</td>
+                                @:<td><a href="@Url.Action("VerPublicacion", "Usuario", new { idpublicacio = @item.IDPUBLICACION })">Editar Publicacion</a><br /><a href="@Url.Action("ModerarComentarios", "Administrador", new { idpublicacion = @item.IDPUBLICACION })">Editar Comentarios</a><br/><a href="@Url.Action("BorrarReporte", "Administrador", new { idreporte = item.iD })">Resolver</a></td>
+                                @:</tr>
+                            }
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

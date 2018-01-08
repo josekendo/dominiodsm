@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,93 +15,16 @@ namespace TagLifeASPMVC.Controllers
 {
     public class UsuarioController : Controller
     {
-            //
-            // GET: /Usuario/
-
-
-            [HttpPost]
-            [AllowAnonymous]
-            public ActionResult RegistroUser(string nick, string name, string phone, string pais, string email, String pwd, String pwd2, HttpPostedFileBase fil, string poli)
-            {
-                System.Diagnostics.Debug.WriteLine(nick + " - " + name + " " + phone + " " + pais + " " + email + " " + pwd + " " + pwd2 + " " + poli + " ");
-                UsuarioCEN cen = new UsuarioCEN();
-
-                if (Session["iduser"] == null || (String)Session["iduser"] == "")
-                {
-                    UsuarioEN us = new UsuarioEN();
-                    us.Activacion = false;
-                    us.Telefono = Convert.ToInt32(phone);
-                    us.Nombre = name;
-                    us.Nickname = nick;
-                    us.Publicacion = new List<PublicacionEN>();
-                    us.Pais = pais;
-                    us.Password = pwd;
-                    us.Listamegusta = "";
-                    us.Bloqueado = false;
-                    us.Categoriassuscrito = "";
-                    us.Email = email;
-                    var path = "";
-                    var nombreArchivo = "";
-                    if (fil != null && fil.ContentLength > 0)
-                    {
-                        nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
-                        path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
-                        us.Fotoruta = path;
-                    }
-                    else
-                    {
-                        us.Fotoruta = "nula";
-                        nombreArchivo = "default.jpg";
-                    }
-                    int use = cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, nombreArchivo, false, "", "", false, new List<PublicacionEN>());
-                    System.Diagnostics.Debug.WriteLine(use + " id devuelto");
-                    if (use != -1)
-                    {
-                        //aqui subimos la imagen
-                        if (fil != null && fil.ContentLength > 0)
-                        {
-                            fil.SaveAs(path);
-                        }
-                        Session["iduser"] = Convert.ToString(use);
-                        String mensaje2 = "registro correcto";
-                        return RedirectToAction("Index", "Home", new { men = mensaje2 });
-                    }
-
-                }
-                Session["iduser"] = null;
-                String mensaje = "registro incorrecto";
-                return RedirectToAction("Index", "Home", new { men = mensaje });
-            }
-
+        //
+        // GET: /Usuario/
 
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Close()
-        {
-            Session["iduser"] = null;
-            return RedirectToAction("Index", "Usuario", new { men = "close" });
-        }
 
-            public ActionResult perfil()
+        public ActionResult perfil()
         {
-
-            UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-            UsuarioCEN usuarioCEN = new UsuarioCEN();
-          
-            if (Session["iduser"] != null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-                if (usr != null)
-                {
-                    ViewBag.name = usr.Nombre;
-                    ViewBag.phone = usr.Telefono;
-                    ViewBag.email = usr.Email;
-                    ViewBag.avatar = usr.Fotoruta;
-                }
-            }
             return View();
         }
 
@@ -110,62 +33,28 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
-        public ActionResult Subircontenido(FormCollection scont)
+        public ActionResult Subircontenido()
         {
-            if (scont["nombre"] != null && scont["tipo"] != null && scont["archivo"] != null && scont["categorias"] != null)
-            {
-                System.Diagnostics.Debug.WriteLine("nombre: " + scont["nombre"]);
-                System.Diagnostics.Debug.WriteLine("tipo: " + scont["tipo"]);
-                System.Diagnostics.Debug.WriteLine("archivo: " + scont["archivo"]);
-                System.Diagnostics.Debug.WriteLine("iduser: " + Session["iduser"]);
-
-                IList<EtiquetaEN> etil = new List<EtiquetaEN>();
-                IList<int> catel = new List<int>();
-
-                string[] cateq = scont["categorias"].Split(',');
-                foreach (string item in cateq)
-                {
-                    catel.Add(int.Parse(item));
-                    System.Diagnostics.Debug.WriteLine(item);
-                }
-
-                PublicacionCEN cen = new PublicacionCEN();
-                int use = cen.New_(DateTime.Today, scont["nombre"], scont["tipo"], scont["archivo"], Convert.ToInt32(Session["iduser"]), etil, catel);
-
-                //Etiquetas
-                IList<int> lista = new List<int>();
-                EtiquetaCEN etiCEN = new EtiquetaCEN();
-                string[] etiq = scont["etiquetas"].Split(',');
-                if (etiq.Length < 1)
-                {
-                    etiq = new String[1];
-                    etiq[0] = etiq[0];
-                }
-                EtiquetaCAD cad = new EtiquetaCAD();
-                IList<EtiquetaEN> etique = cad.ReadAllDefault(0, 0);
-                bool existe = false;
-                foreach (String item in etiq)
-                {
-                    foreach (EtiquetaEN item2 in etique)
-                    {
-                        if (item2.Nombre == item)
-                        {
-                            existe = true;
-                        }
-                    }
-                    if (existe == false)
-                    {
-                        lista.Add(use);
-                        int etiqueta1 = etiCEN.New_(item, lista);
-                        System.Diagnostics.Debug.WriteLine(item);
-                    }
-                    existe = false;
-                }
-
-                System.Diagnostics.Debug.WriteLine(use + " id devuelto");
-                return RedirectToAction("Index", "Usuario");
-            }
             return View();
+        }
+
+        public ActionResult SearchU(String busqueda)
+        {
+            System.Diagnostics.Debug.WriteLine(busqueda);
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            IList<PublicacionEN> ultimas = publicacionCEN.BuscarPublicaciones(true, new DateTime(1970, 1, 1), busqueda);
+            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
+            System.Diagnostics.Debug.WriteLine(ultimas.Count);
+            return View(ulpu);
+        }
+        public ActionResult SearchAv(String busqueda, String categoria)
+        {
+            System.Diagnostics.Debug.WriteLine(busqueda, categoria);
+            PublicacionCEN publicacionCEN = new PublicacionCEN();
+            IList<PublicacionEN> ultimas = publicacionCEN.BuscarAvanzado(true, busqueda, new DateTime(1970, 1, 1), categoria);
+            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
+            System.Diagnostics.Debug.WriteLine(ultimas.Count);
+            return View(ulpu);
         }
 
         [HttpPost]
@@ -175,7 +64,7 @@ namespace TagLifeASPMVC.Controllers
             UsuarioCEN cen = new UsuarioCEN();
             String passencrip = Encrypt.GetMD5(pass);
             String mensaje;
-            if (email.Length >= 5)//a@a.c
+            if (email.Length > 5)//a@a.c
             {
                 mensaje = cen.Login(0, email, null, pass);
 
@@ -184,7 +73,7 @@ namespace TagLifeASPMVC.Controllers
                     Session["iduser"] = mensaje;
                     Session["password"] = pass;
                 }
-                System.Diagnostics.Debug.WriteLine(email + "1<--->" + pass +"devolucion ->"+ mensaje);
+                System.Diagnostics.Debug.WriteLine(email + "1<--->" + pass);
             }
             else if (nickname.Length > 1)
             {
@@ -194,7 +83,7 @@ namespace TagLifeASPMVC.Controllers
                     Session["iduser"] = mensaje;
                     Session["password"] = pass;
                 }
-                System.Diagnostics.Debug.WriteLine(nickname + "2<--->" + pass+ "devolucion ->" + mensaje);
+                System.Diagnostics.Debug.WriteLine(nickname + "2<--->" + pass);
             }
             else
             {
@@ -211,113 +100,59 @@ namespace TagLifeASPMVC.Controllers
                 }
             }
             return RedirectToAction("Index", "Home", new { men = mensaje });
-
         }
-
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult EditarUser(String name, String phone, String email, String pwd, String pwd2, HttpPostedFileBase fil)
+        public ActionResult RegistroUser(String nick, String name, String phone, String pais, String email, String pwd, String pwd2, HttpPostedFileBase fil,String poli)
         {
-
+            System.Diagnostics.Debug.WriteLine(nick+" - "+name+" "+phone+" "+pais+" "+email+" "+pwd+" "+pwd2+" "+poli+" ");
             UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-            UsuarioCEN usuarioCEN = new UsuarioCEN();
-            var path = "";
-            System.Diagnostics.Debug.WriteLine("comprobando perfil" + Session["iduser"]);
-            if (Session["iduser"] != null)
+
+            if (Session["iduser"] == null || (String)Session["iduser"] == "")
             {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-                System.Diagnostics.Debug.WriteLine(int.Parse((String)Session["iduser"]));
-                if (usr != null)
+                UsuarioEN us = new UsuarioEN();
+                us.Activacion = false;
+                us.Telefono = Convert.ToInt32(phone);
+                us.Nombre = name;
+                us.Nickname = nick;
+                us.Publicacion = new List<PublicacionEN>();
+                us.Pais = pais;
+                us.Password = pwd;
+                us.Listamegusta = "";
+                us.Bloqueado = false;
+                us.Categoriassuscrito = "";
+                us.Email = email;
+                var path = "";
+                if (fil != null && fil.ContentLength > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine(usr.Nickname);
-
-                    //comprobando archivo
-                    if (fil != null && fil.ContentLength > 0)
-                    {
-                        var nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
-                        path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
-
-                    }
-                    else
-                    {
-                        path = "nula";
-                    }
-
-
+                    var nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
+                    path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
+                    us.Fotoruta = path;
                 }
-
-                /*asegurarme que las dos contraseñas son iguales pwd y pwd2*/
-            }
-         
-        
-
-            bool use = usuarioCEN.CambiarDatos(int.Parse((String)Session["iduser"]), pwd, email, name, int.Parse(phone));
-            if (use != false)
+                else
+                {
+                    us.Fotoruta = "nula";
+                }
+                int use = cen.New_(us);
+                System.Diagnostics.Debug.WriteLine(use+" id devuelto");
+                if (use != -1)
                 {
                     //aqui subimos la imagen
                     if (fil != null && fil.ContentLength > 0)
                     {
                         fil.SaveAs(path);
                     }
-                    
+                    Session["iduser"] = Convert.ToString(use);
+                    String mensaje2 = "registro correcto";
+                    return RedirectToAction("Index", "Home", new { men = mensaje2 });
                 }
-
-            usuarioCEN.CambiarImagen(int.Parse((String)Session["iduser"]), path);
-
-                Session["iduser"] = Convert.ToString(use);
-                String mensaje2 = "registro correcto";
-                return RedirectToAction("perfil", "usuario", new { men = mensaje2 });
-
-
-            
-        }
-        
-
-        /*** PARTE INICIO USUARIO (ENLACES) ***/
-        /*public ActionResult EnlacesPublicacionUsuario()
-        {
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-
-            if (Session["iduser"] != null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-
-                if (usr != null)
-                {
-
-                    publicacionCEN.ListadoComentarios(idPublicacion:);
-                }
+                //cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, "nula", false, "", "", false, new List<PublicacionEN>()); }
             }
-
-        }*/
-        /*** Recoger todas las publicaciones del usuario ***/
-       /* public ActionResult RecogerUltimasPublicaciones()
-        {
-
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-
-            if (Session["iduser"] == null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-
-                if (usr == null){
-
-                    return RedirectToAction("Index", "Home", new { men = "usuario incorrecto" });
-                   
-                }
-            }
-            IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones("GATOS");
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(ulpu);
+            Session["iduser"] = null;
+            String mensaje = "registro incorrecto";
+            return RedirectToAction("Index", "Home", new { men = mensaje });
         }
-        */
-
         public class Encrypt
         {
             public static string GetMD5(string str)
@@ -334,5 +169,3 @@ namespace TagLifeASPMVC.Controllers
     }
 
 }
-           
-
