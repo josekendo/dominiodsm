@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "etiquetar";
+}
+
+<h2>etiquetar</h2>
+<div class="row">
+    <div class="col-sm-3">
+
+        <img src="https://image.freepik.com/iconos-gratis/etiquetar-simbolo-herramienta-comercial-con-lineas-de-texto_318-67642.jpg" alt="Etiquetar" />
+      @using (Html.BeginForm("Etiquetando", "Publicacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+      {
+        <div class="form-group">
+            <label for="name">Introduce la/s etiqueta/s que desee añadir (separadas por coma):</label>
+            <input type="text" class="form-control" name="name" id="name">
+        </div>        
+        <button type="submit" class="btn btn-success">Confirmar</button>
+      }
+    </div>
+</div>
