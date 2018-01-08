@@ -115,6 +115,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
-		  <query name="UsuarioENbuscarusuarioHQL"><![CDATA[FROM UsuarioEN as us WHERE us.Password = :password and (us.Nickname = :nickname or us.Email = :nickname)]]></query>
+		  <query name="UsuarioENbuscarusuarioHQL"><![CDATA[FROM UsuarioEN as us WHERE us.Password = :password and us.Nickname = :nickname or us.Email = :nickname]]></query>
 		</hibernate-mapping>
 	

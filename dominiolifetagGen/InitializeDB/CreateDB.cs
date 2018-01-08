@@ -138,6 +138,14 @@ public static void InitializeData ()
                 int publicacion7 = puCEN.New_(DateTime.Today, "Gato Mono 7", "Imagen", "https://coo4.tuvotacion.com/imagenes_unicas/cual-es-mas-mono-de-los-gatos-165173.jpg", user1, etil, catel);
                 int publicacion8 = puCEN.New_(DateTime.Today, "Gato Mono 8", "Imagen", "https://img.buzzfeed.com/buzzfeed-static/static/2015-06/25/10/campaign_images/webdr12/este-puede-ser-el-gato-mas-triste-y-mono-de-la-hi-2-5356-1435241579-5_dblbig.jpg", user1, etil, catel);
 
+                //Aqui el usuario da a me gusta a las publicaciones
+                usuarioCEN.AddListaMeGusta(user1, publicacion3.ToString());
+                usuarioCEN.AddListaMeGusta(user1, publicacion5.ToString());
+                usuarioCEN.AddListaMeGusta(user1, publicacion6.ToString());
+                usuarioCEN.AddListaMeGusta(user1, publicacion7.ToString());
+                usuarioCEN.AddListaMeGusta(user1, publicacion8.ToString());
+
+
                 PublicacionEN publi1 = puCAD.ReadOIDDefault (publicacion1);
                 Console.WriteLine ("creada publicacion con id -> " + publicacion1);
                 Console.WriteLine ("creada publicacion con id (recuperada) -> " + publi1.ID);

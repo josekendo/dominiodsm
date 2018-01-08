@@ -23,13 +23,18 @@
 <div class="row">
     <div class="col-xs-6">        
         <h3>&nbsp;Categorias</h3>
-        <!--for (var i = 0; i < 4; i++){
-
-        <span class="glyphicon glyphicon-eye</span>
-             <button type="button" class="btn btn-default">Categoria name</button>
-
-        }-->
-
+		@foreach(var item in Model){
+		
+		@using (Html.BeginForm("BorrarCategoria", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+			@:<div class="form-group">
+                       @:<label for="dato">item.nombre</label>
+                        @:<input style="display: none;" type="number" value="item.id" name="dato">                        
+                    @:</div> 
+            @:<button type="submit" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+			@:<br>
+		}
+		}
 
     </div>
 
@@ -37,6 +42,8 @@
         <h3>&nbsp;Nueva categoria</h3>
 
         <div class="modal-body">
+		@using (Html.BeginForm("CrearCategoria", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
                         <div class="form-group">
                             <label for="nombre">nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre">
@@ -58,7 +65,7 @@
                         <button type="submit" class="btn btn-danger">Crear</button>
                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
            
-
+		}
 
     </div>
 </div>

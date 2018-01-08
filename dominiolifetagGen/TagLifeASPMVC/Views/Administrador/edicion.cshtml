@@ -6,3 +6,44 @@
 }
 
 <h2>edicion</h2>
+
+<div class="row">
+  <div class="col-sm-4">
+   @{
+   @:<img src="@Html.DisplayFor(modelItem => model.Archivo)" class="img-thumbnail" alt="@model.Nombre" style="width:24%">
+   }
+  </div>
+  
+ 
+	  <div class="col-sm-8">
+	  
+	  <!-- problema como se sacan las etiquetas de una publicacion -->
+			@foreach(var item in Model.etiquetas){	
+			@using (Html.BeginForm("BorrarEtiqueta", "Publicacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+			@:<div class="form-group">
+                       @:<label for="dato">item.nombre</label>
+                        @:<input style="display: none;" type="number" value="item.id" name="dato">                        
+                    @:</div> 
+            @:<button type="submit" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+			@:<br>
+			}
+			}
+			
+	  <!-- problema como se sacan las categorias de una publicacion -->
+			@foreach(var item in Model.categorias){	
+			@using (Html.BeginForm("BorrarCategoria", "Publicacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+			@:<div class="form-group">
+                       @:<label for="dato">item.nombre</label>
+                        @:<input style="display: none;" type="number" value="item.id" name="dato">                        
+                    @:</div> 
+            @:<button type="submit" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+			@:<br>
+			}
+			}
+
+	  </div>
+	  
+  
+</div>

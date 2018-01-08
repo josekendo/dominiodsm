@@ -134,6 +134,20 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult BorrarCategoria(int dato)
+        {            
+            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult BorrarEtiqueta(int dato)
+        {
+            return RedirectToAction("edicion", "Administrador", new { men = mensaje });
+        }
+
         public ActionResult Asignacategoria()
         {
             return View();
