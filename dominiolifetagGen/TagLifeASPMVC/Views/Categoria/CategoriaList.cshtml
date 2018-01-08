@@ -1,0 +1,14 @@
+﻿@model IEnumerable<TagLifeASPMVC.Models.Categoria>
+
+<select class="form-control" name=" categoria" id="sel1">
+    @{
+        if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                @:
+                <option value="@item.Nombre">@item.Nombre</option>
+        }
+        }
+    }
+</select>
