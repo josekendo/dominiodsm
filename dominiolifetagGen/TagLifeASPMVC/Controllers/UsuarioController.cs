@@ -74,7 +74,7 @@ namespace TagLifeASPMVC.Controllers
             }
 
 
-            public ActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }

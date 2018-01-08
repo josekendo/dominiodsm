@@ -1,20 +1,23 @@
-﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+﻿@model IEnumerable<TagLifeASPMVC.Models.Categoria>
 
 
 
 @if (Model != null && ViewBag.Mensaje != "NoCategorias")
 {
-    @:<div class="tab-pane fade">
+    @:<div class="tab-content">
+    @: <ul class="nav nav-tabs">
+    var cont = 0;
     foreach (var item in Model)
     {
-        var cont = 0;
         if (cont != 1)
         {
             @:<li class="active">
+            cont++;
         }
         else
         {
             @:<li>
+            cont++;
         }
         @:<a data-toggle="tab" href="#@Html.DisplayFor(modelItem => item.Nombre)">@Html.DisplayFor(modelItem => item.Nombre)</a>
         @:</li>
@@ -22,16 +25,34 @@
 
 
     }
+    @:</ul>
 }
+
 
     @if (ViewBag.Mensaje != "NoCategorias")
     {
-
-          @:<div class="tab-content">
-              {Html.RenderAction("Capa", "Publicacion", new { cate = "GATOS" });}
+         @:<div class="tab-content">
+         var cont = 0;
+        foreach (var item in Model)
+        {
+            if (cont == 0)
+            {
+                @:<div class="tab-pane fade in active" id="@item.Nombre">
+                cont++;
+            }
+            else
+            {
+                @:<div class="tab-pane fade" id="@item.Nombre">
+                cont++;
+            }
+              { Html.RenderAction("Capa", "Publicacion", new { cate = item.Nombre }); }
           @:</div>
+        }
+        @:</div>
+        @:</div>
     }
 
-    @if(ViewBag.Mensaje == "NoCategorias"){
+    @if(ViewBag.Mensaje == "NoCategorias")
+    {
         <h3>No estás siguiendo ninguna categoría.</h3>
     }
