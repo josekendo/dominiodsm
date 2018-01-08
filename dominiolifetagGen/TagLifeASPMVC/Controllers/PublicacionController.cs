@@ -24,7 +24,11 @@ namespace TagLifeASPMVC.Controllers
             IEnumerable<Publicacion> mode = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
             return PartialView(mode);
         }
-            public ActionResult CargarMeGusta()
+        public ActionResult CapaSeleccion()
+        {
+           return PartialView();
+        }
+        public ActionResult CargarMeGusta()
         {
             UsuarioCAD cen = new UsuarioCAD();
             UsuarioEN usr;

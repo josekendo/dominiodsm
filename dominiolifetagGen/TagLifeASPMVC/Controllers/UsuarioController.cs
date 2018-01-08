@@ -11,112 +11,80 @@ using System.Diagnostics;
 using System.Text;
 using System.IO;
 
-
 namespace TagLifeASPMVC.Controllers
 {
-
-
     public class UsuarioController : Controller
     {
-    //
-    // GET: /Usuario/
+            //
+            // GET: /Usuario/
 
 
-    [HttpPost]
-    [AllowAnonymous]
-    public ActionResult RegistroUser(string nick, string name, string phone, string pais, string email, String pwd, String pwd2, HttpPostedFileBase fil, string poli)
-    {
-        System.Diagnostics.Debug.WriteLine(nick + " - " + name + " " + phone + " " + pais + " " + email + " " + pwd + " " + pwd2 + " " + poli + " ");
-        UsuarioCEN cen = new UsuarioCEN();
+            [HttpPost]
+            [AllowAnonymous]
+            public ActionResult RegistroUser(string nick, string name, string phone, string pais, string email, String pwd, String pwd2, HttpPostedFileBase fil, string poli)
+            {
+                System.Diagnostics.Debug.WriteLine(nick + " - " + name + " " + phone + " " + pais + " " + email + " " + pwd + " " + pwd2 + " " + poli + " ");
+                UsuarioCEN cen = new UsuarioCEN();
 
-        if (Session["iduser"] == null || (String)Session["iduser"] == "")
-        {
-            UsuarioEN us = new UsuarioEN();
-            us.Activacion = false;
-            us.Telefono = Convert.ToInt32(phone);
-            us.Nombre = name;
-            us.Nickname = nick;
-            us.Publicacion = new List<PublicacionEN>();
-            us.Pais = pais;
-            us.Password = pwd;
-            us.Listamegusta = "";
-            us.Bloqueado = false;
-            us.Categoriassuscrito = "";
-            us.Email = email;
-            var path = "";
-            var nombreArchivo = "";
-            if (fil != null && fil.ContentLength > 0)
-            {
-                nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
-                path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
-                us.Fotoruta = path;
-            }
-            else
-            {
-                us.Fotoruta = "nula";
-                nombreArchivo = "default.jpg";
-            }
-            int use = cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, nombreArchivo, false, "", "", false, new List<PublicacionEN>());
-            System.Diagnostics.Debug.WriteLine(use + " id devuelto");
-            if (use != -1)
-            {
-                //aqui subimos la imagen
-                if (fil != null && fil.ContentLength > 0)
+                if (Session["iduser"] == null || (String)Session["iduser"] == "")
                 {
-                    fil.SaveAs(path);
+                    UsuarioEN us = new UsuarioEN();
+                    us.Activacion = false;
+                    us.Telefono = Convert.ToInt32(phone);
+                    us.Nombre = name;
+                    us.Nickname = nick;
+                    us.Publicacion = new List<PublicacionEN>();
+                    us.Pais = pais;
+                    us.Password = pwd;
+                    us.Listamegusta = "";
+                    us.Bloqueado = false;
+                    us.Categoriassuscrito = "";
+                    us.Email = email;
+                    var path = "";
+                    var nombreArchivo = "";
+                    if (fil != null && fil.ContentLength > 0)
+                    {
+                        nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
+                        path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
+                        us.Fotoruta = path;
+                    }
+                    else
+                    {
+                        us.Fotoruta = "nula";
+                        nombreArchivo = "default.jpg";
+                    }
+                    int use = cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, nombreArchivo, false, "", "", false, new List<PublicacionEN>());
+                    System.Diagnostics.Debug.WriteLine(use + " id devuelto");
+                    if (use != -1)
+                    {
+                        //aqui subimos la imagen
+                        if (fil != null && fil.ContentLength > 0)
+                        {
+                            fil.SaveAs(path);
+                        }
+                        Session["iduser"] = Convert.ToString(use);
+                        String mensaje2 = "registro correcto";
+                        return RedirectToAction("Index", "Home", new { men = mensaje2 });
+                    }
+
                 }
-                Session["iduser"] = Convert.ToString(use);
-                String mensaje2 = "registro correcto";
-                return RedirectToAction("Index", "Home", new { men = mensaje2 });
+                Session["iduser"] = null;
+                String mensaje = "registro incorrecto";
+                return RedirectToAction("Index", "Home", new { men = mensaje });
             }
 
-        }
-        Session["iduser"] = null;
-        String mensaje = "registro incorrecto";
-        return RedirectToAction("Index", "Home", new { men = mensaje });
-    }
 
-    public ActionResult Index()
+            public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult Close()
         {
             Session["iduser"] = null;
             return RedirectToAction("Index", "Usuario", new { men = "close" });
         }
 
-        public ActionResult perfil()
-        {
-            return View();
-        }
-
-        public ActionResult favoritos()
-        {
-            return View();
-        }
-
-        public ActionResult Subircontenido()
-        {
-            return View();
-        }
-
-}
-
-namespace TagLifeASPMVC.Controllers
-{
-    public class UsuarioController : Controller
-    {
-        //
-        // GET: /Usuario/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult perfil()
+            public ActionResult perfil()
         {
 
             UsuarioCAD cen = new UsuarioCAD();
@@ -313,6 +281,5 @@ namespace TagLifeASPMVC.Controllers
     }
 
 }
-            
-        }
+           
 

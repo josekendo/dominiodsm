@@ -226,6 +226,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\AdministradorAssembler.cs" />
+    <Compile Include="Models\ComentarioAssembler.cs" />
     <Compile Include="Models\PublicacionAssembler.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Comentario.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CategoriaAssembler.cs" />
     <Compile Include="Models\EtiquetaAssembler.cs" />
+    <Compile Include="Models\UsuarioAssembler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +359,16 @@
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Publicacion\searchi.cshtml" />
     <Content Include="Views\Home\BusquedaInvitado.cshtml" />
+    <Content Include="Views\Publicacion\AsignaCategoria.cshtml" />
+    <Content Include="Views\Publicacion\Capa.cshtml" />
+    <Content Include="Views\Publicacion\CapaSeleccion.cshtml" />
+    <Content Include="Views\Publicacion\CargarMeGusta.cshtml" />
+    <Content Include="Views\Publicacion\Carrussel1.cshtml" />
+    <Content Include="Views\Publicacion\Carrussel2.cshtml" />
+    <Content Include="Views\Publicacion\Carrussel3.cshtml" />
+    <Content Include="Views\Publicacion\categorias.cshtml" />
+    <Content Include="Views\Publicacion\CrearEtiqueta.cshtml" />
+    <Content Include="Views\Publicacion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
