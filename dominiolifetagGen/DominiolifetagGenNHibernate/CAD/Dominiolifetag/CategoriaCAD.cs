@@ -62,17 +62,17 @@ public System.Collections.Generic.IList<CategoriaEN> ReadAllDefault (int first, 
         System.Collections.Generic.IList<CategoriaEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
-                        if (size > 0)
-                                result = session.CreateCriteria (typeof(CategoriaEN)).
+                SessionInitializeTransaction();
+                if (size > 0)
+                    result = session.CreateCriteria (typeof(CategoriaEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<CategoriaEN>();
                         else
                                 result = session.CreateCriteria (typeof(CategoriaEN)).List<CategoriaEN>();
-                }
-        }
+                SessionClose();
 
-        catch (Exception ex) {
+            }
+
+            catch (Exception ex) {
                 SessionRollBack ();
                 if (ex is DominiolifetagGenNHibernate.Exceptions.ModelException)
                         throw ex;

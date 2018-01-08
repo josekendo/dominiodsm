@@ -22,6 +22,14 @@ namespace TagLifeASPMVC.Controllers
             return RedirectToAction("Listar");
         }
 
+        public ActionResult CargarCategorias()
+        {
+            CategoriaCAD cad = new CategoriaCAD();
+            IList<CategoriaEN> lista = cad.ReadAllDefault(0, 0);
+            IEnumerable<Categoria> listEN = new CategoriaAssembler().ConvertListENToModel(lista).ToList();
+            return PartialView(listEN);
+        }
+
         public ActionResult categorias()
         {
             CategoriaCAD cad = new CategoriaCAD();

@@ -12,8 +12,9 @@ namespace TagLifeASPMVC.Models
     {
         public Categoria ConvertENToModelUI(CategoriaEN en)
         {
-          Categoria cat = new Categoria ();
-          cat.Descripcion = en.Descripcion;
+            Categoria cat = new Categoria();
+            cat.iD = en.ID;
+            cat.Descripcion = en.Descripcion;
           cat.edad = en.Edad;
           cat.Nombre = en.Nombre;
           return cat;

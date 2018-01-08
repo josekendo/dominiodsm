@@ -62,15 +62,14 @@ public System.Collections.Generic.IList<EtiquetaEN> ReadAllDefault (int first, i
         System.Collections.Generic.IList<EtiquetaEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
-                        if (size > 0)
+                SessionInitializeTransaction();
+                if (size > 0)
                                 result = session.CreateCriteria (typeof(EtiquetaEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<EtiquetaEN>();
                         else
                                 result = session.CreateCriteria (typeof(EtiquetaEN)).List<EtiquetaEN>();
-                }
-        }
+                SessionClose();
+            }
 
         catch (Exception ex) {
                 SessionRollBack ();

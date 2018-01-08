@@ -110,8 +110,61 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
-        public ActionResult Subircontenido()
+        public ActionResult Subircontenido(FormCollection scont)
         {
+            if (scont["nombre"] != null && scont["tipo"] != null && scont["archivo"] != null && scont["categorias"] != null)
+            {
+                System.Diagnostics.Debug.WriteLine("nombre: " + scont["nombre"]);
+                System.Diagnostics.Debug.WriteLine("tipo: " + scont["tipo"]);
+                System.Diagnostics.Debug.WriteLine("archivo: " + scont["archivo"]);
+                System.Diagnostics.Debug.WriteLine("iduser: " + Session["iduser"]);
+
+                IList<EtiquetaEN> etil = new List<EtiquetaEN>();
+                IList<int> catel = new List<int>();
+
+                string[] cateq = scont["categorias"].Split(',');
+                foreach (string item in cateq)
+                {
+                    catel.Add(int.Parse(item));
+                    System.Diagnostics.Debug.WriteLine(item);
+                }
+
+                PublicacionCEN cen = new PublicacionCEN();
+                int use = cen.New_(DateTime.Today, scont["nombre"], scont["tipo"], scont["archivo"], Convert.ToInt32(Session["iduser"]), etil, catel);
+
+                //Etiquetas
+                IList<int> lista = new List<int>();
+                EtiquetaCEN etiCEN = new EtiquetaCEN();
+                string[] etiq = scont["etiquetas"].Split(',');
+                if (etiq.Length < 1)
+                {
+                    etiq = new String[1];
+                    etiq[0] = etiq[0];
+                }
+                EtiquetaCAD cad = new EtiquetaCAD();
+                IList<EtiquetaEN> etique = cad.ReadAllDefault(0, 0);
+                bool existe = false;
+                foreach (String item in etiq)
+                {
+                    foreach (EtiquetaEN item2 in etique)
+                    {
+                        if (item2.Nombre == item)
+                        {
+                            existe = true;
+                        }
+                    }
+                    if (existe == false)
+                    {
+                        lista.Add(use);
+                        int etiqueta1 = etiCEN.New_(item, lista);
+                        System.Diagnostics.Debug.WriteLine(item);
+                    }
+                    existe = false;
+                }
+
+                System.Diagnostics.Debug.WriteLine(use + " id devuelto");
+                return RedirectToAction("Index", "Usuario");
+            }
             return View();
         }
 

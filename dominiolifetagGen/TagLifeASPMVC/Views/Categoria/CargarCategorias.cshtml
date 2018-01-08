@@ -1,0 +1,12 @@
+﻿﻿﻿@model IEnumerable<TagLifeASPMVC.Models.Categoria>
+
+@if (Model != null)
+{
+    foreach (var categoria in Model)
+    {
+        @:<div class="checkbox">
+            @:<label><input type="checkbox" name="categorias" value="@categoria.iD">@categoria.Nombre</label>
+            @:
+        @:</div>
+    }
+}
