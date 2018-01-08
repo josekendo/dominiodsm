@@ -17,77 +17,6 @@ namespace TagLifeASPMVC.Controllers
 
         //vista parcial es como hacer un pedazo de una pagina para luego cargarla (un include por decirlo de alguna forma)
         //se crea vista parcial
-        public ActionResult Capa(String cate)
-        {
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones(cate);
-            IEnumerable<Publicacion> mode = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(mode);
-        }
-        public ActionResult CapaSeleccion()
-        {
-            UsuarioCAD cen = new UsuarioCAD();
-            CategoriaCAD cad = new CategoriaCAD();
-            UsuarioEN usr;
-            if (Session["iduser"] != null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-                if (usr != null && usr.Categoriassuscrito != null && usr.Categoriassuscrito.Length >= 1)
-                {
-                    System.Diagnostics.Debug.WriteLine(usr.Categoriassuscrito.Length);
-                    String[] categorias = usr.Categoriassuscrito.Split(',');
-                    if (usr.Categoriassuscrito.Length >= 3 && categorias.Count() >= 1)
-                    {
-                        IList<CategoriaEN> lista = new List<CategoriaEN>();
-                        foreach (String item in categorias)
-                        {
-                            lista.Add(cad.ReadOIDDefault(int.Parse(item)));   
-                        }
-                        IEnumerable<Categoria> ulpu = new CategoriaAssembler().ConvertListENToModel(lista).ToList();
-                        return PartialView(ulpu);
-                    }
-                    else
-                    {//solo 1 categoria
-                        IList<CategoriaEN> lista = new List<CategoriaEN>();
-                        lista.Add(cad.ReadOIDDefault(int.Parse(usr.Categoriassuscrito)));
-                        IEnumerable<Categoria> ulpu = new CategoriaAssembler().ConvertListENToModel(lista).ToList();
-                        PartialView(ulpu);
-                    }
-                }
-            }
-            ViewBag.Mensaje = "NoCategorias";
-
-            return PartialView();
-        }
-        public ActionResult CargarMeGusta()
-        {
-            UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-            IList<PublicacionEN> favs = new List<PublicacionEN>();
-
-            System.Diagnostics.Debug.WriteLine("comprobando favoritos" + Session["iduser"]);
-            if (Session["iduser"] != null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-                System.Diagnostics.Debug.WriteLine(int.Parse((String)Session["iduser"]));
-                if (usr != null)
-                {
-                    System.Diagnostics.Debug.WriteLine(usr.Nickname);
-                    UsuarioCEN usuarioCEN = new UsuarioCEN();
-                    IList<string> lista = usuarioCEN.VerListaMeGusta(int.Parse((String)Session["iduser"]));
-
-
-                    foreach (String contador in lista)
-                    { //Me recorro uno a uno los ids de las publicaciones
-                        PublicacionCAD pubcen = new PublicacionCAD();
-                        favs.Add(pubcen.ReadOIDDefault(int.Parse(contador)));
-                    }
-
-                }
-            }
-            IEnumerable<Publicacion> favo = new PublicacionAssembler().ConvertListENToModel(favs).ToList();
-            return PartialView(favo);
-        }
 
         public ActionResult CargarUltimasPublicaciones()
         {
@@ -98,48 +27,6 @@ namespace TagLifeASPMVC.Controllers
             return PartialView(ulpu);
         }
 
-        public ActionResult Carrussel1()
-        {
-            PublicacionCAD publicacionCAD = new PublicacionCAD();
-            IList<PublicacionEN> ultimas = publicacionCAD.ReadAllDefault(1,2);
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(ulpu);
-        }
-        public ActionResult Carrussel2()
-        {
-            PublicacionCAD publicacionCAD = new PublicacionCAD();
-            IList<PublicacionEN> ultimas = publicacionCAD.ReadAllDefault(4, 2);
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(ulpu);
-        }
-        public ActionResult Carrussel3()
-        {
-            PublicacionCAD publicacionCAD = new PublicacionCAD();
-            IList<PublicacionEN> ultimas = publicacionCAD.ReadAllDefault(6, 2);
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(ulpu);
-        }
-
-        /*public ActionResult listadoComentarios()
-        {
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            UsuarioCAD cen = new UsuarioCAD();
-            UsuarioEN usr;
-            
-            if (Session["iduser"] != null)
-            {
-                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
-                
-                if (usr != null){
-
-                    publicacionCEN.ListadoComentarios(idPublicacion:);
-                }
-            }
-            IEnumerable<Publicacion> favo = new PublicacionAssembler().ConvertListENToModel(favs).ToList();
-            return PartialView(favo);
-        }*/
-
-
         public ActionResult Searchi(String busqueda)
         {
             System.Diagnostics.Debug.WriteLine(busqueda);
@@ -149,41 +36,28 @@ namespace TagLifeASPMVC.Controllers
             System.Diagnostics.Debug.WriteLine(ultimas.Count);
             return PartialView(ulpu);
         }
-        public ActionResult Index(String idpublicacion)
+            public ActionResult Index()
         {
-            PublicacionCAD cen = new PublicacionCAD();
-            PublicacionEN publi = cen.ReadOIDDefault(Convert.ToInt32(idpublicacion));
-            return View(new PublicacionAssembler().ConvertENToModelUI(publi));
+            return View();
         }
 
         public ActionResult CrearEtiqueta(String etiquetas)
         {
-            /*System.Diagnostics.Debug.WriteLine(etiquetas);
+            System.Diagnostics.Debug.WriteLine(etiquetas);
             string[] etiqueta = etiquetas.Split(',');
             foreach (string i in etiqueta)
             {
                 //Comprobar
                 EtiquetaEN et = new EtiquetaEN();
                 et.Nombre = i;
-            }*/
+            }
             return View();
         }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult BorrarCategoria(int dato)
-        {            
-            return RedirectToAction("edicion", "Administrador");
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult BorrarEtiqueta(int dato)
+        public ActionResult AddEtiqueta(String etiqueta)
         {
-            return RedirectToAction("edicion", "Administrador");
+            return View();
         }
-
-        public ActionResult Asignacategoria()
+        public ActionResult AddCategoria()
         {
             return View();
         }
