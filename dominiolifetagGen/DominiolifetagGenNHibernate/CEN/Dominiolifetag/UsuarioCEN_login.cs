@@ -25,8 +25,6 @@ public string Login (int p_oid, string email, string nickname, String password)
 
         // Write here your custom code...
 
-
-
         UsuarioEN usuario = null;
         UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
 
