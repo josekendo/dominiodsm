@@ -18,15 +18,15 @@
         <div class="col-sm-3"></div>
     }
         <div class="col-sm-2">
-            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Ver Reportes</p></div>
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("VerReportes", "Administrador")">Ver Reportes</a></p></div>
         </div>
     @if(ViewBag.Tipo == "Administrador"){
         <div class="col-sm-2">
-            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Crear Categoria</p></div>
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("edicion", "Administrador")">Crear Categoria</a></p></div>
         </div>
     }
         <div class="col-sm-2">
-            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Bloquear Usuario</p></div>
+            <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("bloquear", "Administrador")">Bloquear Usuario</a></p></div>
         </div>
         <div class="col-sm-2">
             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("Estadisticas", "Administrador")">Ver Estadisticas</a></p></div>
@@ -58,13 +58,13 @@
     </div>
 }
     <div class="col-sm-2">
-        <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Quitar Bloqueo</div>
+        <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("Bloqueados", "Administrador")">Quitar Bloqueo</a></div>
     </div>
     <div class="col-sm-2">
-             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Editar Usuario</div>
+             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("ListaUsuarios", "Administrador")">Editar Usuario</a></div>
      </div>
      <div class="col-sm-2">
-             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;">Buscar Publicaciones</div>
+             <div class="well" style="height:8em;text-align:center;"><p style="padding-top:2em;"><a href="@Url.Action("SearchMod", "Administrador")">Buscar Publicaciones</a></div>
      </div>
 @if (ViewBag.Tipo == "Administrador")
 {

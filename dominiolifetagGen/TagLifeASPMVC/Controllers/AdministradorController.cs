@@ -121,6 +121,17 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
         //se carga la session
+
+        public ActionResult VerReportes()
+        {
+            return View();
+        }
+
+        public ActionResult SearchMod()
+        {
+            return View();
+        }
+
         public ActionResult Close()
         {
             Session["idadmin"] = null;

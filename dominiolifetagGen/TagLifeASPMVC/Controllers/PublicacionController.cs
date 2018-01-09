@@ -1,53 +1,4 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using DominiolifetagGenNHibernate.CAD.Dominiolifetag;
-using DominiolifetagGenNHibernate.CEN.Dominiolifetag;
-using DominiolifetagGenNHibernate.EN.Dominiolifetag;
-using TagLifeASPMVC.Models;
-
-namespace TagLifeASPMVC.Controllers
-{
-    public class PublicacionController : Controller
-    {
-        //
-        // GET: /Publicacion/
-
-        //vista parcial es como hacer un pedazo de una pagina para luego cargarla (un include por decirlo de alguna forma)
-        //se crea vista parcial
-
-        public ActionResult CargarUltimasPublicaciones()
-        {
-            // Codigo
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            IList<PublicacionEN> ultimas = publicacionCEN.UltimasPublicaciones("GATOS");
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            return PartialView(ulpu);
-        }
-
-        public ActionResult Searchi(String busqueda)
-        {
-            System.Diagnostics.Debug.WriteLine(busqueda);
-            PublicacionCEN publicacionCEN = new PublicacionCEN();
-            IList<PublicacionEN> ultimas = publicacionCEN.BuscarPublicaciones(true, new DateTime(1970,1,1), busqueda);
-            IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(ultimas).ToList();
-            System.Diagnostics.Debug.WriteLine(ultimas.Count);
-            return PartialView(ulpu);
-        }
-            public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult CrearEtiqueta(String etiquetas)
-        {
-            System.Diagnostics.Debug.WriteLine(etiquetas);
-            string[] etiqueta = etiquetas.Split(',');
-=======
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -217,6 +168,7 @@ namespace TagLifeASPMVC.Controllers
             System.Diagnostics.Debug.WriteLine(ultimas.Count);
             return PartialView(ulpu);
         }
+
         public ActionResult Index(String idpublicacion)
         {
             PublicacionCAD cen = new PublicacionCAD();
@@ -226,9 +178,9 @@ namespace TagLifeASPMVC.Controllers
 
         public ActionResult CrearEtiqueta(String etiquetas)
         {
-            /*System.Diagnostics.Debug.WriteLine(etiquetas);
+            System.Diagnostics.Debug.WriteLine(etiquetas);
             string[] etiqueta = etiquetas.Split(',');
->>>>>>> 052f013fd2d739933f1b58037767d3e36c192229
+
             foreach (string i in etiqueta)
             {
                 //Comprobar
@@ -237,6 +189,21 @@ namespace TagLifeASPMVC.Controllers
             }
             return View();
         }
+        public ActionResult BorrarCategoria(int dato)
+        {
+            return RedirectToAction("edicion", "Administrador");
+        }
+
+        public ActionResult BorrarEtiqueta(int dato)
+        {
+            return RedirectToAction("edicion", "Administrador");
+        }
+
+        public ActionResult Asignacategoria()
+        {
+            return View();
+        }
+
         public ActionResult AddEtiqueta(String etiqueta)
         {
             return View();

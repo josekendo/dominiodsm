@@ -62,15 +62,14 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAllDefault (int first, in
         System.Collections.Generic.IList<UsuarioEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
-                        if (size > 0)
+                SessionInitializeTransaction();
+                if (size > 0)
                                 result = session.CreateCriteria (typeof(UsuarioEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
                         else
                                 result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
-                }
-        }
+                SessionCommit();
+            }
 
         catch (Exception ex) {
                 SessionRollBack ();

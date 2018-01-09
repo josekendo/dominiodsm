@@ -39,7 +39,8 @@ public string Login (int p_oid, string email, string nickname, String password)
                 users = usuarioCEN.Buscarusuario (email, password);
             }
 
-        if (users != null && users.Count == 1) {
+        if (users != null && users.Count == 1 && Utils.Util.GetEncondeMD5(password) == users[0].Password)
+        {
                 usuario = _IUsuarioCAD.ReadOIDDefault (users [0].ID);
         }
 

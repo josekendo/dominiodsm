@@ -21,16 +21,18 @@
                     <a href="@Url.Action("Index", "Home")" class="navbar-brand"><b style="color:red;">L</b>ife<b style="color:red;">T</b>ag</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Contact", "Home")"><span class="glyphicon glyphicon-earphone"></span></a></li>
-                    <li><a href="@Url.Action("Perfil", "Home")"><span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="@Url.Action("Contact", "Usuario")"><span class="glyphicon glyphicon-earphone"></span></a></li>
+                    <li><a href="@Url.Action("Perfil", "Usuario")"><span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="@Url.Action("MisPublicaciones", "Usuario")"><span class="glyphicon glyphicon-th"></span></a></li>
                     <li><a href="@Url.Action("Subircontenido", "Usuario")"><span class="glyphicon glyphicon-upload"></span></a></li>  
-                    <li><a href="@Url.Action("Me gusta", "Home")"><span class="glyphicon glyphicon-heart"></span></a></li>
-                    <li><a href="@Url.Action("About", "Home")"><span class="glyphicon glyphicon-info-sign"></span></a></li>
+                    <li><a href="@Url.Action("favoritos", "Usuario")"><span class="glyphicon glyphicon-heart"></span></a></li>
+                    <li><a href="@Url.Action("About", "Usuario")"><span class="glyphicon glyphicon-info-sign"></span></a></li>
                     <li><a href="@Url.Action("Close", "Usuario")"><span class="glyphicon glyphicon-remove"></span></a></li>
                     <!--<span class=\"glyphicon glyphicon - earphone\"></span>-->
                     <li><a class="a2a_dd" href="https://www.addtoany.com/share"><span class="glyphicon glyphicon-share-alt"></span></a></li>
                 </ul>
-                <form class="navbar-form navbar-left">
+                @using (Html.BeginForm("SearchU", "Usuario", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                {
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Escribe tu busqueda">
                         <div class="input-group-btn">
@@ -39,7 +41,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                }
                 <form class="navbar-form navbar-right">
                     <div class="form-group">
                         <select class="form-control" id="sel1">

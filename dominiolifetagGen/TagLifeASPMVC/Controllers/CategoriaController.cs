@@ -39,6 +39,10 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        public ActionResult CategoriaList()
+        {
+            return View();
+        }
         //
         // GET: /Categoria/Details/5
 

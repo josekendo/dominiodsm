@@ -10,16 +10,15 @@
     <div class="text-center">
         <span class="glyphicon glyphicon-user" style="font-size:100px;"></span>
     </div>
-        <h1 class="text-center">@Model.Nombre</h1>
+
+        <h1 class="text-center">@if(Model!=null){Html.Encode(Model.Nombre);}</h1>
         <h2 class="text-center"><kbd>Mis Publicaciones</kbd></h2>
     
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div id="section1" class="thumbnail">
-                        @{Html.RenderAction("publi", "Publicacion");}
-                    </div>
-                </div>
+                
+                        @{Html.RenderAction("Publi", "Usuario");}
+                    
             </div>
         </div>
 </body>
