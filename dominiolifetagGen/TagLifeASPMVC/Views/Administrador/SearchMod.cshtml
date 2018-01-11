@@ -2,8 +2,9 @@
 
 @{
     ViewBag.Title = "Busqueda avanzada";
+    ViewBag.Titulop = "Busqueda de Administradores";
     Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
 }
 
-<h3>Resultados de la busqueda:</h3>
+<h3>Resultados de la busqueda "@ViewBag.Busqueda":</h3>
 @{Html.RenderAction("Searchi", "Publicacion", new { busqueda = ViewBag.Busqueda });}
