@@ -32,15 +32,13 @@
                     </div>
                 }
                 <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <select class="form-control" id="sel1">
-                            <option>ES</option>
-                            <option>EN</option>
-                            <option>CH</option>
-                            <option>JA</option>
-                        </select>
-                    </div>
-                </form>
+                    <div id="google_translate_element"></div>
+                    </form>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({ pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                        }
+                    </script>
 </div>
         </nav>
         <div id="body">
