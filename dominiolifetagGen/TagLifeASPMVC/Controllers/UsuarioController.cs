@@ -341,7 +341,7 @@ namespace TagLifeASPMVC.Controllers
                 if (fil != null && fil.ContentLength > 0)
                 {
                     nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
-                    path = Path.Combine(Server.MapPath("~/App_Data/imagenesp"), nombreArchivo);
+                    path = Path.Combine(Server.MapPath("~/Images/perfiles"), nombreArchivo);
                     us.Fotoruta = path;
                 }
                 else
