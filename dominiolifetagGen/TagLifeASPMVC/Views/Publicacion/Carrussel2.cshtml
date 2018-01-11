@@ -17,7 +17,9 @@
             }
         contador++;
                 <!--item.imagenes-->
+         @:<a href="@Url.Action("Index", "Publicacion",new {idpublicacion = item.iD})">
         @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)">
+        @:</a>
         @:<div class="carousel-caption">
             @:<h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
                 @:</div>

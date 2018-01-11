@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_LayoutUSER.cshtml";
 }
 
-
-
 <h2 class="text-center"><kbd>Publicación</kbd></h2>
 <br />
 <hr />
@@ -14,31 +12,24 @@
 <div class="row">
     <div class="col-sm-4 text-center">
         <div id="section2" class="thumbnail">
-            <a href="archivos/2017/08/datos-sobre-tigres-1.jpg.imgw_.1280.1280.jpeg" target="_blank">
-                <img src="http://www.nexofin.com/archivos/2017/08/datos-sobre-tigres-1.jpg.imgw_.1280.1280.jpeg" alt="Lights" class="img-rounded" style="width:150%">
-                <div class="caption text-center">
-                    <p><kbd>TIGRES</kbd></p>
-                </div>
-            </a>
+            
+            <img src="@Html.DisplayFor(modelItem => Model.Archivo)" alt="@Html.DisplayFor(modelItem => Model.Nombre)" class="img-rounded" style="width:150%">
+            <div class="caption text-center">
+                <p><kbd>@Html.DisplayFor(modelItem => Model.Nombre)</kbd></p>
+            </div>
+        
         </div>
-        <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i>Reporte</button>
+        <a href="@Url.Action("Reportar", "Usuario", new { idpu = ViewBag.idp })"><button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i>Reporte</button></a>
         <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-heart"></i>Like</button>
     </div>
     <div class="col-sm-4">
-<<<<<<< HEAD
-        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-        <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         <h2>COMENTARIOS:</h2>
-        <p>Usuario</p>
-        <p>Fecha de publicación</p>
-        <p>Muy interesante!:D</p>
-=======
-
         @{Html.RenderAction("Comentarios", "Publicacion", new { IdPubli = Model.iD });}
->>>>>>> 052f013fd2d739933f1b58037767d3e36c192229
+
+        @using (Html.BeginForm("FormComent", "Publicacion", new { IdPubli = Model.iD })){
+            <textarea id="comentario" name="comentario"></textarea>
+            <button type = "submit" class="btn btn-success"><i class="glyphicon glyphicon-send"></i>Comentar</button>
+        }
 
     </div>
     <div class="col-sm-1">
@@ -48,6 +39,6 @@
 
         @{Html.RenderAction("Categ", "Publicacion", new { IdPubli = Model.iD });}
         @{Html.RenderAction("Etique", "Publicacion", new { IdPubli = Model.iD });}
-
+    
     </div>
 </div>

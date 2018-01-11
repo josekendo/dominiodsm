@@ -1,7 +1,18 @@
-﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+﻿@model IEnumerable<TagLifeASPMVC.Models.Etiqueta>
 
 
+<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>ETIQUETAS</h2>
 
+@if (Model != null)
+{
+    @:<p>
+    foreach (var item in Model)
+    {
+        @:<span>@item.Nombre</span>
+       
+    }
+    @:</p>
+}
 
 
 

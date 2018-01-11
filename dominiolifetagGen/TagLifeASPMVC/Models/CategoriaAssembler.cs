@@ -22,8 +22,10 @@ namespace TagLifeASPMVC.Models
         public IList<Categoria> ConvertListENToModel(IList<CategoriaEN> ens)
         {
             IList<Categoria> arts = new List<Categoria>();
+
             foreach (CategoriaEN en in ens)
             {
+
                 arts.Add(ConvertENToModelUI(en));
             }
             return arts;

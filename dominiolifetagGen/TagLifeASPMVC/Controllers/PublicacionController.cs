@@ -7,10 +7,11 @@ using DominiolifetagGenNHibernate.CAD.Dominiolifetag;
 using DominiolifetagGenNHibernate.CEN.Dominiolifetag;
 using DominiolifetagGenNHibernate.EN.Dominiolifetag;
 using TagLifeASPMVC.Models;
+using MvcApplication1.Controllers;
 
 namespace TagLifeASPMVC.Controllers
 {
-    public class PublicacionController : Controller
+    public class PublicacionController : BasicController
     {
         //
         // GET: /Publicacion/
@@ -89,23 +90,66 @@ namespace TagLifeASPMVC.Controllers
             return PartialView(favo);
         }
 
+        public ActionResult FormComent(int IdPubli, String comentario)
+        {
+            PublicacionCAD publiCAD = new PublicacionCAD();
+            PublicacionEN pu = publiCAD
+                .ReadOIDDefault(IdPubli);//publicacion
+            ComentarioCEN cen = new ComentarioCEN();
+
+            cen.New_(comentario, IdPubli, int.Parse((String)Session["iduser"]));
+
+            int publicat = IdPubli;
+
+            return RedirectToAction("Index", "Publicacion", new { idpublicacion = publicat });
+        }
         public ActionResult Comentarios(int IdPubli)
         {
             PublicacionCAD publiCAD = new PublicacionCAD();
-            //ComentarioCEN com = new ComentarioCEN();
+            ComentarioCAD com = new ComentarioCAD();
             PublicacionEN pu = publiCAD.ReadOIDDefault(IdPubli);//publicacion
-            IEnumerable<Comentario> ulpu = new ComentarioAssembler().ConvertListENToModel(pu.Comentario).ToList();
+            IList<ComentarioEN> Coments = com.ReadAllDefault(0,0);
+            IList<ComentarioEN> ulpu = new List<ComentarioEN>();
+
+            foreach (ComentarioEN item in Coments)
+            {
+                if (item.Publicacion.ID == IdPubli)
+                {
+                    ulpu.Add(item);
+                }
+
+            }
+            IEnumerable<Comentario> ulpu2 = new ComentarioAssembler().ConvertListENToModel(ulpu).ToList();
             
-            return View(ulpu);
+            return PartialView(ulpu2);
         }
 
+        public ActionResult Etique(int IdPubli)
+        {
+            SessionInitialize();
+            PublicacionCAD publiCAD = new PublicacionCAD(session);
+            PublicacionEN pu = publiCAD.ReadOIDDefault(IdPubli);//publicacion
+            EtiquetaCAD cad = new EtiquetaCAD(session);
+            IList<EtiquetaEN> Coments = cad.ReadAllDefault(0, 0);
+
+            IEnumerable<Etiqueta> ulpu2 = new EtiquetaAssembler().ConvertListENToModel(pu.Etiqueta).ToList();
+
+            SessionClose();
+
+            return PartialView(ulpu2);
+        }
         public ActionResult Categ(int IdPubli)
         {
-            PublicacionCAD publiCAD = new PublicacionCAD();
+            SessionInitialize();
+            PublicacionCAD publiCAD = new PublicacionCAD(session);
             PublicacionEN pu = publiCAD.ReadOIDDefault(IdPubli);//publicacion
-            IEnumerable<Categoria> ulpu = new CategoriaAssembler().ConvertListENToModel(pu.Categoria).ToList();
+            CategoriaCAD cad = new CategoriaCAD(session);
+            IList<CategoriaEN> Coments = cad.ReadAllDefault(0, 0);
+            IEnumerable<Categoria> ulpu2 = new CategoriaAssembler().ConvertListENToModel(pu.Categoria).ToList();
 
-            return View(ulpu);
+            SessionClose();
+
+            return PartialView(ulpu2);
         }
 
         public ActionResult CargarUltimasPublicaciones()
@@ -169,10 +213,11 @@ namespace TagLifeASPMVC.Controllers
             return PartialView(ulpu);
         }
 
-        public ActionResult Index(String idpublicacion)
+        public ActionResult Index(int idpublicacion)
         {
             PublicacionCAD cen = new PublicacionCAD();
-            PublicacionEN publi = cen.ReadOIDDefault(Convert.ToInt32(idpublicacion));
+            PublicacionEN publi = cen.ReadOIDDefault(idpublicacion);
+            ViewBag.idp = idpublicacion;
             return View(new PublicacionAssembler().ConvertENToModelUI(publi));
         }
 

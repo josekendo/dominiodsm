@@ -1,16 +1,16 @@
-﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+﻿@model IEnumerable<TagLifeASPMVC.Models.Categoria>
 
+<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>CATEGORIAS</h2>
 
 @if (Model != null)
 {
+    @:<p>
     foreach (var item in Model)
     {
 
-        @:<br />
-        @:<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>CATEGORIAS</h2>
-        @:<p>Html.DisplayFor(modelItem => item.Categoria)</p>
-        @:<h2><button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-plus"></i></button>ETIQUETAS</h2>
-        @:<p>Html.DisplayFor(modelItem => item.Etiqueta)</p>
+        @:<a href="@Url.Action("AgregarCateg", "Usuario", new { idCategoria = item.iD })">+</a><span>@item.Nombre</span>
+
 
     }
+    @:</p>
 }

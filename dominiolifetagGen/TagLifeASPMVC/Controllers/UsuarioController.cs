@@ -54,6 +54,19 @@ namespace TagLifeASPMVC.Controllers
             return View();
         }
 
+        public ActionResult Reportar(int idpu)
+        {
+            ReporteCEN repor = new ReporteCEN();
+            try
+            {
+                repor.New_(DateTime.Now, false, idpu);
+            }
+            catch (Exception e)
+            {
+                //no se hace nada
+            }
+            return RedirectToAction("Index","Publicacion", new {idpublicacion = idpu});
+        }
         public ActionResult Publi()
         {
             PublicacionCAD publiCAD = new PublicacionCAD();
@@ -74,7 +87,53 @@ namespace TagLifeASPMVC.Controllers
             IEnumerable<Publicacion> ulpu = new PublicacionAssembler().ConvertListENToModel(publiUsu).ToList();
             return PartialView(ulpu);
         }
+        public ActionResult AgregarCateg(int idCategoria)
+        {
+            UsuarioCAD cen = new UsuarioCAD();
+            CategoriaCAD cad = new CategoriaCAD();
+            UsuarioEN usr;
 
+            
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    if (usr.Categoriassuscrito == "")
+                    {
+                        usr.Categoriassuscrito = Convert.ToString(idCategoria);
+                    }
+                    else
+                    {
+                        String[] cates = usr.Categoriassuscrito.Split(',');
+                        if (!usr.Categoriassuscrito.Contains(','))
+                        {
+                            if (!(Convert.ToString(idCategoria) == usr.Categoriassuscrito))
+                            {
+                                usr.Categoriassuscrito = usr.Categoriassuscrito + "," + Convert.ToString(idCategoria);
+                            }
+                        }
+                        else
+                        {
+                            Boolean existe = false;
+                            foreach (string catego in cates)
+                            {
+                                if (existe == false && catego == Convert.ToString(idCategoria))
+                                {
+                                    existe = true;
+                                }
+                            }
+                            if (!existe)
+                            {
+                                usr.Categoriassuscrito = usr.Categoriassuscrito + "," + Convert.ToString(idCategoria);
+                            }
+                        }
+                    }
+                }
+                cen.Modify(usr);
+            }
+            return RedirectToAction("Index", "Usuario");
+        }
         public ActionResult favoritos()
         {
             return View();

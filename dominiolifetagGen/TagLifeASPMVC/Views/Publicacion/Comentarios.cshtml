@@ -1,14 +1,13 @@
-﻿@model IEnumerable<TagLifeASPMVC.Models.Publicacion>
+﻿@model IEnumerable<TagLifeASPMVC.Models.Comentario>
 
 
 @if (Model != null)
 {
     foreach (var item in Model)
     {
-        @:<h2>COMENTARIOS:</h2>
-        @:<p>Html.DisplayFor(modelItem => item.Nombre)</p>
-        @:<p>Html.DisplayFor(modelItem => item.Comentario)</p>
-        //@:<textarea></textarea>
-
+        @:<div style="background-color: whitesmoke">
+        @:<p style="background-color: moccasin;">@item.ID</p>
+        @:<p>@item.Contenido</p>
+        @:</div>
     }
 }

@@ -212,6 +212,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\EtiquetaController.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Models\AdministradorAssembler.cs" />
     <Compile Include="Models\ComentarioAssembler.cs" />
     <Compile Include="Models\PublicacionAssembler.cs" />
+    <Compile Include="Models\ReporteAssembler.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\Reporte.cs" />
@@ -369,6 +371,29 @@
     <Content Include="Views\Publicacion\categorias.cshtml" />
     <Content Include="Views\Publicacion\CrearEtiqueta.cshtml" />
     <Content Include="Views\Publicacion\Index.cshtml" />
+    <Content Include="Views\Publicacion\Comentarios.cshtml" />
+    <Content Include="Views\Publicacion\Etique.cshtml" />
+    <Content Include="Views\Usuario\About.cshtml" />
+    <Content Include="Views\Usuario\Contact.cshtml" />
+    <Content Include="Views\Usuario\MisPublicaciones.cshtml" />
+    <Content Include="Views\Usuario\publi.cshtml" />
+    <Content Include="Views\Usuario\SearchAv.cshtml" />
+    <Content Include="Views\Usuario\SearchU.cshtml" />
+    <Content Include="Views\Usuario\SubirContenido.cshtml" />
+    <Content Include="Views\Publicacion\Categ.cshtml" />
+    <Content Include="Views\Administrador\Bloqueados.cshtml" />
+    <Content Include="Views\Administrador\bloquear.cshtml" />
+    <Content Include="Views\Administrador\edicion.cshtml" />
+    <Content Include="Views\Administrador\EditarModerador.cshtml" />
+    <Content Include="Views\Administrador\Estadisticas.cshtml" />
+    <Content Include="Views\Administrador\ListaUsuarios.cshtml" />
+    <Content Include="Views\Administrador\Menu.cshtml" />
+    <Content Include="Views\Administrador\ModerarComentarios.cshtml" />
+    <Content Include="Views\Administrador\SearchMod.cshtml" />
+    <Content Include="Views\Administrador\VerReportes.cshtml" />
+    <Content Include="Views\Categoria\CargarCategorias.cshtml" />
+    <Content Include="Views\Categoria\CategoriaList.cshtml" />
+    <Content Include="Views\Administrador\categorias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -124,11 +124,30 @@ namespace TagLifeASPMVC.Controllers
 
         public ActionResult VerReportes()
         {
-            return View();
+            ReporteCAD cad = new ReporteCAD();
+            IList<ReporteEN> admins = cad.ReadAllDefault(0, 0);
+            IEnumerable<Reporte> ulpu = new ReporteAssembler().ConvertListENToModel(admins).ToList();
+            return View(ulpu);
         }
 
-        public ActionResult SearchMod()
+        public ActionResult BorrarReporte(int idreporte)
         {
+            ReporteCAD cen = new ReporteCAD();
+            ReporteEN re = cen.ReadOIDDefault(idreporte);
+            PublicacionCAD cadp = new PublicacionCAD();
+            PublicacionEN p = cadp.ReadOIDDefault(re.Publicacion.ID);
+            p.Reporte = null;
+            cadp.Modify(p);
+            re.Publicacion = null;
+            re.Confirmacion = true;
+            cen.Modify(re);
+            //cen.Destroy(re.ID);
+            return RedirectToAction("VerReportes", "Administrador");
+        }
+
+        public ActionResult SearchMod(String busqueda)
+        {
+            ViewBag.Busqueda = busqueda;
             return View();
         }
 

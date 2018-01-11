@@ -64,12 +64,12 @@ namespace TagLifeASPMVC.Controllers
             if (use != -1)
             {               
                 String mensaje2 = "categoria creada";
-                return RedirectToAction("Categorias", "Publicacion", new { men = mensaje2 });
+                return RedirectToAction("categorias", "Administrador", new { men = mensaje2 });
             }
         
             String mensaje = "categoria incorrecta";
 
-            return RedirectToAction("Categorias", "Publicacion", new { men = mensaje });
+            return RedirectToAction("categorias", "Administrador", new { men = mensaje });
         }
 
 		

@@ -62,14 +62,14 @@ public System.Collections.Generic.IList<ComentarioEN> ReadAllDefault (int first,
         System.Collections.Generic.IList<ComentarioEN> result = null;
         try
         {
-                using (ITransaction tx = session.BeginTransaction ())
-                {
+                SessionInitializeTransaction();
+                
                         if (size > 0)
                                 result = session.CreateCriteria (typeof(ComentarioEN)).
                                          SetFirstResult (first).SetMaxResults (size).List<ComentarioEN>();
                         else
                                 result = session.CreateCriteria (typeof(ComentarioEN)).List<ComentarioEN>();
-                }
+                SessionClose();
         }
 
         catch (Exception ex) {

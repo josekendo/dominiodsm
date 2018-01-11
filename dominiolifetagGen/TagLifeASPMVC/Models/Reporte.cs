@@ -13,5 +13,6 @@ namespace TagLifeASPMVC.Models
         public int iD {get;set;}
         public bool Confirmacion { get; set; }
         public Nullable<DateTime> fecha { get; set; }
+        public int IDPUBLICACION { get; set; }
     }
 }
