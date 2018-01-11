@@ -14,7 +14,9 @@
                 }
                 @:<div class="col-md-4">
                     @:<div class="thumbnail">
+                        @:<a href="@Url.Action("Index", "Publicacion",new {idpublicacion = item.iD})">
                         @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="Lights" style="width:100%">
+                        @:</a>
                         @:<div class="caption">
                             @:<p>@item.Nombre</p>
                             @:</div>
