@@ -6,6 +6,17 @@
 }
 
 <h2 class="text-center"><kbd>Publicación</kbd></h2>
+
+  @if (ViewBag.Men == "Correcto")
+    {
+        @:<div class="container">
+            @:<h2>Correcto</h2>
+            @:<div class="alert alert-success">
+                @:<strong>Correcto:</strong>Correcto
+            @:</div>
+        @:</div>
+    }
+
 <br />
 <hr />
 <br />
@@ -20,8 +31,8 @@
         
         </div>
         <a href="@Url.Action("Reportar", "Usuario", new { idpu = ViewBag.idp })"><button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i>Reporte</button></a>
-        <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-heart"></i>Like</button>
-    </div>
+        <a href="@Url.Action("Like", "Usuario", new { idpu = ViewBag.idp })"><button type="button" class="btn btn-success"><i class="glyphicon glyphicon-heart"></i>Like</button></a>
+</div>
     <div class="col-sm-4">
         <h2>COMENTARIOS:</h2>
         @{Html.RenderAction("Comentarios", "Publicacion", new { IdPubli = Model.iD });}

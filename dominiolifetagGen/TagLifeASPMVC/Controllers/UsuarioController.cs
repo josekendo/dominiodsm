@@ -67,6 +67,55 @@ namespace TagLifeASPMVC.Controllers
             }
             return RedirectToAction("Index","Publicacion", new {idpublicacion = idpu});
         }
+        public ActionResult Like(int idpu)
+        {
+            UsuarioCAD cen = new UsuarioCAD();
+            PublicacionCAD cad = new PublicacionCAD();
+            UsuarioEN usr;
+
+
+            if (Session["iduser"] != null)
+            {
+                usr = cen.ReadOIDDefault(int.Parse((String)Session["iduser"]));
+                if (usr != null)
+                {
+                    if (usr.Listamegusta == "")
+                    {
+                        usr.Listamegusta = Convert.ToString(idpu);
+                    }
+                    else
+                    {
+                        String[] publis = usr.Listamegusta.Split(',');
+                        if (!usr.Listamegusta.Contains(','))
+                        {
+                            if (!(Convert.ToString(idpu) == usr.Listamegusta))
+                            {
+                                usr.Listamegusta = usr.Listamegusta + "," + Convert.ToString(idpu);
+                            }
+                        }
+                        else
+                        {
+                            Boolean existe = false;
+                            foreach (string publica in publis)
+                            {
+                                if (existe == false && publica == Convert.ToString(idpu))
+                                {
+                                    existe = true;
+                                }
+                            }
+                            if (!existe)
+                            {
+                                usr.Listamegusta = usr.Listamegusta + "," + Convert.ToString(idpu);
+                            }
+                        }
+                    }
+                }
+                
+                cen.Modify(usr);
+            }
+            ViewBag.Men = "Correcto";
+            return RedirectToAction("Index", "Publicacion", new { idpublicacion = idpu, Men = "Correcto" });
+        }
         public ActionResult Publi()
         {
             PublicacionCAD publiCAD = new PublicacionCAD();
