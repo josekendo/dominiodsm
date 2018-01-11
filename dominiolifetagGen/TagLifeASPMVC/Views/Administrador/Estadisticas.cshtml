@@ -28,6 +28,6 @@
     </div>
 </div>
     <script>
-        var myDoughnutChart = new Chart(document.getElementById("publicaciones"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos"], "datasets": [{ "label": "Imagenes vs Videos", "data": [@ViewBag.ni, @ViewBag.nv], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)"] }] } });
+        var myDoughnutChart = new Chart(document.getElementById("publicaciones"), { "type": "doughnut", "data": { "labels": ["Imagenes", "Videos", "Musica"], "datasets": [{ "label": "Imagenes-Videos-Musica", "data": [@ViewBag.ni, @ViewBag.nv, @ViewBag.nm], "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(10, 10, 10)"] }] } });
         var myDoughnutChart2 = new Chart(document.getElementById("publicaciones2"), { "type": "pie", "data": { "labels": ["Reportes", "Publicaciones totales"], "datasets": [{ "label": "Imagenes vs Videos", "data": [@ViewBag.nr, @ViewBag.np], "backgroundColor": ["rgb(204, 51, 0)", "rgb(102, 255, 153)"] }] } });
     </script>

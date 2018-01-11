@@ -390,13 +390,14 @@ namespace TagLifeASPMVC.Controllers
                 if (fil != null && fil.ContentLength > 0)
                 {
                     nombreArchivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + Path.GetFileName(fil.FileName)).ToLower();
-                    path = Path.Combine(Server.MapPath("~/Images/perfiles"), nombreArchivo);
+                    path = Path.Combine(Server.MapPath("~/Images/"), nombreArchivo);
                     us.Fotoruta = path;
                 }
                 else
                 {
                     us.Fotoruta = "nula";
                     nombreArchivo = "default.jpg";
+                    path = Path.Combine(Server.MapPath("~/Images/"), nombreArchivo);
                 }
                 int use = cen.New_(name, email, pwd, pais, Convert.ToInt32(phone), nick, nombreArchivo, false, "", "", false, new List<PublicacionEN>());
                 System.Diagnostics.Debug.WriteLine(use+" id devuelto");

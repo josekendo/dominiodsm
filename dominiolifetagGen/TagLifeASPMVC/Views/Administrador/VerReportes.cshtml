@@ -30,7 +30,7 @@
                                 @:<td>@item.iD</td>
                                 @:<td>@item.fecha</td>
                                 @:<td>No resuelto</td>
-                                @:<td><a href="w">Editar Publicacion</a><br /><a href="@Url.Action("ModerarComentarios", "Administrador", new { idpublicacion = @item.IDPUBLICACION })">Editar Comentarios</a><br/><a href="@Url.Action("BorrarReporte", "Administrador", new { idreporte = item.iD })">Resolver</a></td>
+                                @:<td><a href="@Url.Action("ModerarPubli", "Administrador", new { idpu = @item.IDPUBLICACION })">Editar Publicacion</a><br /><a href="@Url.Action("ModerarComentarios", "Administrador", new { idpublicacion = @item.IDPUBLICACION })">Editar Comentarios</a><br/><a href="@Url.Action("BorrarReporte", "Administrador", new { idreporte = item.iD })">Resolver</a></td>
                                 @:</tr>
                             }
                         }

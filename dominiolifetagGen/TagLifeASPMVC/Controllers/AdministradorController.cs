@@ -9,10 +9,11 @@ using DominiolifetagGenNHibernate.EN.Dominiolifetag;
 using TagLifeASPMVC.Models;
 using System.Collections;
 using System.IO;
+using MvcApplication1.Controllers;
 
 namespace TagLifeASPMVC.Controllers
 {
-    public class AdministradorController : Controller
+    public class AdministradorController : BasicController
     {
         //
         // GET: /Administrador/
@@ -22,7 +23,38 @@ namespace TagLifeASPMVC.Controllers
             ViewBag.Men = men;
             return View();
         }
-     
+
+        public ActionResult ModerarComentarios(int idpublicacion)
+        {
+            SessionInitialize();
+            PublicacionCAD cad = new PublicacionCAD(session);
+            PublicacionEN publi = cad.ReadOIDDefault(idpublicacion);
+            IEnumerable<Comentario> ulpu = new ComentarioAssembler().ConvertListENToModel(publi.Comentario).ToList();
+            SessionClose();
+            ViewBag.idpu = idpublicacion;
+            return View(ulpu);
+        }
+
+        public ActionResult BorrarComentario(int idcomentario, int idpubli)
+        {
+            ComentarioCEN cad = new ComentarioCEN();
+            cad.Destroy(idcomentario);
+            return RedirectToAction("ModerarComentarios", "Administrador", new { idpublicacion = idpubli });
+        }
+
+        public ActionResult ModerarPubli(int idpu)
+        {
+            PublicacionCAD cad = new PublicacionCAD();
+            PublicacionEN p = cad.ReadOIDDefault(idpu);
+            Publicacion pu = new PublicacionAssembler().ConvertENToModelUI(p);
+            return View(pu);
+        }
+
+        public ActionResult BorrarPubli(int idpublicacion)
+        {
+            return RedirectToAction("VerReportes", "Administrador");
+        }
+
         public ActionResult edicion()
         {
             return View();
@@ -98,25 +130,31 @@ namespace TagLifeASPMVC.Controllers
             int reporte = 0;
             int imagen = 0;
             int video = 0;
+            int musica = 0;
             foreach (PublicacionEN item in lista)
             {
                 if (item.Reporte != null)
                 {
                     reporte++;
                 }
+                
                 if (item.Tipo == "Imagen")
                 {
                     imagen++;
                 }
                 else
                 {
-                    video++;
+                    if (item.Tipo == "Video")
+                        video++;
+                    else
+                        musica++;
                 }
             }
 
             ViewBag.nr = reporte;
             ViewBag.ni = imagen;
             ViewBag.nv = video;
+            ViewBag.nm = musica;
             //SessionClose();
             return View();
         }
@@ -135,9 +173,12 @@ namespace TagLifeASPMVC.Controllers
             ReporteCAD cen = new ReporteCAD();
             ReporteEN re = cen.ReadOIDDefault(idreporte);
             PublicacionCAD cadp = new PublicacionCAD();
-            PublicacionEN p = cadp.ReadOIDDefault(re.Publicacion.ID);
-            p.Reporte = null;
-            cadp.Modify(p);
+            if (re.Publicacion != null)
+            {
+                PublicacionEN p = cadp.ReadOIDDefault(re.Publicacion.ID);
+                p.Reporte = null;
+                cadp.Modify(p);
+            }
             re.Publicacion = null;
             re.Confirmacion = true;
             cen.Modify(re);
@@ -347,89 +388,6 @@ namespace TagLifeASPMVC.Controllers
             }
 
             return RedirectToAction("EditarModerador", "Administrador", new { men = "nada" });
-        }
-        // GET: /Administrador/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Administrador/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Administrador/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Administrador/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Administrador/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Administrador/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-        
-        // POST: /Administrador/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

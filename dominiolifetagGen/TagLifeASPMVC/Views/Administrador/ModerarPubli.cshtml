@@ -1,0 +1,31 @@
+﻿@model TagLifeASPMVC.Models.Publicacion
+
+@{
+    ViewBag.Title = "ModerarPubli";
+    ViewBag.Title = "Moderacion de Publicacion";
+    Layout = "~/Views/Shared/_LayoutADMIN.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Titulo: @Model.Nombre</h3>
+        <h5>Tipo: <b>@Model.Tipo / ID @Model.iD</b></h5>
+        <p>Fecha de Publicacion:<b>@Model.Fecha</b></p>
+        @if (@Model.Tipo == "Imagen")
+        {
+            @:<img src="@Model.Archivo" class="img-responsive"/>
+        }
+        else
+        {
+            @:<div class="embed-responsive embed-responsive-16by9">
+                @:<iframe class="embed-responsive-item" src="@Model.Archivo"></iframe>
+            @:</div>
+        }
+    </div>
+    <div class="col-sm-6">
+        <h3>Opciones:</h3><br/>
+        <a href="@Url.Action("BorrarPubli", "Administrador", new { idpublicacion = Model.iD })">Borrar Publicacion</a>
+        <a href="@Url.Action("BorrarPubli", "Administrador", new { idpublicacion = Model.iD })">Modificar Publicacion</a>
+    </div>
+</div> 

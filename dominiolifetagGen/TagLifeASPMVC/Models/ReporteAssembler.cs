@@ -14,7 +14,10 @@ namespace TagLifeASPMVC.Models
             cat.Confirmacion = en.Confirmacion;
             cat.fecha = en.Fecha;
             cat.iD = en.ID;
+            if(en.Publicacion != null)
             cat.IDPUBLICACION = en.Publicacion.ID;
+            else
+            cat.IDPUBLICACION = 0;
             return cat;
         }
         public IList<Reporte> ConvertListENToModel(IList<ReporteEN> ens)
