@@ -19,13 +19,11 @@
                     }
                     else if (item.Tipo == "Video")
                     {
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
-                        </div>
+                        @:<a title="@Html.DisplayFor(modelItem => item.Nombre)" href="@Html.DisplayFor(modelItem => item.Archivo)"><img src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%"></a>
                     }
                     else if (item.Tipo == "Audio")
                     {
-                        <iframe style="width:100%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
+                        @:<iframe style="width:100%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
                     }
                         @:<div class="caption">
                             @:<p>@item.Nombre</p>

@@ -7,9 +7,20 @@
             foreach (var item in Model)
             {
                 //@:<img class="img-responsive" src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@item.Nombre" style="width:25%"/> 
-                @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" class="img-thumbnail" alt="@item.Nombre" style="width:24%">
+                if (item.Tipo == "Imagen")
+                {
+                    @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" class="img-thumbnail" alt="@item.Nombre" style="width:24%">
+                }
+                else if (item.Tipo == "Video")
+                {
+                    @:<iframe style="width:24%" src="@Html.DisplayFor(modelItem => item.Archivo)" allowfullscreen></iframe>
+                }
+                else if (item.Tipo == "Audio")
+                {
+                    @:<iframe style="width:24%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
+                }
             }
         }
     }
-</div>
+    </div>
 </div>

@@ -21,11 +21,11 @@
                         }
                         else if (item.Tipo == "Video")
                         {
-                            @:<img style="width:100%" src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+                            @:<iframe style="width:100%" src="@Html.DisplayFor(modelItem => item.Archivo)" allowfullscreen></iframe>
                         }
                         else if (item.Tipo == "Audio")
                         {
-                            @:<img style="width:100%" src="https://files.paredro.com/uploads/2015/06/audio.jpg" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+                            @:<iframe style="width:100%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
                         }
                         @:</a>
                         @:<div class="caption">
