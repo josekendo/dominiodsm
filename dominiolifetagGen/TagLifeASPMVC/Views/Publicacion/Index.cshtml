@@ -23,8 +23,18 @@
 <div class="row">
     <div class="col-sm-4 text-center">
         <div id="section2" class="thumbnail">
-            
-            <img src="@Html.DisplayFor(modelItem => Model.Archivo)" alt="@Html.DisplayFor(modelItem => Model.Nombre)" class="img-rounded" style="width:150%">
+            @if(Model.Tipo == "Imagen") {
+                <img src="@Html.DisplayFor(modelItem => Model.Archivo)" alt="@Html.DisplayFor(modelItem => Model.Nombre)" class="img-rounded" style="width:150%">
+            }
+            else if (Model.Tipo == "Video")
+            {
+                <iframe style="width:100%" src="@Html.DisplayFor(modelItem => Model.Archivo)" allowfullscreen></iframe>
+            }
+            else if (Model.Tipo == "Audio")
+            {
+                <iframe style="width:100%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => Model.Archivo)"></iframe>
+            }
+
             <div class="caption text-center">
                 <p><kbd>@Html.DisplayFor(modelItem => Model.Nombre)</kbd></p>
             </div>

@@ -8,7 +8,18 @@
     @:<div class="col-md-3">
         @:<div id="section1" class="thumbnail">
             @:<a href="@Url.Action("Index", "Publicacion",new {idpublicacion = item.iD})">
+            if(item.Tipo == "Imagen") { 
                 @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+            }
+            else if (item.Tipo == "Video")
+            {
+                @:<img src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+            }
+            else if (item.Tipo == "Audio")
+            {
+                
+                @:<img src="https://files.paredro.com/uploads/2015/06/audio.jpg" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+            }
             @:</a>
             @:<div class="caption text-center">
                 @:<p><kbd>@Html.DisplayFor(modelItem => item.Nombre)</kbd></p>

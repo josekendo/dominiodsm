@@ -13,7 +13,20 @@
                 }
             @:<div class="col-md-4">
                 @:<div class="thumbnail">
-                    @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="Lights" style="width:100%">
+                    if (item.Tipo == "Imagen")
+                    {
+                        @:<img src="@Html.DisplayFor(modelItem => item.Archivo)" alt="Lights" style="width:100%">
+                    }
+                    else if (item.Tipo == "Video")
+                    {
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
+                        </div>
+                    }
+                    else if (item.Tipo == "Audio")
+                    {
+                        <iframe style="width:100%" frameborder="0" allowfullscreen="" scrolling="no" src="@Html.DisplayFor(modelItem => item.Archivo)"></iframe>
+                    }
                         @:<div class="caption">
                             @:<p>@item.Nombre</p>
                         @:</div>

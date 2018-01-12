@@ -7,7 +7,18 @@
     foreach (var item in Model)
     {
             @:<a href="@Url.Action("Index", "Publicacion", new { idpublicacion = item.iD })">
+            if (item.Tipo == "Imagen")
+            {
                 @:<img class="img-thumbnail" src="@Html.DisplayFor(modelItem => item.Archivo)" style="width:24%" alt="@Html.DisplayFor(modelItem => item.Nombre)">
+            }
+            else if (item.Tipo == "Video")
+            {
+                @:<img style="width:24%" src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+            }
+            else if (item.Tipo == "Audio")
+            {
+                @:<img style="width:24%" src="https://files.paredro.com/uploads/2015/06/audio.jpg" alt="@Html.DisplayFor(modelItem => item.Nombre)" class="img-rounded" style="width:150%">
+            }
             @:</a>
     }
 }

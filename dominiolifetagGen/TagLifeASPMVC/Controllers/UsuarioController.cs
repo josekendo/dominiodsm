@@ -221,6 +221,11 @@ namespace TagLifeASPMVC.Controllers
                 }
                 EtiquetaCAD cad = new EtiquetaCAD();
                 IList<EtiquetaEN> etique = cad.ReadAllDefault(0, 0);
+
+                PublicacionCAD publicad = new PublicacionCAD();
+                IList<PublicacionEN> publien = publicad.ReadAllDefault(0, 0);
+
+                lista.Add(use);
                 bool existe = false;
                 foreach (String item in etiq)
                 {
@@ -229,11 +234,20 @@ namespace TagLifeASPMVC.Controllers
                         if (item2.Nombre == item)
                         {
                             existe = true;
+                            //Buscar publicacion
+                            foreach (PublicacionEN item3 in publien)
+                            {
+                                if(item3.ID == use)
+                                {
+                                    //agregar a la lista la nueva publicacion
+                                    System.Diagnostics.Debug.WriteLine("tengo etiqueta:"+item2.Nombre + " publi:" +item3.Nombre);
+                                    //item2.Publicacion.Add(item3);
+                                }
+                            }
                         }
                     }
                     if (existe == false)
                     {
-                        lista.Add(use);
                         int etiqueta1 = etiCEN.New_(item, lista);
                         System.Diagnostics.Debug.WriteLine(item);
                     }
